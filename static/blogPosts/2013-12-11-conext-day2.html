@@ -1,0 +1,234 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Andrius Aucinas</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+    <!-- Custom styles for this template -->
+    <link href="/theme.css" rel="stylesheet">
+    <link href="/skin-green.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:400,700|Open+Sans:400,700">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body role="document">
+
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-static-top navbar-default" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Andrius Aucinas</a>
+        </div>
+        <div class="navbar-collapse collapse navbar-responsive-collapse">
+          <ul class="nav navbar-nav pull-right">
+            <li><a href="/blog.html">Blog</a></li>
+            <li><a href="/research.html">Research</a></li>
+            <li><a href="/projects.html">Projects</a></li>
+            <li><a href="/resume.html">Resume</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <div id="wrap">
+    <div id="main" class="container container-fluid-kamn" role="main">
+
+
+  <h2>Live-blog from CoNEXT 2013 - day 2</h2>
+  <h4>Wed Dec 11 2013 00:00:00 GMT+0000 (GMT) ( CoNEXT )</h4>
+
+  <p>Good morning! Today is the second day of CoNEXT 2013 and the sessions today are about trains, wires, tools and falling water. I will be blogging some of the sessions again today, and as before the official conference liveblog is on <a href="http://layer9.org">layer9.org</a>.</p>
+<h3 id="session-5-trains-lanes-and-autobalancing">Session 5: Trains, Lanes and Autobalancing</h3>
+<p>I skipped the session to patch my own presentation using my colleagues&#39; feedback, but these are the presented papers:</p>
+<h4 id="bullet-trains-a-study-of-nic-burst-behavior-at-microsecond-timescales">Bullet Trains: A study of NIC burst behavior at microsecond timescales</h4>
+<p>Rishi Kapoor (UC San Diego), Alex C. Snoeren (UC San Diego), Geoffrey M. Voelker (UC San Diego), George Porter (UC San Diego)</p>
+<h4 id="fastrak-enabling-express-lanes-in-multi-tenant-data-centers">FasTrak: Enabling Express Lanes in Multi-Tenant Data Centers</h4>
+<p>Radhika Niranjan Mysore (UC San Diego), George Porter (UC San Diego), Amin Vahdat (UC San Diego and Google)</p>
+<h4 id="scalable-optimal-flow-routing-in-datacenters-via-local-link-balancing">Scalable, Optimal Flow Routing in Datacenters via Local Link Balancing</h4>
+<p>Siddhartha Sen (Princeton University), David Shue (Princeton University), Sunghwan Ihm (Princeton University), Michael J. Freedman (Princeton University)</p>
+<h3 id="session-6-less-wires-more-movement">Session 6: Less Wires, More Movement</h3>
+<p>I am blogging it on layer9.org, but copying the posts here as well:</p>
+<h4 id="softcell-scalable-and-flexible-cellular-core-network-architecture">SoftCell: Scalable and Flexible Cellular Core Network Architecture</h4>
+<p>Presenter: Xin Jin</p>
+<p>Authors: Xin Jin (Princeton University), Li Erran Li (Bell Labs), Laurent Vanbever (Princeton University), Jennifer Rexford (Princeton University)</p>
+<p>Cellular core networks are not flexible and most of functionality is implemented at packet data network gateway (content filtering, app identification, firewalls, etc). Combining functionality of different components from different vendors is not feasible.</p>
+<p>The main question: can we make cellular networks like data center networks? Yes, with softcell.</p>
+<p>SoftCell runs on commodity hardware as a controller for all the different components. Challenge: scalable support of fine-grained service policies, e.g. combination of various filters, firewalls QoS guarantees. Packet classification has to work with millions of flows. To scale it up, packets are classified at the edge and encoded in source port / destination port because classification at the edge gateway does not scale. Classification is then also piggybacked on destination address/port.</p>
+<p>For traffic steering using the policies, aggregate across multiple dimensions: policy id, base station id and user equipment id. The forwarding is then simple based on just the tags.</p>
+<p>Control plane load can also be a problem, therefore use a Local Agent at each base station.</p>
+<p>Using LTE workload characteristics, each basestation handles a few hundreds of UE arrivals and handoffs, which are sufficiently low for the approach to scale. Commodity switches also have enough memory for policy storage, because generally there are not many.</p>
+<p>Overall the softcell architecture runs on commodity hardware sufficiently well for existing workloads.</p>
+<blockquote>
+<p>Q: what is fundamental to cellular networks with respect to traffic steering? What is different from</p>
+<p>A: Dominant traffic pattern is North-South, between clients and gateways and few gateway switches.</p>
+<p>Q: In cellular networks user traffic is tunnelled using GTP, so there is already aggregation - why can you not just use GTP headers?</p>
+<p>A: For different policies you want to route to different middleboxes</p>
+</blockquote>
+<h4 id="robust-assessment-of-changes-in-cellular-networks">Robust Assessment of Changes in Cellular Networks</h4>
+<p>Presenter: Ajay Mahimkar</p>
+<p>Authors: Ajay Mahimkar (AT&amp;T Labs - Research), Zihui Ge (AT&amp;T Labs - Research), Jennifer Yates (AT&amp;T Labs - Research), Chris Hristov (AT&amp;T Mobility Services), Vincent Cordaro (AT&amp;T Mobility Services), Shane Smith (AT&amp;T Mobility Services), Jing Xu (AT&amp;T Mobility Services), Mark Stockert (AT&amp;T Mobility Services)</p>
+<p>Changes in the sense of software upgrades, configuration, hardware deployment... The question is how those affect user perception of service quality - accessibility, retainability, throughput, minutes of usage, etc. But no lab can fully replicate scale, complexity and diversity of operational networks! To measure these details also need to take into account external factors - seasonal changes (leaves on trees!), weather (worst when coincide with configuration changes), traffic pattern changes, other network events such as outages...</p>
+<p>Idea: Litmus - compare performance between study and control group:</p>
+<ul>
+<li>study group - network elements where change is implemented</li>
+<li>control group - network elements without the change</li>
+</ul>
+<p>Going to discuss the methodology of selection of the groups. Spatial regression in study and sampled control group to learn the coefficients and compare the differences before a change and after it. Using domain knowledge to select control group: select control group subject to same external factors and sharing similar properties with study group. Geo distance, topological structure of the cell net, etc.</p>
+<p>Evaluation: Litmus outperforms study-group only analysis because of robustness to external factors. Also outperforms Difference in Differences analysis. Some operational experiences: self optimizing network doing automated load balancing, neighbor discovery, etc. - how did it perform during hurricane Sandy. Both study and control group were impacted due to Sandy (everything went down!), but study group did better than control - faster recovery, so the feature was rolled out network-wide.</p>
+<blockquote>
+<p>Q: There is a way to do A/B testing in offline manner if you log enough data without actually running experiments - do you think it &gt; might be applicable?&gt; </p>
+<p>A: Definitely would be, but the question is how to select the control group - e.g. completely random selection might not work</p>
+<p>Q: How do you identify external factors?</p>
+<p>A: It is very hard, but with this analysis you don&#39;t need to know what external factor is there, just automatically discount their impact. But external factor identification is not plausible without additional information.</p>
+</blockquote>
+<h4 id="3gol-power-boosting-adsl-using-3g-onloading">3GOL: Power-boosting ADSL using 3G OnLoading</h4>
+<p>Presenter: Vijay Erramilli</p>
+<p>Authors: Claudio Rossi (Politecnico di Torino), Narseo Vallina-Rodriguez (Univ. of Cambridge), Vijay Erramilli (Telefonica Research), Yan Grunenberger (Telefonica Research), Laszlo Gyarmati (Telefonica Research), Nikolaos Laoutaris (Telefonica Research), Rade Stanojevic (Telefonica Research), Konstantina Papagiannaki (Telefonica Research), Pablo Rodriguez (Telefonica Research)</p>
+<p>The authors propose a very innovative idea: selectively onload a part of the traffic from the wired network onto the wireless network in order to overcome slow ADSL connections at home. Indeed, the authors propose to onload rather offload data to the cellular network!</p>
+<p>Of course there are many challenges to be faced and the authors prove the feasibility of the proposed solution by measuring the capacity available on the cellular network, by trace driven analysis and by studying the problem of data caps on cellular data connections.</p>
+<p>A fully application level prototype is implemented and evaluated in the wild in residential environment with two bandwidth hungry applications: VoD and picture upload. Up to a 4x speedup is obtained for downlink and up to 6x speedup for uplink, which demonstrate the great potential of this proposal, which is fully over-the-top. The solution is also compared with MPTCP achieving better result.</p>
+<p>However, a network integrated solution is needed to apply this proposal at scale without harming the existing traffic on the cellular network.</p>
+<blockquote>
+<p>Q: As a consumer - the reason people don&#39;t go high on the cap is that they get nervous. So as a user I&#39;ll start getting higher in my cap and...</p>
+<p>A: In the paper we propose a simpler estimator and a guard parameter that the</p>
+<p>Q: when we did experiments on 3G HSDP, we noticed that the network splits the bandwidth across multiple users and I assume similar scheme for uplink. Do you use multiple operators?</p>
+<p>A: All users were only using one network and in most cases on a single cell and we still saw improvements</p>
+<p>Q: can you give some information about the way you do scheduling between interfaces?</p>
+<p>A: we use a greedy scheduler, only focusing on HTTP.</p>
+</blockquote>
+<h4 id="capturing-mobile-experience-in-the-wild-a-tale-of-two-apps">Capturing Mobile Experience in the Wild: A Tale of Two Apps</h4>
+<p>Presenter: Ashish Patro</p>
+<p>Authors: Ashish Patro (University of Wisconsin Madison), Shravan Rayanchu (University of Wisconsin Madison), Michael Griepentrog (University of Wisconsin Madison), Yadi Ma (University of Wisconsin Madison), Suman Banerjee (University of Wisconsin Madison)</p>
+<p>The author study the deployment and usage of mobile application in order to understand the factors that impact the application experience. How a developer can capture that across all users?</p>
+<p>The authors propose to use application as a vantage point. Developer can include a toolkit (including a library) that provides an API to get contextual measurements, device and user infos, and network state.</p>
+<p>They study 2 applications: a MMORPG, named Parallel Kindom) (PK) and StudyBlue (SB).
+For example, the impact of device on user interactivity is studied (user actions/times) showing that this increases with screen size. Moreover, battery consumption was higher with cellular with respect to wi-fi and it has an effect also on the session length, which was lower with higher battery consumption.</p>
+<p>Furthermore, the impact on network performance of the toolkit are studied in terms of latency ans cellular usage.
+For example, the interactivity is sensitive to latency, and decreases with latency increase.</p>
+<p>Other measurements are shown along with their impact on application usage, including revenue! This new toolkit can give great insight for developers! Check-it out.</p>
+<blockquote>
+<p>Q: Would it be possible to colocate your insight server with the app server?</p>
+<p>A: Definitely, but we prefered to keep it module to reduce developer effort</p>
+<p>Q: is privacy a concern at all?</p>
+<p>A: Users are informed about the type of data collected</p>
+<p>Q: how is online profiling itself impacting battery life?</p>
+<p>A: In this case we have some performance overhead numbers in the paper, but it was not more than 2%. The measurements were very lightweight and infrequent - mostly values reported by the OS.&gt; </p>
+<p>Q: so how do you attribute energy consumption to apps?</p>
+<p>A: (some clever filtering which was not clear, I assume more details in the paper)</p>
+<p>Q: most of the mobile handsets have system on chip, so you can&#39;t easily isolate different resources and each has different mechanisms - &gt; have you looked at this issue?</p>
+<p>A: we did not look at very low level details because we do not have access to them from the framework. We could also do some &gt; crowdsourcing to built up better models.</p>
+<p>Q: What are the activities in the app that were meant to generate revenue?</p>
+<p>A: &quot;food&quot; in the application that can be bought for real money and hence the food consumption is a direct proxy of revenues</p>
+<p>Q: What part of what you built google analytics would tell me?</p>
+<p>A: GA more about business analytics, while we focused more on performance</p>
+</blockquote>
+<h4 id="silent-tcp-connection-closure-for-cellular-networks">Silent TCP Connection Closure for Cellular Networks</h4>
+<p>Presenter: Feng Qian</p>
+<p>Authors: Feng Qian (AT&amp;T Labs - Research), Subhabrata Sen (AT&amp;T Labs - Research), Oliver Spatscheck (AT&amp;T Labs - Research)</p>
+<p>Talking about the problem of reusing TCP connections and closing them after a timeout when device radio is asleep. Proposes STC - silent TCP connection closure: client and server negotiate a timeout value for connection closing and after a timeout period + guard period both ends close the connection silently, without exchanging FINs. Also backward-compatible, but needs to modify the TCP stack, socket API and the client applications.</p>
+<p>Trace-driven evaluation - 10 days, LTE, 600K user sessions. Overall radio energy saving is 11.3% and reduces signaling by 6% - just looking at late FIN packets.</p>
+<blockquote>
+<p>Q: I&#39;m wondering if your problem is solved if you go back to HTTP 1.0?</p>
+<p>A: Immediate close</p>
+<p>Q: so you might be changing semantics and you might have many problems..</p>
+<p>Q: what is the implication on SPDY e.g. where connections will be maintained for a long time?</p>
+<p>A: the delayed closure program still exists, even if mitigated</p>
+<p>Q: why do you think you have those timeouts even e.g. with Google&#39;s apps, when they control both sides? What we&#39;ve seen is that in 95% &gt; of cases there is no reuse</p>
+<p>A: (missed the question - taking offline)</p>
+<p>Q: security implications?</p>
+<p>A: by injecting FINs you can already force-close connections, so there is no difference</p>
+</blockquote>
+<h3 id="session-7-tools">Session 7: Tools</h3>
+<h4 id="direct-code-execution-revisiting-library-os-architecture-for-reproducible-network-experiments">Direct Code Execution: Revisiting Library OS Architecture for Reproducible Network Experiments</h4>
+<p>Hajime Tazaki (University of Tokyo, Japan), Frederic Urbani (INRIA, France), Emilio Mancini (INRIA, France), Mathieu Lacage (Alcmeon, France), Daniel Camara (INRIA, France), Thierry Turletti (INRIA, France), Walid Dabbous (INRIA, France)</p>
+<p>Presented by Hajime Tazaki</p>
+<p>Container based emulation [CoNEXT &#39;12] provides lightweight emulation, but timing is still limited by hardware resources and there is no support for debugging. There are several proposals introducing virtual time to address the problem... Network simulators are not completely realistic functionally. Motivation is therefore to improve on the two issues using &quot;Direct Code Execution&quot;</p>
+<p>The key point is running real code (POSIX apps, kernel network stacks), integrating with ns-3 to provide virtual clock and improve debuggability by running everything in userspace.</p>
+<p>Got lost in the details about the architecture.</p>
+<p>To verify reproducibility, picked a previous paper from NSDI and replicated goodput measurement with their proposed DCE + ns-3 (LTE/Wi-FI), Linux MPTCP and iperf.</p>
+<blockquote>
+<p>Q: I&#39;d like to thank you for this nice work, because there is a lot of system work behind this. Something you did not mention in the paper is whether there are any drawbacks?</p>
+<p>A: Sometimes it requires protocol implementation modification...</p>
+<p>Q: NS3 includes network simulation cradle, which allows to include real TCP stacks</p>
+<p>A: That is an ancestor of our work, so we use some of the ideas. The objectives and goals are almost the same</p>
+</blockquote>
+<h4 id="pythia-yet-another-active-probing-technique-for-alias-resolution">Pythia: Yet Another Active Probing Technique for Alias Resolution</h4>
+<p>Pietro Marchetta (University of Napoli Federico II), Valerio Persico (University of Napoli Federico II), Antonio PescapÃ¨ (University of Napoli Federico II)</p>
+<p>Presented by Pietro Marchetta</p>
+<p>Accurate knowledge of the Internet topology is essential for deep understanding of the ecosystem, but ISPs hide the data. Traceroute only provides IP-level view, but for performing robustness analysis need to perform alias resolution to group addresses owned by the same router.</p>
+<p>All alias resolution techniques are imperfect, but IP timestamp probing has been explored before. Order matters [Sherry10], multiple ICMP echo request packets to different addreses. Use this fact and UDP timestamp option to infer Alias.</p>
+<p>Evaluation: ground ruth obtained with IGMP probing, compare against &quot;Motu&quot; and &quot;Palmtree&quot; - able to classify higher proportion of addresses at similar accuracy, slightly lower than Motu.</p>
+<blockquote>
+<p>Q: can you tell if a router is pair-interfaced IP router?</p>
+<p>A: yes, an initial step based on the number of collected timestamps</p>
+<p>Q: how often does ICMP response not come back?</p>
+<p>A: timestamp option has an impact on responsiveness, but it also depends on vantage point and type of probes. ICMP has 30% reduction of responsiveness</p>
+</blockquote>
+<h4 id="an-automated-system-for-emulated-network-experimentation">An Automated System for Emulated Network Experimentation</h4>
+<p>Simon Knight (University of Adelaide/Cisco Systems), Hung X Nguyen (University of Adelaide), Iain Phillips (Loughborough University), Olaf Maennel (Loughborough University), Randy Bush (IIJ), Nickolas Falkner (University of Adelaide), Matthew Roughan (University of Adelaide)</p>
+<h4 id="inferring-multilateral-peering-agreements">Inferring Multilateral Peering Agreements</h4>
+<p>Vasileios Giotsas (University College London), Shi Zhou (University College London), Matthew Luckie (CAIDA / UC San Diego), KC Claffy (CAIDA / UC San Diego)</p>
+
+
+    </div> <!-- /container -->
+    </div> <!-- /wrap -->
+
+    <!-- Begin .site-footer -->
+  <footer id="footer" class="site-footer">
+    
+    <div class="footer-copyright">&copy; 2014 - Andrius Aucinas</div>
+    <div>
+      <ul class="list-unstyled list-inline">
+<li>
+  <a href="https://twitter.com/AndriusAuc" target="_blank" title="Twitter" ><i class="sprite sprite-twitter"></i></a>
+</li>
+<li>
+  <a href="https://github.com/AndriusA" target="_blank" title="Github"><i class="sprite sprite-github"></i></a>
+</li>
+<li>
+  <a href="https://uk.linkedin.com/in/andriusaucinas" target="_blank" title="LinkedIn"><i class="sprite sprite-linkedin"></i></a>
+</li>
+</ul>
+    </div>
+    <div>Page last updated 29 July 2014</div>
+  
+  </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="/js/script.js"></script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-44468553-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
