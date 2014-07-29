@@ -1,7 +1,7 @@
 {
   "name": "personal-web",
   "version": "0.0.0",
-  "description": "",
+  "description": "Andrius Aucinas' personal website",
   "main": "Gruntfile.js",
   "dependencies": {
     "assemble": "^0.4.41",
@@ -14,6 +14,7 @@
     "npm-latest": "^0.2.0"
   },
   "devDependencies": {
+    "assemble-middleware-rss": "^0.1.1",
     "grunt-markdown": "^0.6.1",
     "grunt-markdown-to-json": "^0.4.2",
     "grunt-yaml": "^0.4.1",
@@ -22,6 +23,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:AndriusA/personal-website.git"
+  },
   "author": "Andrius Aucinas",
-  "license": "ISC"
+  "license": "ISC",
+  "homepage": "http://smart-e.org"
 }

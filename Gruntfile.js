@@ -13,29 +13,34 @@ module.exports = function(grunt) {
     },
     assemble: {
       options: {
+        expand: false,
         flatten: true,
-        prettify: {
-          indent: 2,
-          condense: true,
-          newlines: true
-        },
         partials: ['./template/partials/*.html'],
         helpers: ['helper-moment'],
       },
       site: {
+        options: {
+          data: ['./template/data/*.json'],
+        },
         files: {
           './static/research.html': ['template/research.html'],
           './static/index.html': ['template/index.html'],
           './static/resume.html': ['template/resume.html'],
           './static/projects.html': ['template/projects.html'],
-        },
-        options: {
-          data: ['./template/data/*.json'],
         }
       },
       blog: {
         options: {
           layout: './template/blogPostLayout.html',
+          // plugins: ['assemble-middleware-rss'],
+          // rss: {
+          //   logging: true,
+          //   author: "Andrius Aucinas",
+          //   dest: "./static/feed.xml",
+          //   siteurl: "http://smart-e.org/",
+          //   title: 'Occasional ramblings',
+          //   description: 'Occasional tinkering with hardware/software as well as conference reports',
+          // }
         },
         files: {
           './static/blog.html': ['./template/blog.html'],

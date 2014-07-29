@@ -1,8 +1,18 @@
-[
+{"updates": [
   {
     "date": "2013-07-07",
     "update": "Our PhoneLets demo has been accepted to MobiCom '14",
     "link": "http://phonelets.smart-e.org/" 
+  },
+  {
+    "date": "2013-12-11",
+    "update": "Blog: CoNEXT liveblogging - day 2",
+    "link": "/blogPosts/2013-12-11-conext-day2.html"
+  },
+  {
+    "date": "2013-06-10",
+    "update": "Blog: CoNEXT liveblogging - day 1",
+    "link": "/blogPosts/2013-12-10-conext-day1.html"
   },
   {
     "date": "2013-06-30",
@@ -15,3 +25,4 @@
     "link": "/blogPosts/2013-06-30-raspberrypi-3g-and-ofono.html"
   }
 ]
+}

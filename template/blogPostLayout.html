@@ -1,25 +1,7 @@
 {{>header}}
 
   <h2>{{this.page.title}}</h2>
-  <h4>{{moment this.page.date format="DD MMMM YYYY"}} ({{#page.tags}} {{.}} {{/page.tags}})</h4>
-
-  <span id ="tag-panel" class="panel-group" style="display: block">
-    {{#page.tags}}
-      <ul id="{{tag}}" class="collapse panel panel-default">
-      {{#each pages}}
-        <li>
-          <a href="/blogPosts/{{pageName}}">{{data.title}}</a>
-        </li>
-      {{/each}}
-      </ul>
-    {{/page.tags}}
-  </span>
-  <!-- <ul class="list-unstyled list-inline"> 
-    {{#page.tags }} 
-    <li > <a  href ="/blog/tag/{{.}}.html" >{{.}} </a > </li > 
-    {{/page.tags }} 
-  </ul >  -->
-
+  <h4>{{this.page.date}} ({{#page.tags}} {{.}} {{/page.tags}})</h4>
 
   {{#markdown}}
     {{>body}}
