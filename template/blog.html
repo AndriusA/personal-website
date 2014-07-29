@@ -1,0 +1,64 @@
+---
+layout: ./template/base.html
+---
+
+<div class="row">
+  <div class="col-md-8">
+    <h2>Recent Posts</h2>
+    <ul class="list-unstyled">
+      {{#each pages}}
+        {{#if data.title}}
+        <li>
+          <h2><a href="{{relativeLink}}">{{data.title}}</a></h2>
+          <h4>{{moment data.date format="DD MMMM YYYY"}} ({{#data.tags}} {{.}} {{/data.tags}})</h4>
+          <div class="preview">
+            {{#markdown}}
+              {{truncate page 800 "..."}}
+            {{/markdown}}
+            <br />
+            <a href="/{{relativeLink}}">Continue reading</a>
+          </div>
+          <hr>
+        </li>
+        {{/if}}
+      {{/each}}  
+    </ul>
+  </div>
+
+  <div class="col-md-4">
+    <h2>Tags</h2>
+      <span id ="tag-panel" class="panel-group" style="display: block">
+        {{#each tags}}
+          <a data-toggle="collapse" data-parent="#tag-panel" href="#{{tag}}" >{{tag}}</a>
+        {{/each}}
+        <br />
+        {{#each tags}}
+          <ul id="{{tag}}" class="collapse panel panel-default">
+          {{#each pages}}
+            <li>
+              <a href="/blogPosts/{{pageName}}">{{data.title}}</a>
+            </li>
+          {{/each}}
+          </ul>
+        {{/each}}
+      </span>
+    
+
+    
+    <h2>Categories</h2>
+      <div id="category-panel">
+        {{#categories }} 
+          <a data-toggle="collapse" data-parent="#category-panel" href="#{{category}}">{{category}} </a >
+        {{/categories }} 
+        <br />
+        {{#categories}}
+          <ul id="{{category}}" class="collapse panel panel-default">
+            {{#each pages}}
+              <li><a href="/blogPosts/{{pageName}}">{{data.title}}</a></li>
+            {{/each}} 
+          </ul>
+        {{/categories}}
+      </div> 
+  </div>
+  
+</div>

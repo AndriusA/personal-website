@@ -1,0 +1,51 @@
+[
+    {
+        "company": "Telefonica I+D, Internet Systems and Networking Group",
+        "position": "Internship",
+        "date": "2012 September - 2013 January",
+        "image_url": "images/telefonica_logo.gif",
+        "company_url": "http://www.tid.es/",
+        "description": "My work in Telefonica Research included in-depth analysis of current mobile application communication patterns, their inefficiencies and the impacts they have on a 3G network as well as energy consumption of the mobile device they are running on. It furthermore included proposing a set of optimisations and prototyping a solution on the <a href='http://www.mozilla.org/en-GB/firefox/partners/#'>Firefox OS</a> platform."
+    },
+	{
+		"company_url": "http://www.laboratories.telekom.com/ipws/english/",
+		"image_url": "images/t-labs.png",
+		"company": "Deutsche Telekom Laboratories, Internet Network Architectures group, Internship",
+		"date": "2011 August - 2011 September and 2010 June - 2010 August",
+		"description": "In the first summer I initiated the <a href='http://wwww.thinkair.net'>ThinkAir</a> project and implemented its core functionality. The project concerned dynamic code offloading to cloud computing facilities, based on the environmental properties and resource requirements, to improve smartphone performance and battery life. It strongly reinforced my interest in mobile technologies and led to starting a PhD in mobile cloud computing.<br /> During the short period of time in the second summer I took on a few projects that would later blend into my PhD work. The projects were related to mobile cloud computing: cellular infrastructure improvements for more efficient code offloading as well as improving machine-to-machine communication efficiency through virtualization, cloud and code offloading."
+	},
+	{
+        "company_url": "http://www.atea.lt",
+		"image_url": "images/atea.jpg",
+		"company": "Atea Baltic, Software Development division, Internship",
+		"date": "2010 August - 2010 September",
+		"description": "During the internship I was working on modifying a few large-scale business applications, requiring to rapidly understand application logic and find the best solutions for the modifications required, as well as quickly learn the unfamiliar technologies."
+	},
+	{
+		"company_url": "http://www.cl.cam.ac.uk/research/srg/netos/",
+		"image_url": "http://www.cl.cam.ac.uk/images/identifier.gif",
+		"company": "University of Cambridge Computer Laboratory, Network and Operating Systems Group, Mobile Systems team, Internship",
+		"date": "2010 June - 2010 August",
+		"description": "During the summer I worked on the initial stages of the <a href='http://emotionsense.org'>EmotionSense</a> project. The goal of the project was to create a mobile phones based platform for experimental social psychology research. I was involved with the project from the very beginning, which meant creating the core of the system that would be used later, as well as determining what information about user's environment could possibly be extracted and how"
+	},
+	{
+		"company_url": "http://www.nmakademija.lt",
+		"image_url": "images/nma.jpg",
+		"company": "National Students Academy, Volunteering",
+		"date": "2008 July - January 2011",
+		"description": "Having spent four years in the academy myself, I have volunteered in the organisation a number of times since. I have tried to help whenever I felt like my help would really be beneficial. I have given lectures on computer operating systems to the Computer Science students in the academy as well as on topics related to identity development to all students. I shared my views and experience with the board to help develop the academy further and most recently I helped to participate in the <a href='http://www.e-volunteering.eu/competition/''>European e-volunteering competition</a>, where we won the second prize."
+	},
+	{
+    	"company_url": "http://www.cutec.org",
+		"image_url": "images/cutec.jpg",
+		"company": "Cambridge University Technology and Enterprise Club, Sponsorship Team",
+		"date": "2008 October - 2011 October",
+		"description": "In CUTEC I primarily helped with fundraising activities for the organisation's entrepreneurship-related events, which involved communicating with company representatives and working in a team to meet the goals on time."
+	},
+	{
+		"image_url": "images/freelance.jpg",
+		"company": "Freelancing",
+		"date": "2006 - now",
+		"description": "I have worked on a variety of small to medium sized web projects over the years. Most of the work I have done was a rather long time ago and I barely have time for such work now. However, I do consider new opportunities if I find the projects interesting. Nevertheless, since I was still in high school when I started, I had the opportunity to learn valuable skills very early: communicating with clients, organising my time very well and working both individually and in small, self-organised teams."
+    }
+]

@@ -1,0 +1,50 @@
+{{>header}}
+
+<div class="row">
+  <div class="col-md-9">
+    <p>I am a PhD student in the Computer Laboratory, University of Cambridge. I also received my BA in Computer Science from the University of Cambridge in 2011. I am a member of the Networks and Operating Systems group, part of Systems Research Group, working with Prof. Jon Crowcroft as my supervisor. My was partially sponsored by T-Labs, Germany.</p>
+
+    <p>Currently I mainly focus on energy-efficient cellular device communication, messaging principles and suitable protocol design, including modifications to WebSockets and TCP.</p>
+
+    <p>In the past I have worked on sensing user's environment through their mobile devices, by inferring their activities, people surrounding them and emotions (the EmotionSense project).</p>
+
+    <h2>Updates</h2>
+
+    <ul class="publist list-unstyled">
+      {{#withFirst updates 10}}
+        <li>
+          {{#if link}}
+            {{date}}: <a href="{{link}}">{{update}}</a>
+          {{else}}
+            {{date}}: {{update}}
+          {{/if}}
+        </li>
+      {{/withFirst}}
+    </ul>
+  </div>
+
+  <div class="col-md-3">
+    <div class="text-center" style="margin-bottom: 15px">
+    <img src="images/foto.jpg" alt="Profile" class="img-rounded">
+    </div>
+    <ul class="list-unstyled">
+      <li>E-Mail: name dot surname at cl dot cam dot ac dot uk</li>
+      <li>Twitter: @AndriusAuc</li>
+      <li>LinkedIn: LinkedIn</li>
+      <li>GitHub: Github</li>
+    </ul>
+
+    <address>
+      <strong>Computer Laboratory</strong><br />
+      University of Cambridge<br />
+      15 JJ Thomson Avenue<br />
+      Cambridge CB3 0FD, UK<br />
+      Phone: +44 (0)1223 763542<br />
+      Office: FN14<br />
+    </address>
+
+    {{>socialLinks}}
+  </div>
+</div>
+
+{{>footer}}

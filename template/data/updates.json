@@ -1,0 +1,17 @@
+[
+  {
+    "date": "2013-07-07",
+    "update": "Our PhoneLets demo has been accepted to MobiCom '14",
+    "link": "http://phonelets.smart-e.org/" 
+  },
+  {
+    "date": "2013-06-30",
+    "update": "Blog: a post on using RaspberryPi as a MiFi (WiFi router)",
+    "link": "/blogPosts/2013-06-30-raspberry-pi-as-your-3g-wifi-router.html"
+  },
+  {
+    "date": "2013-06-30",
+    "update": "Blog: using Ofono open telephony stack to control a modem from Raspberry Pi",
+    "link": "/blogPosts/2013-06-30-raspberrypi-3g-and-ofono.html"
+  }
+]

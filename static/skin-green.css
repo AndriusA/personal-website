@@ -1,0 +1,232 @@
+/*
+Baleen Skin: Sea Green - Default
+*/
+/*
+* ==========================================================================
+* Links
+* ==========================================================================
+*/
+a {
+  color: #1bbd9b;
+}
+a:hover,
+a:focus {
+  color: #117a64;
+}
+a:focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+/*
+* ==========================================================================
+* Primary Button
+* ==========================================================================
+*/
+.btn-primary {
+  color: #ffffff;
+  background-color: #1bbd9b;
+  border-color: #18a789;
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
+  color: #ffffff;
+  background-color: #16997e;
+  border-color: #10715d;
+}
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
+  background-image: none;
+}
+.btn-primary.disabled,
+.btn-primary[disabled],
+fieldset[disabled] .btn-primary,
+.btn-primary.disabled:hover,
+.btn-primary[disabled]:hover,
+fieldset[disabled] .btn-primary:hover,
+.btn-primary.disabled:focus,
+.btn-primary[disabled]:focus,
+fieldset[disabled] .btn-primary:focus,
+.btn-primary.disabled:active,
+.btn-primary[disabled]:active,
+fieldset[disabled] .btn-primary:active,
+.btn-primary.disabled.active,
+.btn-primary[disabled].active,
+fieldset[disabled] .btn-primary.active {
+  background-color: #1bbd9b;
+  border-color: #18a789;
+}
+.btn-primary .badge {
+  color: #1bbd9b;
+  background-color: #ffffff;
+}
+/*
+* ==========================================================================
+* Nav Pills
+* ==========================================================================
+*/
+.nav-pills > li.active > a,
+.nav-pills > li.selected > a,
+.nav-pills > li.active > a:hover,
+.nav-pills > li.selected > a:hover,
+.nav-pills > li.active > a:focus,
+.nav-pills > li.selected > a:focus {
+  color: #ffffff;
+  background-color: #1bbd9b;
+}
+/*
+* ==========================================================================
+* Pills Centered
+* ==========================================================================
+*/
+.nav-pills-centered > .nav-pills > li > a.active,
+.nav-pills-centered > .nav-pills > li > span.active,
+.nav-pills-centered > .nav-pills > li > a.selected,
+.nav-pills-centered > .nav-pills > li > span.selected {
+  color: #ffffff;
+  background-color: #1bbd9b;
+}
+/*
+* ==========================================================================
+* Navbar Default
+* ==========================================================================
+*/
+.navbar-default {
+  background-color: #ffffff;
+  border-color: #eeeeee;
+}
+.navbar-default .navbar-brand {
+  color: #1bbd9b;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: #159076;
+  background-color: transparent;
+}
+.navbar-default .navbar-text {
+  color: #777777;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #777777;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #ffffff;
+  background-color: #1bbd9b;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #ffffff;
+  background-color: #159076;
+}
+.navbar-default .navbar-nav > .disabled > a,
+.navbar-default .navbar-nav > .disabled > a:hover,
+.navbar-default .navbar-nav > .disabled > a:focus {
+  color: #cccccc;
+  background-color: transparent;
+}
+.navbar-default .navbar-toggle {
+  border-color: #dddddd;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: #dddddd;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #888888;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: #eeeeee;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  background-color: #159076;
+  color: #ffffff;
+}
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #777777;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #ffffff;
+    background-color: #1bbd9b;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #ffffff;
+    background-color: #159076;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a,
+  .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+    color: #cccccc;
+    background-color: transparent;
+  }
+}
+.navbar-default .navbar-link {
+  color: #777777;
+}
+.navbar-default .navbar-link:hover {
+  color: #ffffff;
+}
+/*
+* ==========================================================================
+* Services Section
+* ==========================================================================
+*/
+.services-section .services-icon {
+  color: #1bbd9b;
+  margin-bottom: 30px;
+}
+/*
+* ==========================================================================
+* Project Caption
+* ==========================================================================
+*/
+.project-caption figcaption {
+  background: #1bbd9b;
+  color: #ed4e6e;
+}
+.project-caption figcaption .project-caption-title {
+  color: #ffffff;
+}
+.project-caption figcaption .project-caption-icon {
+  color: #159076;
+}
+.project-caption figcaption a.project-caption-icon {
+  color: #159076;
+}
+.project-caption figcaption a.project-caption-icon:hover,
+.project-caption figcaption a.project-caption-icon:focus {
+  color: #0e6452;
+}
+/*
+* ==========================================================================
+* Feedback Section
+* ==========================================================================
+*/
+.feedback-section .address-section .address-icon {
+  color: #1bbd9b;
+}
+/*
+* ==========================================================================
+* Site Footer
+* ==========================================================================
+*/
+.site-footer {
+  color: #999;
+  background-color: #f9f9f9;
+  border-top: 1px solid #e5e5e5;
+}
+.site-footer .footer-copyright {
+  color: #999;
+}

@@ -1,0 +1,22 @@
+{{>header}}
+
+<div class="row">
+    Coming...
+</div>
+
+{{#each project}}
+  <div class="row job">
+    <div class="col-md-3">
+      <a href="{{company_url}}">
+        <img class="company_img" src="{{image_url}}" alt="{{company}}" width="100%"/>
+      </a>
+    </div>
+    <div class="col-md-9">
+      <h3>{{company}}, {{position}}</h3>
+      <p><strong>{{date}}</strong></p>
+      <p>{{{description}}}</p>
+    </div>
+  </div>
+{{/each}}
+
+{{>footer}}
