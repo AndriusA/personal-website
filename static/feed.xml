@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>Mobile, full-stack and research</title>
+        <description>Occasional writings about tinkering with mobile devices and gadgets, all the way to the hardware and conference live-blogs</description>
+        <link>http://smart-e.org</link>
+        <lastBuildDate>Fri, 01 Aug 2014 12:41:51 GMT</lastBuildDate>
+        <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+        <copyright>Copyright 2014 Andrius Aucinas</copyright>
+        <generator>Feed for Node.js</generator>
+        <category>conferences</category>
+        <category>tinkering</category>
+        <item>
+            <title><![CDATA[Live-blog from CoNEXT 2013 - day 2]]></title>
+            <link>http://smart-e.org/blogPosts/2013-12-11-conext-day2.html</link>
+            <guid>http://smart-e.org/blogPosts/2013-12-11-conext-day2.html</guid>
+            <pubDate>Wed, 11 Dec 2013 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>Good morning! Today is the second day of CoNEXT 2013 and the sessions today are about trains, wires, tools and falling water. I will be blogging some of the sessions again today, and as before the official conference liveblog is on <a href="http://layer9.org">layer9.org</a>.</p>
+<h3 id="session-5-trains-lanes-and-autobalancing">Session 5: Trains, Lanes and Autobalancing</h3>
+<p>I skipped the session to patch my own presentation using my colleagues&#39; feedback, but these are the presented papers:</p>
+<h4 id="bullet-trains-a-study-of-nic-burst-behavior-at-microsecond-timescales">Bullet Trains: A study of NIC burst behavior at microsecond timescales</h4>
+<p>Rishi Kapoor (UC San Diego), Alex C. Snoeren (UC San Diego), Geoffrey M. Voelker (UC San Diego), George Porter (UC San Diego)</p>
+<h4 id="fastrak-enabling-express-lanes-in-multi-tenant-data-centers">FasTrak: Enabling Express Lanes in Multi-Tenant Data Centers</h4>
+<p>Radhika Niranjan Mysore (UC San Diego), George Porter (UC San Diego), Amin Vahdat (UC San Diego …</p>
+]]></description>
+            <author>
+                <name>Andrius Aucinas</name>
+                <email>andrius.aucinas@gmail.com</email>
+                <link>http:/smart-e.org/</link>
+            </author>
+        </item>
+        <item>
+            <title><![CDATA[Live-blog from CoNEXT 2013 - day 1]]></title>
+            <link>http://smart-e.org/blogPosts/2013-12-10-conext-day1.html</link>
+            <guid>http://smart-e.org/blogPosts/2013-12-10-conext-day1.html</guid>
+            <pubDate>Tue, 10 Dec 2013 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>Kicking off the conference with some explanations about how the TPC selected the papers. The program looks great and I will be covering some of the sessions here over the next three days.</p>
+<p>There is an official live blog at layer9: <a href="http://www.layer9.org/">http://www.layer9.org/</a> so I will be covering the sessions and papers that are closer to my field and those that I find particularly interesting.</p>
+<p><em>Best full-paper award goes to &quot;Enhancing video accessibility and availability with information-bound references&quot;</em></p>
+<p>Our &quot;Staying Online While Mobile: The Hidden Costs&quot; was a nominee for the best short paper award, but alas! The award goes to &quot;Is There a Case for Mobile Phone Content Pre-staging&quot;.</p>
+<p>All the papers can be found online at the conference website: <a href="http://conferences.sigcomm.org/co-next/2013/program.html">http://conferences.sigcomm.org/co-next/2013/program.html</a></p>
+<h3 id="-">…</h3>
+]]></description>
+            <author>
+                <name>Andrius Aucinas</name>
+                <email>andrius.aucinas@gmail.com</email>
+                <link>http:/smart-e.org/</link>
+            </author>
+        </item>
+        <item>
+            <title><![CDATA[RaspberryPi as your 3G WiFi router]]></title>
+            <link>http://smart-e.org/blogPosts/2013-06-30-raspberry-pi-as-your-3g-wifi-router.html</link>
+            <guid>http://smart-e.org/blogPosts/2013-06-30-raspberry-pi-as-your-3g-wifi-router.html</guid>
+            <pubDate>Sun, 30 Jun 2013 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>Largely as part of another project, but partially for fun I decided to hook up my RaspberryPi to a 3G stick, a WiFi stick and make it share the 3G connectivity to my phones and laptop. Perhaps it isn&#39;t likely you will have all 3 of them but not an actual MiFi or any better connectivity option, but hey!</p>
+<p>My setup was therefore:</p>
+<ul>
+<li>RaspberryPi with Debian (Raspbian) wheezy</li>
+<li>Huawei E173 3G stick</li>
+<li>TP-Link TL-WN821N WiFi stick</li>
+</ul>
+<p>WiFi stick was working out of the box as a client, but there was some hassle with 3G...</p>
+<h2 id="basic-configuration-of-the-raspberrypi">Basic configuration of the RaspberryPi</h2>
+<p>Before starting, I adjusted some of the default RaspberryPi settings:</p>
+<ul>
+<li>Reduced video RAM split to 16MB</li>
+<li>Expanded fielssytem to take up the whole 4GB card</li>
+<li>Disabled SSH server :)</li>
+</ul>
+<h2 id="setting-up-huawei-e173-on-raspberrypi">Setting up Huawei E173 on RaspberryPi</h2>
+<h3 id="-">…</h3>
+]]></description>
+            <author>
+                <name>Andrius Aucinas</name>
+                <email>andrius.aucinas@gmail.com</email>
+                <link>http:/smart-e.org/</link>
+            </author>
+        </item>
+        <item>
+            <title><![CDATA[RaspberryPI, 3G and Ofono]]></title>
+            <link>http://smart-e.org/blogPosts/2013-06-30-raspberrypi-3g-and-ofono.html</link>
+            <guid>http://smart-e.org/blogPosts/2013-06-30-raspberrypi-3g-and-ofono.html</guid>
+            <pubDate>Sun, 30 Jun 2013 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>I ended up using ofono with a 3G stick and since that turned out to be more tricky than it should be, decided to write it up here in hope that it might help someone.</p>
+<h2 id="using-ofono-with-3g-stick-">Using Ofono with 3G stick:</h2>
+<p>Use usb_modeswitch as above, and build ofono from source (1.9.2 as of writing) - there was only 1.6 available for debian wheezy on raspberry Pi. After a bit of fiddling with autotools (because I&#39;m not good at using them), including aclocal, autoheader, libtoolize, automake --add-missing and autoconf, the configuration file is built and you can ./configure &amp;&amp; make &amp;&amp; make install</p>
+<p>Some pre-requisites for Ofono:</p>
+<pre><code>mobile-broadband-provider-info
+libudev-dev
+libdbus-1-dev
+libglib2.0-dev
+</code></pre><p>To also build tools of ofono (in tools/ dir):</p>
+<pre><code>libusb-dev
+libusb-1.0
+</code></pre><p>To use python test …</p>
+]]></description>
+            <author>
+                <name>Andrius Aucinas</name>
+                <email>andrius.aucinas@gmail.com</email>
+                <link>http:/smart-e.org/</link>
+            </author>
+        </item>
+    </channel>
+</rss>
