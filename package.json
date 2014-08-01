@@ -1,23 +1,17 @@
 {
   "name": "personal-web",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Andrius Aucinas' personal website",
   "main": "Gruntfile.js",
   "dependencies": {
     "assemble": "^0.4.41",
     "grunt": "^0.4.5",
-    "grunt-compile-handlebars": "^0.7.8",
     "handlebars": "^2.0.0-alpha.4",
     "handlebars-helpers": "^0.5.5",
-    "marked": "^0.3.2",
-    "npm": "^1.4.21",
-    "npm-latest": "^0.2.0"
+    "marked": "^0.3.2"
   },
   "devDependencies": {
-    "assemble-middleware-rss": "^0.1.1",
-    "grunt-markdown": "^0.6.1",
     "grunt-markdown-to-json": "^0.4.2",
-    "grunt-yaml": "^0.4.1",
     "helper-moment": "^0.1.3"
   },
   "scripts": {
