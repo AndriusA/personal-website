@@ -27,7 +27,11 @@
     "type": "git",
     "url": "git@github.com:AndriusA/personal-website.git"
   },
-  "author": "Andrius Aucinas",
+  "author": {
+    "name": "Andrius Aucinas",
+    "email": "andrius.aucinas@gmail.com",
+    "url" : "http:/smart-e.org/"
+  },
   "license": "ISC",
-  "homepage": "http://smart-e.org"
+  "url": "http://smart-e.org"
 }

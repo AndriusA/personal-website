@@ -6,6 +6,9 @@ module.exports = function(grunt) {
   grunt.initConfig({
     m2j: {
       posts: {
+        options: {
+          width: 800
+        },
         files: {
           './blog/posts.json': './blog/*.md'
         }
@@ -32,15 +35,6 @@ module.exports = function(grunt) {
       blog: {
         options: {
           layout: './template/blogPostLayout.html',
-          // plugins: ['assemble-middleware-rss'],
-          // rss: {
-          //   logging: true,
-          //   author: "Andrius Aucinas",
-          //   dest: "./static/feed.xml",
-          //   siteurl: "http://smart-e.org/",
-          //   title: 'Occasional ramblings',
-          //   description: 'Occasional tinkering with hardware/software as well as conference reports',
-          // }
         },
         files: {
           './static/blog.html': ['./template/blog.html'],
@@ -52,9 +46,11 @@ module.exports = function(grunt) {
     clean: ['./static/*.html', './static/blogPosts/*', './blog/posts.json']
   });
 
+  grunt.loadTasks('tasks');
+
   grunt.loadNpmTasks('assemble');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-markdown-to-json');
 
-  grunt.registerTask('default', ['clean', 'm2j', 'assemble']);
+  grunt.registerTask('default', ['clean', 'm2j', 'assemble', 'feed']);
 };
