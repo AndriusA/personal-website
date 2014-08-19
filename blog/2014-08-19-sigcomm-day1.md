@@ -9,28 +9,47 @@ published: true
 
 Good morning Chicago. On schedule for SIGCOMM today we have a keynote, some SDN, network architecture and middleboxing. As usual, there is also a live-blog at [layer9.org](http://layer9.org).
 
-Best paper awards go to "Balacing Accountability and Privacy in the Network" and "CONGA: Distributed Congestion-Aware Load Balancing for Datacenters".
+All the awards first:
+- Best paper awards go to "Balacing Accountability and Privacy in the Network" and "CONGA: Distributed Congestion-Aware Load Balancing for Datacenters".
+- Test of time awards go to "Internet Congeston Control for Future High Bandwidth-Delay product environments" by Dina Katabi, MArk Handley, and Charlie Rohrs and "Measuring ISP Topologies for Rocketfuel" by Neil Spring, Ratul Mahajan and David Wetherall.
+- SIGOMM doctoral dissertation Award goes to Aaron Schulman on "Observing and Improving the Reliability of Internet Last-mile Links".
+- the SIGCOMM award goes to George Varghese
 
 ### Keynote: Life in the Fast Lane
 
 George Varghese (Microsoft Research)
 
-
+A short summary wouldn't do justice to a great keynote, but in a nutshell it was a really great talk about finding the really interesting problems to solve, with examples form the past and suggestions for the future. The key is confluence between different ideas in a way that there is an inflection point in a way we start thinking about certain problems afterwards.
 
 
 ### Session 2: Data Plane
 
-#### Millions of Little Minions: Using Packets for Low Latency Network Programming and Visibility
-Vimalkumar Jeyakumar (Stanford University); Mohammad Alizadeh (Cisco); Yilong Geng (Stanford University); Changhoon Kim (Windows Azure); David Mazières (Stanford University)
-
-#### SAX-PAC (Scalable And eXpressive PAcket Classification)
-Kirill Kogan (Purdue Univ.); Sergey Nikolenko (Steklov Math. Institute and National Research Univ. Higher School of Economics); Ori Rottenstreich (Technion); William Culhane (Purdue Univ.); Patrick Eugster (Purdue Univ.)
-
 #### Duet: Cloud Scale Load Balancing with Hardware and Software
 Rohan Gandhi (Purdue University); Hongqiang Harry Liu (Yale University); Y. Charlie Hu (Purdue University); Guohan Lu (Microsoft); Jitu Padhye (Microsoft Research); Lihua Yuan (Microsoft); Ming Zhang (Microsoft Research)
 
-#### Guarantee IP Lookup Performance with FIB Explosion
-Tong Yang (Institute of Computing Technology, Chinese Academy of Sciences); Gaogang Xie (Institute of Computing Technology, Chinese Academy of Sciences); Yanbiao Li (Hunan University); Qiaobin Fu (Institute of Computing Technology, Chinese Academy of Sciences); Alex X. Liu (Dept of Computer Science & Engineering, Michigan State University, East Lansing, MI, USA); Qi Li (Institute of Computing Technology, Chinese Academy of Sciences); Laurent Mathy (University of Liège)
+Phrasing load balancing as a translation from virtual IPs (VIP) to direct IPs (DIP). The idea is to use commodity switches as hardware muxes and a small number of software MUX as backstop to address issues with hmux...
+
+Only two functionalities needed:
+- split VIP traffic across DIPs (ECMP)
+- Forward CIP traffic to DIPs (tunneling)
+
+Key challenges:
+- limited memory (workload: 100k+ VIPs and 1+ million DIPs). Single HMux can only support 512 DIPs for tunneling? Solution: partitioning VIPs across HMmux.
+- Robustness. Availability when hmux fails - can't replicate enough. Use a small number of smux in addition to hmux, with all storing all VIP... Traffic only routed to software mux when hmux fails, automatically. VIP traffic is highly skewed (10% carry 99% traffic in azure). Duet handles 86 - 99.9% of traffic in HMux
+- Assigning VIPs to minimize traffic handled by HMuxes (details in the paper)
+- Migrating VIPs. Use SMux as a stepping stone during migration - withdraw VIPs from old location on hwadware mux and advertise again after migration is done.
+
+Eval on azure - looks good :)
+
+> Q: One advantage of SMux is inspection of traffic
+> A: most of the time you dont need to be aware of the content, that's a benefit of using hmux
+> 
+> Q: how are VIP and DIP mappings changed in the setup?
+> A: more details in the paper, but we used caching and modification of DIP functionality provided by the switches
+> 
+> Q: fairness? passing via hmux via smux.
+> A: haven't found a requirement for fairness. And 99% of traffic passes via hmux, so there is no unfair scheduling for smux-> routed traffic even though latency is higher..
+
 
 ### Session 3: Network Architecture (1)
 
