@@ -4,12 +4,77 @@
         <title>Mobile, full-stack and research</title>
         <description>Occasional writings about tinkering with mobile devices and gadgets, all the way to the hardware and conference live-blogs</description>
         <link>http://smart-e.org</link>
-        <lastBuildDate>Mon, 11 Aug 2014 10:34:21 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 19 Aug 2014 13:54:39 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <copyright>Copyright 2014 Andrius Aucinas</copyright>
         <generator>Feed for Node.js</generator>
         <category>conferences</category>
         <category>tinkering</category>
+        <item>
+            <title><![CDATA[Live-blog from SIGCOMM 2014 - day 3]]></title>
+            <link>http://smart-e.org/blogPosts/2014-08-21-sigcomm-day3.html</link>
+            <guid>http://smart-e.org/blogPosts/2014-08-21-sigcomm-day3.html</guid>
+            <pubDate>Sun, 21 Jun 2015 00:00:00 GMT</pubDate>
+            <description><![CDATA[<h3 id="session-9-scheduling-in-datacenter-networks">Session 9: Scheduling In Datacenter Networks</h3>
+<h4 id="decentralized-task-aware-scheduling-for-data-center-networks">Decentralized Task-aware Scheduling for Data Center Networks</h4>
+<p>Fahad Dogar (Microsoft Research); Thomas Karagiannis (Microsoft Research); Hitesh Ballani (Microsoft Research); Ant Rowstron (Microsoft Research); Hitesh Ballani (Microsoft Research)</p>
+<h4 id="application-aware-network-scheduling-in-data-intensive-clusters">Application-Aware Network Scheduling in Data-Intensive Clusters</h4>
+<p>Mosharaf Chowdhury (UC Berkeley); Yuan Zhong (Columbia University); Ion Stoica (UC Berkeley)</p>
+<h4 id="multi-resource-packing-for-cluster-schedulers">Multi-Resource Packing for Cluster Schedulers</h4>
+<p>Robert Grandl (Univ of Wisconsin, Madison); Ganesh Ananthanarayanan (Microsoft Research); Srikanth Kandula (Microsoft Research); Sriram Rao (Microsoft Research); Aditya Akella (Univ of Wisconsin, Madison)</p>
+<h4 id="application-driven-bandwidth-guarantees-in-datacenters">Application-Driven Bandwidth Guarantees in Datacenters</h4>
+<p>Jeongkeun Lee (HP …</p>
+]]></description>
+            <author>
+                <name>Andrius Aucinas</name>
+                <email>andrius.aucinas@gmail.com</email>
+                <link>http:/smart-e.org/</link>
+            </author>
+        </item>
+        <item>
+            <title><![CDATA[Live-blog from SIGCOMM 2014 - day 2]]></title>
+            <link>http://smart-e.org/blogPosts/2014-08-20-sigcomm-day2.html</link>
+            <guid>http://smart-e.org/blogPosts/2014-08-20-sigcomm-day2.html</guid>
+            <pubDate>Sat, 20 Jun 2015 00:00:00 GMT</pubDate>
+            <description><![CDATA[<h3 id="session-5-wireless-1-">Session 5: Wireless (1)</h3>
+<h4 id="fastforward-fast-and-constructive-full-duplex-relays">FastForward: Fast and Constructive Full Duplex Relays</h4>
+<p>Dinesh Bharadia (Stanford University); Sachin Katti (Stanford University)</p>
+<h4 id="lte-radio-analytics-made-easy-and-accessible">LTE Radio Analytics Made Easy and Accessible</h4>
+<p>Swarun Kumar (Massachusetts Institute of Technology); Ezzeldin Hamed (Massachusetts Institute of Technology); Dina Katabi (Massachusetts Institute of Technology); Li Erran Li (Alcatel-Lucent)</p>
+<h4 id="control-plane-protocol-interactions-in-cellular-networks">Control-Plane Protocol Interactions in Cellular Networks</h4>
+<p>Guan-Hua Tu (UCLA); Yuanjie Li (UCLA); Chunyi Peng (OSU); Chi-Yu Li (UCLA); Hongyi Wang (UCLA); Songwu Lu (UCLA)</p>
+<h4 id="rf-idraw-virtual-touch-screen-in-the-air-using-rf-signals">RF-IDraw: Virtual Touch Screen in the Air Using RF Signals</h4>
+<p>Jue Wang (MIT); Deepak Vasisht (MIT); Dina Katabi (MIT)</p>
+<h3 id="session-6-monitoring-and-diagnostics">Session 6: Monitoring And Diagnostics</h3>
+<h4 id="diagnosing-missing-events-in-distributed-">Diagnosing Missing Events in Distributed …</h4>
+]]></description>
+            <author>
+                <name>Andrius Aucinas</name>
+                <email>andrius.aucinas@gmail.com</email>
+                <link>http:/smart-e.org/</link>
+            </author>
+        </item>
+        <item>
+            <title><![CDATA[Live-blog from SIGCOMM 2014 - day 1]]></title>
+            <link>http://smart-e.org/blogPosts/2014-08-19-sigcomm-day1.html</link>
+            <guid>http://smart-e.org/blogPosts/2014-08-19-sigcomm-day1.html</guid>
+            <pubDate>Fri, 19 Jun 2015 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>Good morning Chicago. On schedule for SIGCOMM today we have a keynote, some SDN, network architecture and middleboxing. As usual, there is also a live-blog at <a href="http://layer9.org">layer9.org</a>.</p>
+<p>Best paper awards go to &quot;Balacing Accountability and Privacy in the Network&quot; and &quot;CONGA: Distributed Congestion-Aware Load Balancing for Datacenters&quot;.</p>
+<h3 id="keynote-life-in-the-fast-lane">Keynote: Life in the Fast Lane</h3>
+<p>George Varghese (Microsoft Research)</p>
+<h3 id="session-2-data-plane">Session 2: Data Plane</h3>
+<h4 id="millions-of-little-minions-using-packets-for-low-latency-network-programming-and-visibility">Millions of Little Minions: Using Packets for Low Latency Network Programming and Visibility</h4>
+<p>Vimalkumar Jeyakumar (Stanford University); Mohammad Alizadeh (Cisco); Yilong Geng (Stanford University); Changhoon Kim (Windows Azure); David Mazières (Stanford University)</p>
+<h4 id="sax-pac-scalable-and-expressive-packet-classification-">SAX-PAC (Scalable And eXpressive PAcket Classification)</h4>
+<p>Kirill Kogan …</p>
+]]></description>
+            <author>
+                <name>Andrius Aucinas</name>
+                <email>andrius.aucinas@gmail.com</email>
+                <link>http:/smart-e.org/</link>
+            </author>
+        </item>
         <item>
             <title><![CDATA[Live-blog from CoNEXT 2013 - day 2]]></title>
             <link>http://smart-e.org/blogPosts/2013-12-11-conext-day2.html</link>
