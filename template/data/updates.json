@@ -1,6 +1,11 @@
 {"updates": [
   {
-    "date": "2013-07-07",
+    "date": "2014-08-19",
+    "update": "Blog: SIGCOMM liveblogging - day 2",
+    "link": "/blogPosts/2014-08-19-sigcomm-day1.html"
+  },
+  {
+    "date": "2014-07-07",
     "update": "Our PhoneLets demo has been accepted to MobiCom '14",
     "link": "http://phonelets.smart-e.org/" 
   },

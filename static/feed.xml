@@ -4,7 +4,7 @@
         <title>Mobile, full-stack and research</title>
         <description>Occasional writings about tinkering with mobile devices and gadgets, all the way to the hardware and conference live-blogs</description>
         <link>http://smart-e.org</link>
-        <lastBuildDate>Tue, 19 Aug 2014 13:54:39 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 19 Aug 2014 18:32:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <copyright>Copyright 2014 Andrius Aucinas</copyright>
         <generator>Feed for Node.js</generator>
@@ -60,14 +60,13 @@
             <guid>http://smart-e.org/blogPosts/2014-08-19-sigcomm-day1.html</guid>
             <pubDate>Fri, 19 Jun 2015 00:00:00 GMT</pubDate>
             <description><![CDATA[<p>Good morning Chicago. On schedule for SIGCOMM today we have a keynote, some SDN, network architecture and middleboxing. As usual, there is also a live-blog at <a href="http://layer9.org">layer9.org</a>.</p>
-<p>Best paper awards go to &quot;Balacing Accountability and Privacy in the Network&quot; and &quot;CONGA: Distributed Congestion-Aware Load Balancing for Datacenters&quot;.</p>
-<h3 id="keynote-life-in-the-fast-lane">Keynote: Life in the Fast Lane</h3>
-<p>George Varghese (Microsoft Research)</p>
-<h3 id="session-2-data-plane">Session 2: Data Plane</h3>
-<h4 id="millions-of-little-minions-using-packets-for-low-latency-network-programming-and-visibility">Millions of Little Minions: Using Packets for Low Latency Network Programming and Visibility</h4>
-<p>Vimalkumar Jeyakumar (Stanford University); Mohammad Alizadeh (Cisco); Yilong Geng (Stanford University); Changhoon Kim (Windows Azure); David Mazières (Stanford University)</p>
-<h4 id="sax-pac-scalable-and-expressive-packet-classification-">SAX-PAC (Scalable And eXpressive PAcket Classification)</h4>
-<p>Kirill Kogan …</p>
+<p>All the awards first:</p>
+<ul>
+<li>Best paper awards go to &quot;Balacing Accountability and Privacy in the Network&quot; and &quot;CONGA: Distributed Congestion-Aware Load Balancing for Datacenters&quot;.</li>
+<li>Test of time awards go to &quot;Internet Congeston Control for Future High Bandwidth-Delay product environments&quot; by Dina Katabi, MArk Handley, and Charlie Rohrs and &quot;Measuring ISP Topologies for Rocketfuel&quot; by Neil Spring, Ratul Mahajan and David Wetherall.</li>
+<li>SIGOMM doctoral dissertation Award goes to Aaron Schulman on &quot;Observing and Improving the Reliability of Internet Last-mile Links&quot;.</li>
+<li>the SIGCOMM award goes to George …</li>
+</ul>
 ]]></description>
             <author>
                 <name>Andrius Aucinas</name>
