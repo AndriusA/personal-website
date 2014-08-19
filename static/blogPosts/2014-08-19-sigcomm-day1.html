@@ -184,12 +184,117 @@ Assuming:</p>
 <h3 id="session-4-middleboxes-and-network-services">Session 4: Middleboxes And Network Services</h3>
 <h4 id="a-middlebox-cooperative-tcp-for-a-non-end-to-end-internet">A Middlebox-Cooperative TCP for a non End-to-End Internet</h4>
 <p>Ryan Craven (Naval Postgraduate School); Robert Beverly (Naval Postgraduate School); Mark Allman (International Computer Science Institute)</p>
+<p><em>Across all network sizes, the number of middleboxes is on par with the number of routers</em> [SIGCOMM 11]</p>
+<p>Want to be able to detect those.</p>
+<p>Overload 3 header fields: ISN, IPID and receive window with a function (sort of checksum) of packet headers. If any one of them gets changed, can recover from the other two.</p>
+<p>Assumptions on the hash:</p>
+<ul>
+<li>only three sets of 12-bits</li>
+<li>assume o shared secret</li>
+<li>preimage and hash sent together</li>
+<li>primary goal is to reduce collisions</li>
+<li>need to reduce predictability of ISN</li>
+</ul>
+<p>vs. checksum - if checksum is invalid packet is discarded but in this case want to accept packet and hopefully infer modifications.</p>
+<p>Kernel implementation, increases mean processing time by about 10 microseconds (~8.5% of the total SYN/ACK processing time). Can mitigate with SYN cookies automatically when load gets too high.</p>
+<p>Middlebox is simulated for early eval.
+Over 26k port/path pairs across 197 ASes and 48 countries, on planetlab only. Different ports: 22, 80, 443, 34343 as well as a range of parameters in the option fields.</p>
+<p><em>Almost half of the nodes saw at least one in-path header modification and saw asymettric cases</em>.</p>
+<p>&quot;Demonstrated ease of deployment through mass Internet measurements&quot; (Kernel modifications -&gt; easily deployable?..)</p>
+<blockquote>
+<p>Q: Can you locate the middlebox/the path changing?</p>
+<p>A: Related to an idea of building a catalogue of internet paths, but the point of HICCUPS is that you can use it on any path</p>
+<p>Q: Do any middleboxes modify the winow itself?</p>
+<p>A: That did happen in very very small instances. </p>
+<p>Q: How do you know where the change happened?</p>
+<p>A: HICCUPS doesn&#39;t give you location on the path.</p>
+<p>Q: No, which part of the header?</p>
+<p>A: Details in the paper. You can choose to test (config) different sets of modifications</p>
+</blockquote>
 <h4 id="opennf-enabling-innovation-in-network-function-control">OpenNF: Enabling Innovation in Network Function Control</h4>
 <p>Aaron Gember-Jacobson (University of Wisconsin-Madison); Raajay Viswanathan (University of Wisconsin-Madison); Chaithan Prakash (University of Wisconsin-Madison); Robert Grandl (University of Wisconsin-Madison); Junaid Khalid (University of Wisconsin-Madison); Sourav Das (University of Wisconsin-Madison); Aditya Akella (University of Wisconsin-Madison)</p>
+<p>Challenges in moving/copying/sharing internal network function state:</p>
+<ul>
+<li>diverse set of functionality in enterprise networks</li>
+<li>dealing with race conditions when updating routing while packets are in flight</li>
+<li>bounding overhead, since buffering of packets is needed in the network to address race conditions</li>
+</ul>
+<p>API limited to move/copy/share state for simpicity, translated to export/import operations.</p>
+<p>State created or updates by an NF applies to either a single flow or a collction of flows. Use e.g. to move http connection and state from one instance of Bro IDS to another. </p>
+<p>Pausing traffic + buffering packets doesn&#39;t really work to provide loss-free capabilities to OpenNF. One extra API is to observe/prevent updates using events - only need to change NF&#39;s receive packet function... A packet incoming during state transition triggers an event but not full processing - events are then processed at the second instance.</p>
+<p>In some cases (e.g. Bro weird script checking handshake sequence) also need to make sure that packets arrive in the correct order. Introduce lock-step forwarding updates...</p>
+<p>Eval - modified Bro IDS, iptables, squid cache and PRADS (3-8% of extra code for each to work with openNF).</p>
+<p>Move times depend on state complexity and required guarantees but quite impressively handles hundreds of connections in a few hundred milliseconds.</p>
+<blockquote>
+<p>Q: have you looked context transfer protocol? Would allow P2P transfers, saving some resources</p>
+<p>A: that one in particular doesn&#39;t ring a bell</p>
+<p>Q: how would you contrast opennf with split/merge?</p>
+<p>A: their focus is also elastic nf scaling, but their use-case does not necessarily generalise to all cases. Loss-free &gt; guarantees is a big differences&gt; </p>
+<p>Q: how many man-hours (vs LOC) were needed? How hard is it to develop it?</p>
+<p>A: too many man-hours :) we&#39;ve looked at some tain-tracking to capture the state, but needs more work. In terms of how we &gt; should develop network functions in the future, there is potentially ways of decoupling network state and there are maybe &gt; ways &gt; of using shared memory or some other mechanisms to do it transparently&gt; </p>
+<p>Q: can you give me a sense of whether your eval packet rates are reasonable? if not, what&#39;s the failure mode?</p>
+<p>A: when you increase the packet rate, there is some increase in the transition time and potentially some packet delay</p>
+</blockquote>
 <h4 id="network-stack-specialization-for-performance">Network stack specialization for performance</h4>
-<p>Ilias Marinos (University of Cambridge); Robert N.M. Watson (University of Cambridge); Mark Handley (University College London)
-A Buffer-Based Approach to Rate Adaptation: Evidence from a Large Video Streaming Service
-Te-Yuan Huang (Stanford University); Ramesh Johari (Stanford University); Nick McKeown (Stanford University); Matthew Trunnell (Netflix); Mark Watson (Netflix)</p>
+<p>Ilias Marinos (University of Cambridge); Robert N.M. Watson (University of Cambridge); Mark Handley (University College London)</p>
+<p>Key motivation - scaling out -&gt; 1 machine running N functions to N machines running 1 function.</p>
+<p>Short flows cause high CPU load but low utilization (vs large flows the other way round). From previous work, 90% of HTTP objects are below 25 KB.</p>
+<p>Design goals:</p>
+<ul>
+<li>transparent flow of memory from NIC to the application and vice versa</li>
+<li>reduce system costs (batching, cache-lcoality, etc)</li>
+<li>explotiing application-specific knowledge to reduce repetetive processing</li>
+</ul>
+<p>Prototyped on top of FreeBSD&#39;s netmap: libnmio abstracting netmap-repated I/O, libeth for ethernet and libtcp for tcp/ip.</p>
+<p>The results are very interesting (check the paper), but I&#39;ve seen them presented during practice sessions, so just waiting for Q&amp;A now :)</p>
+<p>Q: You specialised but still kept the layering - isn&#39;t the logical conclusion to get rid of that as well?</p>
+<p>A: We used layering to imrpove reusability, e.g. between web and DNS...</p>
+<p>Q: Do your throughput gains come at the cost of latency?</p>
+<p>A: I have a slide (laptop has been replaced by the next speaker...) - no, latency decreases as well when you have more than 4 concurrent connections.</p>
+<p>Q: I was curious if you had data on how it scales to really small requests (e.g. serving SYN cookies) or just the minimal size packets in general</p>
+<p>A: No, we haven&#39;t tested that</p>
+<h4 id="a-buffer-based-approach-to-rate-adaptation-evidence-from-a-large-video-streaming-service">A Buffer-Based Approach to Rate Adaptation: Evidence from a Large Video Streaming Service</h4>
+<p>Te-Yuan Huang (Stanford University); Ramesh Johari (Stanford University); Nick McKeown (Stanford University); Matthew Trunnell (Netflix); Mark Watson (Netflix)</p>
+<p>20-30% rebuffers are unnecessary and video rates are too low, i.e. could support something higher with existing infrastructure.</p>
+<ul>
+<li>video rate is chosen too aggressively</li>
+<li>lower rate saves rebuffering</li>
+<li>and video rate is chosen too slowly</li>
+<li>higher rate improves too slowly with changing environment</li>
+</ul>
+<p>How is video rate picked? CDN simply serves a requested file and the rate selection logic is at the client:</p>
+<ul>
+<li>client estimates capacity</li>
+<li>but estimating future capacity from the past is difficult</li>
+<li>because throughput is often highly variable (34 times difference in an example case; 10% of netflix sessions experiences such variation, but the source of variation is not clear)</li>
+</ul>
+<p>Can we do better?</p>
+<ul>
+<li>simple estimation over the first few minutes when you don&#39;t have an idea about the network could be useful</li>
+<li>but avoid capacity estimation in steady-state - information is encoded in the buffer occupancy</li>
+</ul>
+<p>So how is network state encoded in the buffer occupancy? Video buffer is measured in video seconds rather than data, with different chunks of potentially different rate. Quite simply when the buffer is filling up, the rate is lower than the capacity.</p>
+<p>Verification of algorithm on netflix - 500k users over a weekend, split into three groups: default algorithm, lower-bound (lowest video rate) and the adaptive algorithm.</p>
+<p>Looking at rebuffer rates (time-series), lower-bound shows that up to 20-30% of rebuffers can be eliminated. The BBA is in betweent he old algorithm and the lower rate. Performance though is often better than the standard control algorithm.</p>
+<blockquote>
+<p>Q: you are basically doing closed-loop control, why did you not do something like a PID controller?</p>
+<p>A: various other groups have tried it, even using buffer occupancy as a secondary signal, but what we found when the capacity varies wildly it doesn&#39;t work nicely?</p>
+<p>Q: but my point is that you don&#39;t need capacity estimation with a PID estimation</p>
+<p>A: it is a more involved discussion, maybe we can take offline..</p>
+<p>Q: If you want to smooth the video rate (minimise the number of video rate changes), do you also need to consider capacity in addition to buffer</p>
+<p>A: in the paper, but the trick is fixing the shape of the decision function</p>
+<p>Q: if you look into pacing using techniques like congestion control</p>
+<p>A: focus on client-side techniques</p>
+<p>Q: variability in capacity only matters if you want to hit those peaks and you should be able to just work with a reasonable estimate. Couldn&#39;t better prediction or better control allow for a simpler scheme?</p>
+<p>A: I would argue that you don&#39;t know what rate can be sustained and that&#39;s what the buffer tells you. If you can build up some knowledge about the client&#39;s environment than you can definitely improve the algorithm</p>
+<p>Q: do you know how close do you get to the fair-share if bandwidth</p>
+<p>A: we operate on top of HTTP, so we rely on TCP&#39;s fair-share properties</p>
+<p>Q: For some users who might be willing to put up with some rebuffering in exchange to better quality, can you adapt the algorithm to allow some rebuffers to get better quality?</p>
+<p>A: I don&#39;t have a definite answer to that</p>
+<p>Q: do you have a sense of how far from optimal you are? since you can find out the optimal afterwards</p>
+<p>A: we are working on it :)</p>
+</blockquote>
+<p>Done for today, will be back tomorrow!</p>
 
 
     </div> <!-- /container -->
