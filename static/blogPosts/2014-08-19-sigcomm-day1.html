@@ -88,24 +88,99 @@
 </ul>
 <p>Eval on azure - looks good :)</p>
 <blockquote>
-<p>Q: One advantage of SMux is inspection of traffic
-A: most of the time you dont need to be aware of the content, that&#39;s a benefit of using hmux</p>
-<p>Q: how are VIP and DIP mappings changed in the setup?
-A: more details in the paper, but we used caching and modification of DIP functionality provided by the switches</p>
-<p>Q: fairness? passing via hmux via smux.
-A: haven&#39;t found a requirement for fairness. And 99% of traffic passes via hmux, so there is no unfair scheduling for smux-&gt; routed traffic even though latency is higher..</p>
+<p>Q: One advantage of SMux is inspection of traffic</p>
+<p>A: most of the time you dont need to be aware of the content, that&#39;s a benefit of using hmux</p>
+<p>Q: how are VIP and DIP mappings changed in the setup?</p>
+<p>A: more details in the paper, but we used caching and modification of DIP functionality provided by the switches</p>
+<p>Q: fairness? passing via hmux via smux.</p>
+<p>A: haven&#39;t found a requirement for fairness. And 99% of traffic passes via hmux, so there is no unfair scheduling for smux-&gt; routed traffic even though latency is higher..</p>
 </blockquote>
+<p>For other papers check layer9.org :)</p>
 <h3 id="session-3-network-architecture-1-">Session 3: Network Architecture (1)</h3>
-<h4 id="from-the-consent-of-the-routed-improving-the-transparency-of-the-rpki">From the Consent of the Routed: Improving the Transparency of the RPKI</h4>
-<p>Ethan Heilman (Boston University); Danny Cooper (Boston University); Leonid Reyzin (Boston University); Sharon Goldberg (Boston University)</p>
 <h4 id="network-neutrality-inference">Network Neutrality Inference</h4>
 <p>Zhiyong Zhang (U. of Electronic Science and Technology, China); Ovidiu Mara (EPFL); Katerina Argyraki (EPFL)</p>
-<h4 id="balancing-accountability-and-privacy-in-the-network">Balancing Accountability and Privacy in the Network</h4>
+<p>Neutrality violation should be transparent (legality is a different question). The questions:</p>
+<ul>
+<li>is it feasible to externally observe neutrality violations (not always - if and only if there exist one distinguishable virtual link in the equivalent neutral network)</li>
+<li>can they be localized?</li>
+</ul>
+<p>Rely on multiple observations from different vantage points - inconsistent properties suggest non-neutral networks. Use tomographic sequence of equations about the traffic - a neutral network will have at least one solution. Extend to a formal specification which neutrality cases are externally observable.</p>
+<p>Localization algorithm is based on time-sequences of measurements and inferring congestion probability based on the type of traffic (high vs low priority). Congestion probability is different for the types of traffic on a non-neutral path. For each link sequence it computes the &quot;gap&quot; (wasn&#39;t sure how it determines the threshold gap...) Such localization granularity on an emulator with a specific topology was 1.8 (links).</p>
+<blockquote>
+<p>Q: How does the algorithm work when you have route flapping?</p>
+<p>A: We observe over time to make this work, so route flaps would have to not occur within minutes</p>
+<p>Q: do you consider fair-queueing, which is non-neutral? If the flow rates are different, loss rates will be different</p>
+<p>A: we did not have this problem, because we were looking at the levels of congestion and congestion frequencies rather than &gt; instantaneous congestion&gt; </p>
+<p>Q: in your simulations in additional to drop-tail did you try different queueing algorithms?</p>
+<p>A: non in the paper, but now we are (e.g. RED), and it seems to work, but need more evaluation</p>
+<p>Q: where do you get the topology information from?</p>
+<p>A: standard tomography tricks, e.g. traceroute</p>
+<p>Q: is it possible to distinguish between problems due to congestion vs wireless links being bad based on time of day/weather &gt; which might correlate with the type of traffic?&gt; </p>
+<p>A: I think yes, but we haven&#39;t done the testing on such behavior, but we might have to do something extra</p>
+<p>Q: is it possible to actualy deploy it on the internet, using tools like traceroute</p>
+<p>A: I hope so, the plan is to now run on planetlab/emulab.</p>
+<p>Q: did you consider what happens when you have incomplete topology information</p>
+<p>A: as you loose granularity of topology, localization accuracy decreases...</p>
+</blockquote>
+<h4 id="balancing-accountability-and-privacy-in-the-network-best-paper-award-">Balancing Accountability and Privacy in the Network <em>Best Paper Award</em></h4>
 <p>David Naylor (Carnegie Mellon University); Matthew K. Mukerjee (Carnegie Mellon University); Peter Steenkiste (Carnegie Mellon University)</p>
-<h4 id="measuring-ipv6-adoption">Measuring IPv6 Adoption</h4>
-<p>Jakub Czyz (University of Michigan); Mark Allman (International Computer Science Institute); Jing Zhang (University of Michigan); Scott Iekel-Johnson (Arbor Networks); Eric Osterweil (Verisign Labs); Michael Bailey (University of Michigan)</p>
+<p>Operators want accountability - who sends each packet so they cans topmalicious senders. Users want to hide who sends certain packets, so they can do stuff without the whole world knowing.</p>
+<p>AIP [SIGCOMM 2008] has no privacy, requires a smart NIC, and shutoff is a stop-gap fix... Tor on the other hand has no accountability but is really heavyweight. There is nothing really in between because the source address is really overloaded - return address, accountability, id, error reporting, etc. So separate accountability and return addresses!</p>
+<p><em>Separate accountability and return addresses + delegated accountability + hidden return address = APIP.</em></p>
+<p>The network operators don&#39;t mind hiding the return address because they still have accountability.</p>
+<ul>
+<li>Sender registers with a delegate</li>
+<li>sends a brief about a packe to a delegate (brief(P)) &quot;I just sent this packet&quot;. Brief sends a hash, possibly batching fingerprints in a bloom filter.</li>
+<li>router checks with the delegate whether it vouches for the packet (verify(P)). Packet in fingerprint cache and the flow has not been shutoff by the destination</li>
+<li>receiver can send shutoff to the delegate (shutoff(P)). Delegate marks the flow as blocked and tells the router to block the flow when the router asks to vouch for it. Two differences from IP shutoff : filtering happens at router not NIC and the delegate can contact client out-of-band.</li>
+</ul>
+<p>What sort of overheads are we looking at? </p>
+<ul>
+<li>brief<ul>
+<li>storage overhead for brief (fingerprints) just under 1GB</li>
+<li>sending fingerprints 0.5%</li>
+</ul>
+</li>
+<li>verify<ul>
+<li>computational - 78k verifies per sec in their traceroute</li>
+<li>storage overhead 94MB which will easily fit within memory of a router</li>
+</ul>
+</li>
+</ul>
+<p>one trace in one network only, but looks promising..    </p>
+<p>Hiding Return Addresses - no particular mechanism required or built-in, so two very simple examples: encryption end-to-end (no protetion from the receiver or source domain as it knows who sent the packet) and address translation at the boundary of the source network (but no protection from local observer; basically NAT).</p>
+<p>In terms of deployment can either have third-party entities acting as delegates (e.g. symantec) or local networks acting as delegates for their clients. Potentially many different variations and combinations of these as well...</p>
+<blockquote>
+<p>Q: it seems like there is an easy way to get the best of both worlds. We already have protocols where you are using address translators to learn the transalted source address (e.g. STUN), so can reuse those techniques&gt; </p>
+<p>A: I&#39;m missing where the accountability comes in, so we could probably take this offline? I think this is a broader framework...</p>
+<p>Q: you started off with TOR, so I got a bit confused. I can still tell you the source and destination with traffic analysis</p>
+<p>A: we certainly don&#39;t give you the same guarantees as TOR, but the point is that you don&#39;t need such strong guaranteers for all traffic</p>
+<p>Q: is it necessary for every router on the path to verify a packet with the delegate and if not is it possible for the routers to put incorrect/malicious accountability addresses</p>
+<p>A: no, routers in the core probably wouldn&#39;t touch this (most effective when routers close to the source do). You could imagine that networks close to the edge do a good job on verification, so would end up with sampling to reduce the load. </p>
+<p>Q: how does shutoff work with transport protocols? it works in a 3-way handshake, but what about udp traffic?</p>
+<p>A: doesn&#39;t solve the ddos problem, more about accountability and being able to log and address problems afterwards, because you don&#39;t want to kill connection setup latency completely.</p>
+<p>Q: the way delegates are setup it seems like it introduces a single point of failure (the delegate) - is there any way to mitigate it?</p>
+<p>A: replicated servers, can rely on the same mecahnism with shutoffs, etc. (turtles all the way down). Discuss in the paper what is an eligible delegate</p>
+</blockquote>
 <h4 id="one-tunnel-is-often-enough">One Tunnel is (Often) Enough</h4>
 <p>Simon Peter (University of Washington); Umar Javed (University of Washington); Qiao Zhang (University of Washington); Doug Woos (University of Washington); Arvind Krishnamurthy (University of Washington); Thomas Anderson (University of Washington)</p>
+<p>5 minutes in, still don&#39;t see what problem they&#39;re trying to solve...</p>
+<p>Local problems cause global outages, so can we turn local reliability into global one?
+Assuming:</p>
+<ul>
+<li>shorter paths are more reliable than longer ones</li>
+<li>simple packet processing is feasible at high speed border routers</li>
+<li>AS graph is relatively small and stable</li>
+</ul>
+<p>ISPs offer a guaranteed QoS path across their network, a paid service akin to aws, etc. Constructing tunnels via such ISPs to an output target address. (users - enterprises/business-facing ISPs or cellular telcos).</p>
+<p>Mechanisms:</p>
+<ul>
+<li>how do you know what tunnels are available? atlas published by ISPs, user/app-specific path selection</li>
+<li>how are packets encapsulated? Additional header before the encapsulated IP header</li>
+</ul>
+<p>Packet authentication provided by ISP at setup, can be hashed with checksum of packet? Failover more lightweight than typical BGP supposedly. Have a mechanism for failure isolation...</p>
+<p>Run the system on a small ISP. Impelmentation based on BGP-max.</p>
+<p>Don&#39;t quite see how it builds up all the way to solving the stated problem.</p>
 <h3 id="session-4-middleboxes-and-network-services">Session 4: Middleboxes And Network Services</h3>
 <h4 id="a-middlebox-cooperative-tcp-for-a-non-end-to-end-internet">A Middlebox-Cooperative TCP for a non End-to-End Internet</h4>
 <p>Ryan Craven (Naval Postgraduate School); Robert Beverly (Naval Postgraduate School); Mark Allman (International Computer Science Institute)</p>
