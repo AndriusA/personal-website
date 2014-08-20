@@ -9,6 +9,8 @@ published: true
 
 Starting nice and early with the second day. Just in case you haven't noticed, papers are available during the conference from the [program webpage](http://conferences.sigcomm.org/sigcomm/2014/program.php). Perhaps unsurprisingly the hall is not very crowded this morning, but the papers look interesting.
 
+*Disclaimer:* I tend to rephrase questions/answers to either make them shorter or change them in a way I understand them, so might end up being wrong - don't take my word for it.
+
 ### Session 5: Wireless (1)
 
 #### FastForward: Fast and Constructive Full Duplex Relays
@@ -154,29 +156,252 @@ Using two ThingMagic RFID readers with 4 antennae and Alien squiggle RFID tags a
 #### Quartz: A New Design Element for Low-Latency DCNs
 Yunpeng James Liu (University of Waterloo); Peter Xiang Gao (University of California, Berkeley); Bernard Wong (University of Waterloo); S. Keshav (University of Waterloo)
 
+Only covering the Q&A:
+
+> Q: If you talk to the falks in flexi about your design about some of the similarities and differences, maybe worth doing a comparison?
+> 
+> A: I am not aware of this work, but I'm very happy to do so.
+> 
+> Q: From the point of view of practical deployment: you assume each fiber carries up to 160 wavelengths and fixed transciever. If you have a transiever failure, each running at a certain frequency, you need to have a bag of transcievers each running at a specific frequency.
+> 
+> A: Yes, but I'm not sure how high the cost would be, but it is a reasonable thing to have a bag of spare parts... Tuanble lasers is one alternative but they are also more expensive.
+>
+> Q: have you considered augenting your work onto existing interconnects, probably at a close to zero cost?
+>
+> A: we haven't looked at such augmentation, but reusing existing equipment would be beneficial
+> 
+> Q: What is the failover time if one link goes down?
+>
+> A: Haven't measured, but it depends on technology as well as one you are comparing against. But everything is static, so the same properties as normal failover with hardware failure.
+
+
 #### Using RDMA Efficiently for Key-Value Services
 Anuj Kalia (Carnegie Mellon University); Michael Kaminsky (Intel Labs); David Andersen (Carnegie Mellon University)
+
+Remote Direct Memory Access - accessing and manipulating memory of a remote machine without involving the remote CPU. Considering InfiniBand and RoCE RDMA providers in their work on key-value services.
+
+Key-value reads need at least 2 RDMA reads: to get the pointer and to get the reader. Not true if you have the values in the index, but can only do so with small and fixed-size values. We want to reduce the reads in a more general case.
+
+Approach:
+- Avoid using RDMA reads by involving the CPU in request-reply (RDMA writes are much faster than reads (?))
+- Increse throughput by low-level optimizations, e.g. with payload inlining.
+- Improve scalability using datagram transport - less state to store than TCP. (use connected transport for write from client to server and datagram for reply)
+
+Client write's its request to the server, which performs DRAM access and replies to the client with another RDMA write. Only one round-trip in total. So lower latency.
+
+Code is [online](http://github.com/efficient/HERD/)
+
+> Q: The assumption here is that index and values are on the same node? (Yes) Do you replicate the writes? (No)
+> I remember something about something that sounds like JMachine that sounds related to RDMA?..
+>
+> Q: it seems like taking CPU out of the loop gives great benefits, but you loose a lot of visibility?
+>
+> A: we do involve the CPU, the other systems don't
+>
+> Q: do you have to pin the pages to a remote memory before you start?
+>
+> A: our system requires a small (16KB) memory to be pinned initially, but nothing else
+>
+> Q: It would not work for large pages, because the NIC can't cache the mappings?
+>
+> A: it works well with huge pages in our experienes
+>
+> Q: could you tell us about how server cpu utilizatio changes... With plaf (?) they only require one core though?
+>
+> A: in our tests we used 6 out of 8 cores and could go lower. But in our experiene you need at least 5 cores to handle 20M fops
+
 
 #### FastPass: A Zero-Queue Datacenter Network Architecture
 Jonathan Perry (MIT); Amy Ousterhout (MIT); Hari Balakrishnan (MIT); Devavrat Shah (MIT); Hans Fugal (Facebook)
 
-#### FireFly: A Reconfigurable Wireless Datacenter Fabric using Free-Space Optics
-Navid Hamedazimi (Stony Brook University); Zafar Ayyub Qazi (Stony Brook University); Himanshu Gupta (Stony Brook University); Samir R Das (Stony Brook University); Vyas Sekar (Carnegie Mellon); Jon P Longtin (Stony Brook University); Himanshu Shah (SBU); Ashish Tanwer (SBU);
+In an idealized network want:
+- Burst Control
+- Low tail latency
+- Multiple Objectives based on application
+
+With fastpass use a centralized arbiter schedules and assigns paths to all packets. concerns:
+- Too much latency on a data path
+- Scaling
+- Single point of failure
+
+Arbiter chooses a path for a packet so that no queueing occurs... So introduce latency for each packet to negotiate a path, but then there is no queueing...
+
+Timeslot allocation is a maximal matching problem between (source, destination) and timeslot. Fast and easy, but how do you support different objectives (e.g. minimum flow completion time)?...
+
+*were able to arbiter over 5Tb/s of traffic on 4 cores*
+
+Fault tolerance ahieved by using multiple arbiters but only the primary one responding. If the primary doesn't respond for a few times, switch to another arbiter. If both fail, fall back to a lower-priority TCP?
+
+Experiments on Facebook - fastpass is able to reduce queue occupancy from over 4 MB to 18 KB. Also allocates more equal shares of the bandwidth to different connections than TCP.
+
+Code available.
+
+> Q: You choose maximal as opposed to maximum to facilitate pipelining
+>
+> A: having a more optimal algorithm would be more expensive
+>
+> Q: How do you schedule packets to the arbiter?
+>
+> A: these are tiny packets, so you have to provision the arbiter to handle sufficient load, so arbiter would have to have a link to the network for every ~300 clients it is serving... We over-provision the arbiter slightly, but because the packets are so small you can set very aggressive timeouts.
+>
+> Q: (followup comment, Keshav) you need to use ATM :)
+> 
+> Q: when you compare against DCTCP? (didn't hear the second part of the question)
+>
+> A: DCTCP doesn't solve all the problems with large queues or different objectives for different flows, etc. Also from conversations with devs, they prefer paying with mean latency for reduced tail latency...
+>
+> Q: can you undo scheduling decisions if things change?
+>
+> A: we haven't observed objectives that need breaking of the scheduling pipeline. 
+
+
+... skipped taking notes for one paper...
+
 
 #### A "Hitchhiker's" Guide to Fast and Efficient Data Reconstruction in Erasure-coded Data Centers
 K. V. Rashmi (UC Berkeley); Nihar B. Shah (UC Berkeley); Dikang Gu (Facebook Inc.); Hairong Kuang (Facebook Inc.); Dhruba Borthakur (Facebook Inc.); Kannan Ramchandran (UC Berkeley)
 
+(I will use the opportunity to advertise related work from Cambridge in HotNets '13 that is worth reading - [Trevi](http://anil.recoil.org/papers/2013-hotnets-trevi.pdf) )
+
+Using errasure codes with HDFS (HDFS-RAID). (10, 4) Reed-Solomon code to replace simple replication.
+
+The good and the bad with Reed-Solomon:
+- they are optimal for a given storage overhead
+- support any number of data and parity blocks
+- they were designed for point-to-point applications, hence result in large amount of data transfers (on the order of x10)
+
+The goal is hence to use the benefits and reduce the drawbacks - Hitchiker reduces network transfers by 25%-40%.
+
+Algorithm details are a bit complicated to take notes on, but definitely worth checking out in the paper.
+
+Contrasting R-S and hitchiker from network perspective, in an example case need 6.5 blocks from 11 machines, vs 11 blocks from 13 machines with R-S. Also offers 36% reduction in decoding time on a real production network. Read and transfer time was 30% lower (depending on block size). Encoding cost was 75% higher with hitchiker though, so appropriate for read-heavy workloads.
+
+Apparently already used in Facebook warehouse cluster in production.
+
+> Q: wondering why you decided to use Reed-Solomon instead of something like fountain codes?
+>
+> A: (didn't hear the answer)
+>
+> Q: impact on load balancing? All requests would be directed to a single machine?
+>
+> A: connecting to more machines and fetching smaller amount of data than R-S, so load-balances better.
+>
+> Q: you were trying to do erasure coding without considering the failures in the cluster, so why not optimize errasure code for the statistics of failures?
+>
+> A: with respect to fault tolerance you need to ensure data is not lost and reconstruction is a slightly different scenario
+>
+> Q: but you could have non-uniform erasure coding depending on a scenario?
+>
+> A: if you want to have optimal usage of storage space you can't do better than R-S codes. In terms of time you could do better?
+>
+> Q: the code that you are using is not very well suited on being run on processors, but rather shift-registers, and there are definitely other codes that offer 1/10th of encoding/decoding time for other cases.
+>
+> A: (missed again)
+>
+> Q: is there a theoretical bound on the number of transfers you have?
+>
+> A: there is a lot of theoretical work, but in terms of the practical constructions require practical bounds, e.g. 1.4x overheads rather than 2x
 
 ### Session 8: Network Architecture (2)
-
-#### *Best of CCR*: Bridging the Gap between Internet Standardization and Networking Research
-Aaron Yi Ding (University of Cambridge), Jouni Korhonen (Broadcom), Teemu Savolainen (Nokia), Markku Kojo (Helsinki Institute for Information Technology), Joerg Ott (Aalto University), Sasu Tarkoma (University of Helsinki), Jon Crowcroft (University of Cambridge)
 
 #### A Global Name Service for a Highly Mobile Internet
 Abhigyan Sharma (University of Massachusetts Amherst); Xiaozheng Tie (University of Massachusetts Amherst); Hardeep Uppal (University of Massachusetts Amherst); Arun Venkataramani (University of Massachusetts Amherst); David Westbrook (University of Massachusetts Amherst); Aditya Yadav (University of Massachusetts Amherst)
 
+Mobile arrived, but Internet unmoved :)
+- unidirectional communication initiation
+- redundant mobility support
+- ungraceful disruptions
+
+The problem is architectural - conflation of location and identity... DNS is supposedly too slow.
+
+A bunch of DNS limitations (caching, static placement, structured names) that you may or may not agree with (my opinion).
+
+Sorry, disagree with too many details and the many problems with mobility are not really addressed (unidirectional communication, still using socket APIs tied to IP which break when nodes migrate, etc.). Waiting for Q&A now.
+
+IMO a fair bit of related work on proactive DNS caching, zero-TTL records, etc. Of course, this is a different approach of doing things, but could make the usual argument of redesigning vs improving.
+
+> Q: Have you thought at all whether it is susceptible to DoS/dDoS attacks?
+> 
+> A: It is geo-distributed, massively scalable infrastucture so I'd like to think that there is no single point of failure and you can always do replication... Similar to what a CDN would do
+
+
 #### Towards a Quantitative Comparison of the Cost-Benefit Trade-offs of Location-Independent Network Architectures
 Zhaoyu Gao (University of Massachusetts Amherst); Arun Venkataramani (University of Massachusetts Amherst); Jim Kurose (University of Massachusetts Amherst); Simon Heimlicher (University of Massachusetts Amherst)
 
+Various location-independent network architectures have been proposed... Most approaches for handling mobility boils down to: if A suddenly moves, how does B move the first message to A? three main approaches:
+- indirection routing, where A has a home agent and informs it via a foreign agent whenever it moves (gsm, mobile IP, etc). But indirection entails data path stretch.
+- Name-to-address resolution. Lookup/update overhead
+- Name-based routing - difficult to implement well in practice. Whatt's the update cost, FIB size, path stretch? *Focus of the talk.*
+
+Content mobility update cost is based on changing the best-port on a router (Whether or not it changes). The same works for IP-based or content-based routing. Changes with multi-homed content (multi-port updates, whether or not the set changes).
+
+Empirical eval to quantify these metrics: mobility workload and topology and routing policy.
+- Device mobility (couldn't find any public trace of network mobility, not physical) - developed an app to collect it from volunteers, 372+ users over 14+ months. Monitors changing network address and shows on the map just because it seems interesting to people. The goal is timestamps with IP.
+- Content mobility - alexa top-1M domains, from a bunch of nodes, combining over time for a list of all IP addresses and them changing over time
+- For routing running the mobility workload through RIPE route information bases to obtain forwarding table
+
+High device mobility turns out to be the norm, not exception - number of transitions per day is up to >=10 IP addresses per day for 20% of users. What fraction of mobility events will be affected then? Up to 14% of events may affect certain routers, although depends on location. Works out to 2B mobile devices, 7 updates/day -> 4.8K updates/sec at some routers (doesn't look too bad actually).
+
+For content mobility it is a lot better, but still high, mostly because the top pages delegate content delivery to CDNs.. If you go further down the long tail, the cost tends towards zero.
+
+Takeway: mobility is the norm. Update cost of name-based routing is high for devices (might want to use something like GNS, the previous talk), but update cost of name-based routing small for content.
+
+> Q: Are you assuming 1-to-1 correspondence of a name to a node?
+>
+> A: In name-based routing yes
+>
+> Q: So I'm asking because some of the proptotypes you've mentioned don't assume it.
+>
+> A: Multi-port forwarding both for content and for device considers that
+>
+> Q: I'm a little bit concerned about the result with the number of changes during the day - you get a new address whenever you connect to a new WiFi AP but it is not necessarily working. Does not necessarily mean you had to change the route.
+>
+> A: Whether or not it was necessary to change route was calculated in our tests
+
 #### Lightweight Source Authentication and Path Validation
 Tiffany Hyun-Jin Kim (Carnegie Mellon University); Cristina Basescu (ETH Zurich); Limin Jia (Carnegie Mellon University); Soo Bum Lee (Qualcomm); Yih-Chun Hu (UIUC); Adrian Perrig (ETH Zurich)
+
+Limited control of paths means potentially diverted traffic, leaking data, fictitious premium path usage, etc. Current Internet does not provide path validation or source authentication.
+
+Trying to detect *coward routers* (behave when they know they are being monitored) - Retroactive-OPT.
+- No key setup before packet forwarding
+- only when suspected misbehaviour
+- routers commit some value during forwarding
+- reveal keys use for the commitment later
+- wrong key or incorrect commitment -> misbehavior
+
+Source selects a set of parameters that other routers use for key setup, puts them in packet header + local secret in memory to derive the key. Each OPT downstream node derives a key using parameters in the header and local secret in memory, committing a path verification field (PVF) with 1 MAC operation. The intermediary router then forwards the MAC with PVG to the next router along with the parameter. The key can then be dynamically recreated for previous packets (but routers don't store any keys, only a single global secret value) when path needs to be validated.
+
+Paper discusses all three OPT variations (main difference setting up keys in advance):
+- retroactive
+- OPT
+- extended
+
+Went through a formal analysis to prove that OPT can defend against a number of attacks - packet alteration, path deviation, coward attacks and state-exhaustion DoS attacks.
+
+OPT seems to provide fairly good performance comapred to ICING (I was a little slow to catch the details). OVerall minimal storage and computational overheads on routers regardless of path length.
+
+> Q: Can you clarify your attacker model? What happens if intermediate routers drop particular packets that do the validation?
+>
+> A: All we consider if the packet followed the intended path, so the attacker model is different.
+>
+> Q: But if attacker drops the packets for valdiation/key setup part is dropped, what happens?
+>
+> A: routers can only derive keys based on the parameters, but that's a very good question. One thing to notice is that we don't necessarily have to consider each individual router, so can select a set of stable routers on a stable path...
+>
+> Q: Does it somehow scale to an AS-level granularity?
+>
+> A: can be considered for any entities that are interested in performing the OPT model?
+>
+> Q: how would the keys be distributed
+>
+> A: can rely on RPKI
+
+
+Done for today! Announcements, community feedback session and will be back tomorrow!
+
+
+
+
+
+
