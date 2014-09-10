@@ -1,0 +1,222 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Andrius Aucinas </title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+    <!-- Custom styles for this template -->
+    <link href="/theme.css" rel="stylesheet">
+    <link href="/skin-green.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:400,700|Open+Sans:400,700">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body role="document">
+
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-static-top navbar-default" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Andrius Aucinas</a>
+        </div>
+        <div class="navbar-collapse collapse navbar-responsive-collapse">
+          <ul class="nav navbar-nav pull-right">
+            <li><a href="/blog.html">Blog</a></li>
+            <li><a href="/research.html">Research</a></li>
+            <li><a href="/projects.html">Projects</a></li>
+            <li><a href="/resume.html">Resume</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <div id="wrap">
+    <div id="main" class="container container-fluid-kamn" role="main">
+
+
+  <h2>Live-blog from MobiCom 2014 - day 1</h2>
+  <h4>2014-9-8 8:30 ( MobiCom )</h4>
+
+  <p>Kicking MobiCom off with an award to Leonard Kleinrock for outstanding contributions.</p>
+<p>Next is a keynote <em>From grad school, to startup to acquisition</em> by Sanjit Biswas, CEO Meraki, followed by a panel on <em>Tackling Societal Grand Challenges with Mobile Computing</em>.</p>
+<p>There is also the official MobiCom <a href="https://mobicom2014.wordpress.com/">blog</a>, which covers a different set of events (or with a better quality writing!).</p>
+<h3 id="keynote">Keynote</h3>
+<p>A really great keynote on starting and bootstrapping Meraki. A bit of an unusual research to startup transition, really started after giving a talk to Google and getting an pre-order for 1000 units of a wireless mesh router at $250 each. Hardware manufacturing turned out to be not that difficult once you have a number of units you already need - started off with just a very basic product.</p>
+<p>The beta units were priced at a very low $49 instead, together with a dashboard. Shipped over 1000 networks (multiple devices) over the next couple of months, all over the world. And already slightly cash positive without any outside money. That was the end of their PhDs and the real start for Meraki.</p>
+<p>Built 20-25 products, changing direction often and easily, but the core team was the most important part. Having the VC money in the bank, started experimenting with business models around 2007:</p>
+<ul>
+<li>connecting the next billion with $1/month access</li>
+<li>New hardware platforms for solar and apartment deployment</li>
+<li>municipal-scale outdoor wifi (e.g. give away devices for free to seed the network in SF)</li>
+<li>ad-supported WiFi with local advertising</li>
+</ul>
+<p>Things going great, revenues growing fast... The sales pipeline started becoming very interesting - carriers started approaching them. 2008 hit pretty bad, but 2009 saw changing marked dynamics - started looking at enterprise networks and iPhones were forcing IT to offer guest wireless. Added VLAN support, directory services integration, 802.11n, changed price point to $1000 per access point and things really took off.</p>
+<p>Explosive growth, scaling operations becomes difficult - acquisition/merger by cisco</p>
+<blockquote>
+<p>Q: clearly there were many points were potentially you could have failed. Many people think &quot;what if I fail?&quot;, so what is the worst thing that could have happened?</p>
+<p>A: Especially for people who have a lot of choices... But everyone appreciates that the success rates are low, and that people doing startups are very flexible, so the safety net is that you are immensely hireable even if things fail.</p>
+<p>Q: How difficult was it to negotiate with all the different parties to transfer all the IP into a business when starting off? How did investors feel about the level of protection?</p>
+<p>A: Our situation was great in MIT, the licensing allowed us to just use it and the research was already in public domain. BSD and MIT type licenses allow you to fork off a commercial product, unlike GPL..</p>
+<p>Q: How did you transition from research into actual management?</p>
+<p>A: Basically things have to be done and people just do it if you have a good team.</p>
+<p>Q: Investment chouce: angels vs VCs?</p>
+<p>A: Did a lot of reference checking, talked to people who have made transitions, how easy it is to work with them. Sequoia did not offer the best deal, but they had the best reputation for our type of business. Seed vs Series A has a big gap in funding and angels are very useful for introductions, etc.</p>
+<p>Q: Do you think you have actually made big changes in the enterprise network?</p>
+<p>A: We grew up in the days of the web, and that was deeply within the way we operated, and within CISCO we could serve many of the clients that were not served by CISCO&#39;s sales pipeline</p>
+<p>Q: How do you motivate students to stay in grand school when they have an opportunity like this?</p>
+<p>A: Many of the people we worked with did not actaully drop out. The stakes are pretty high if you are aiming for an academic career. But you should only do it if you are really compelled by the idea - talk to your supervisor on mitigating the risks.</p>
+<p>Q: Technical - is mesh still a viable option or is it now pretty much dead?</p>
+<p>A: Mesh in the way we were hooked into in research did not take off, but there are many cases where it might make more sense, such as various sensors - there are certainly other applications, perhaps more embedded. An example is Sonos speakers, who actually run mesh.</p>
+<p>Q: You decided not to finish your PhD... Now you have other choices - what are the regrets and what is next?</p>
+<p>A: Can&#39;t think og anything specific as deep regrets. For example the solar-powered unit had a lot of engineering put into it, ended up selling ~10 units. So could have saved a year or two in the process. But overall no big regrets.</p>
+</blockquote>
+<h3 id="paper-session-1-the-newer-frequency-bands">Paper Session #1: The Newer Frequency Bands</h3>
+<h4 id="demystifying-60ghz-outdoor-picocells">Demystifying 60GHz Outdoor Picocells</h4>
+<p>Yibo Zhu (UCSB); Zengbin Zhang (UCSB); Zhinous Marzi (UCSB); Chris Nelson (UCSB); Upamanyu Madhow (UCSB); Ben Y. Zhao (UCSB); Haitao Zheng (UCSB) </p>
+<p>Scaling up the networks with the growing demand is extremely difficult, so exploring other approaches. 60 GHz spectrum is one option.</p>
+<p>As far as I can tell a purely theoretical consideration of using 60GHz frequencies. Short range (if compliant with FCC power budget), blockage by people, adaptation to mobility (beam forming + realigning the beams), interference... On the other hand, haven&#39;t seen anyone else trying to use this frequency, so great in that sense!</p>
+<blockquote>
+<p>Q: Can I just go and buy the radio arrays?</p>
+<p>A: Yes, widely available</p>
+<p>Q: What kind of OS/drivers you used for the experimental platform?</p>
+<p>A: The Wilocity (?) testbed has only windows drivers, but the SDR system exposes information to any controlling OS</p>
+<p>Q: Didn&#39;t get the stuff about multiple clients? How many clients can you support by one basestation?</p>
+<p>A: Using individual arrays to create individual highly directional beams for each user. In the simulation we show that you can support up to 100 users from one such basestation.</p>
+<p>(couldn&#39;t quite grasp a couple of Q/A...)</p>
+<p>Q: (Victor Bahl) Don&#39;t know what I&#39;ve learned here tbh - simulations are well known, the hardware and the deployment is extremely well known, so tell me one insight...</p>
+<p>A: Very good question... Motivation is that if we can make it happen, it has great potential. There are so many exciting research directions onwards... Maybe we can talk offline...</p>
+<p>Session Chair: please no such questions...</p>
+</blockquote>
+<h4 id="a-vehicle-based-measurement-framework-for-enhancing-whitespace-spectrum-databases">A Vehicle-based Measurement Framework for Enhancing Whitespace Spectrum Databases</h4>
+<p>Tan Zhang (Wisconsin-Madison); Ning Leng (Wisconsin-Madison); Suman Banerjee (Wisconsin-Madison) </p>
+<p>Need a database of licensed/unlicensed device usage, channel quality, etc.. Build a &#39;wardriving&#39; platform to piggyback on public transport to capture the data.</p>
+<p>An interesting model on predicting leakage of TV broadcast.</p>
+<p>To localize TV-ban devices use path loss trend, but it has a lot of environmental variation. So split up the space into sectors to improve the measurements for the cases for sectors with little interference. Seem to be able to achieve 16-27m location error.</p>
+<blockquote>
+<p>Q: does the TV db extended above the ground level? Have you considered it?</p>
+<p>A: the db has considered it, but it does not have any such measurements, could be future work.</p>
+<p>Q: we&#39;re tv whitespace device manufacturers. Every time we deploy we see the same problem: go to a database, see a lot of inaccuracy and they change over time, so we should probably stop treating it as just busy or free and instead try to build something more dynamic</p>
+<p>A: We are trying to build ways of reporting and seeing current channel information as part of our future work</p>
+<p>Q: What&#39;s your main contribution in this paper?</p>
+<p>A: two points: nobody knows the actual performance of the commercial DBs and we use the measurements not only to improve the databases, but we also add aditional functionality such as estimating noise floor and location tracking of devices.</p>
+</blockquote>
+<h4 id="the-case-for-uhf-band-mu-mimo">The Case for UHF-Band MU-MIMO</h4>
+<p>Narendra Anand (Rice); Ryan E. Guerra (Rice); Edward W. Knightly (Rice)</p>
+<p>MU-MIMO transmission procedure is sound&amp;transmit. Channel sounding is requires a transmitter to measure the channel between itself and its receivers. </p>
+<p>Various considerations of using UHF: less reflection (e.g. off walls), variability (how much does it change between sounding and transmission for example). UHF MU_MIMO users are much harder to separate than 5GHz, but channels have an order of magnitude less variability.</p>
+<p>Building an UHF MU-MIMO turns out to be quite difficult purely because of the physical size.. Designed and built Wideband UHF Radio Card (WURC), compatible with SDR (demoed tomorrow at MobiCom).</p>
+<p>Nice performance eval in a few environments - check the <a href="http://dl.acm.org/authorize?N87305">paper</a>.</p>
+<p>In an indoor scenario separability turns out to be similar to 2.4GHz indoors, but very different outdoors - more environment than channel dependent. Channel variability is band dependent though.</p>
+<p>The channel variability stays low even at 802.11 beacon interval. Sounding has pretty high overheads - e.g. use 500us for sounding and 1300us for transmission, so low variability is really necessary to reduce the overheads.</p>
+<blockquote>
+<p>Q: The key thing is really the size of antennae, so just feedback: indoors there is an interesting tradeoff with losing some of the gain of large antennae and the size</p>
+<p>A: indoors the distances are so much smaller that it could still work even with the gain loss</p>
+</blockquote>
+<h4 id="enhancing-reliability-to-boost-the-throughput-over-screen-camera-links">Enhancing Reliability to Boost the Throughput over Screen-Camera Links</h4>
+<p>Anran Wang (SKLSDE Lab, Beihang Univ., China); Shuai Ma (SKLSDE Lab, Beihang Univ., China); Chunming Hu (SKLSDE Lab, Beihang Univ., China); Jinpeng Huai (SKLSDE Lab, Beihang Univ., China); Chunyi Peng (OSU); Guobin Shen (MSR China) </p>
+<p>Proposing RDCode - robust dynamic barcode with a packet-frame-block structure, using visual light communication (light -&gt; camera).</p>
+<p>Bit error rate really depends on the block within a captured frame, so use reed-solomon codes for adaptive error correction. Overall error correction intra-blocks, inter-blocks and inter-frames.</p>
+<p>Eval indoors, compared against COBRA: reduces bit-error rate and increases bandwidth, hence higher throughput and goodput (in the order of 20 KB/s!).</p>
+<blockquote>
+<p>Q: How do you synchronize transmitter and receiver?</p>
+<p>A: We don&#39;t, achieve this with error correction</p>
+</blockquote>
+<p>Breaking for <em>Experience and Wisdom meets Youth and Stamina Luncheon</em>. Interestingly enough, sessions will continue from 8PM local time (GMT -10)...</p>
+<h3 id="paper-session-2-emerging-communication-systems">Paper Session #2: Emerging Communication Systems</h3>
+<h4 id="enabling-instantaneous-feedback-with-full-duplex-backscatter">Enabling Instantaneous Feedback with Full-Duplex Backscatter</h4>
+<p>Vincent Liu (UWash); Vamsi Talla (UWash); Shyamnath Gollakota (UWash) </p>
+<p>Great piece of work - already wrote about it at SIGCOMM (well, different aspect of the system, not the instantaneous feedback). Essentially can&#39;t hear anything while transmitting, partial solution is to use phase modulation instead of amplitude modulation. Combine with filtering to reduce noise - one end removes interference with low-pass filter and the other - high-pass (not sure about the details).</p>
+<p>Reliability is difficult with backscattering, so acknowledge data at bit level. Receiver returns a checksum of each chunk, sender verifies checksum. The scheme has &gt;90% decrease in overhead.</p>
+<blockquote>
+<p>Q: I wonder how will this work in practice? With multiple tags, a lot of things reflecting signals?</p>
+<p>A: We actually saw some of that... We tested reasonable scenarios, various distances, moving around, etc. The only case when our system did not work was when you were touching the tag...</p>
+<p>Q: Have you thought about specific applications with different guarantees?</p>
+<p>A: You&#39;d still get a big benefit from this...</p>
+</blockquote>
+<h4 id="strata-layered-coding-for-scalable-visual-communications">Strata: Layered Coding for Scalable Visual Communications</h4>
+<p>Wenjun Hu (Yale); Jingshu Mao (Peking); Zihui Huang (Peking); Yiqing Xue (Peking); Junfeng She (Peking); Kaigui Bian (Peking); Guobin Shen (MSR)</p>
+<p>Can encode information at different <em>layers</em> (e.g. resolution of an image) visually, but a big problem for encoding a sufficient amount of information is receiver capabilities. Focusing on smartphones, they have different sensors, hence need to incorporate spacial and temporal component into the design of coding... Also features such as auto-focus, exposure, contrast, etc.</p>
+<p>(Wenjun already presented a variation of the work in Cambridge - great work and recommended to read the paper).</p>
+<p>One of the key details of the design is that even though the layer structure is interdepedent, the actual information encoded in each layer is not, hence giving greater flexibility. Combines nicely with capturing at different conditions - end up with the different layers. Loads of design choices though: reserved block size, branching factor, etc.</p>
+<blockquote>
+<p>Q: What&#39;s the useful range of the approach? E.g. in some case cases you might be so far away you won&#39;t be able to lock onto the code while in others camera resolution limits the fidelity...</p>
+<p>A: not specifically, but could use from about 20cm to whatever the size you can print at to be visible...</p>
+<p>Q: Considered using colors, RGB?</p>
+<p>A: colors don&#39;t give you different behavior over distance...</p>
+</blockquote>
+<p>Very short Q&amp;As this session...</p>
+<h3 id="paper-session-3-physical-analytics">Paper Session #3: Physical Analytics</h3>
+<h4 id="wireless-barcodes-for-tagging-infrastructure">Wireless Barcodes for Tagging Infrastructure</h4>
+<p>Farnoosh Moshir (Portland State University); Suresh Singh (Portland State University) </p>
+<p>Build wireless tags into infrastructure, use time difference of arrival of the signals to encode data. Challenges then are:</p>
+<ul>
+<li>good separation in time between signals</li>
+<li>roughness of the surface affects signal due to reflections</li>
+<li>need to detect symbol boundaries</li>
+</ul>
+<p>Simulation based eval... But also built prototype with an eval of different wear and tear. Couldn&#39;t see/catch the details on performance.</p>
+<p>Q&amp;A basically just about the way they evaluated the resilience of the tag to physical damage/environment...</p>
+<p><em>On a final note, whoever came up with the idea of having technical sessions at 8AM AND 10PM on the same day should not be allowed to sleep for a week...</em></p>
+
+
+    </div> <!-- /container -->
+    </div> <!-- /wrap -->
+
+    <!-- Begin .site-footer -->
+  <footer id="footer" class="site-footer">
+    
+    <div class="footer-copyright">&copy; 2014 - Andrius Aucinas</div>
+    <div>
+      <ul class="list-unstyled list-inline">
+<li>
+  <a href="https://twitter.com/AndriusAuc" target="_blank" title="Twitter" ><i class="sprite sprite-twitter"></i></a>
+</li>
+<li>
+  <a href="https://github.com/AndriusA" target="_blank" title="Github"><i class="sprite sprite-github"></i></a>
+</li>
+<li>
+  <a href="https://uk.linkedin.com/in/andriusaucinas" target="_blank" title="LinkedIn"><i class="sprite sprite-linkedin"></i></a>
+</li>
+</ul>
+    </div>
+    <div>Page last updated 10 September 2014</div>
+  
+  </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="/js/script.js"></script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-44468553-1', 'auto');
+      ga('require', 'displayfeatures');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

@@ -1,5 +1,20 @@
 {"updates": [
   {
+    "date": "2014-09-10",
+    "update": "Blog: MobiCom liveblogging - day 3",
+    "link": "/blogPosts/2014-09-10-mobicom-day3.html" 
+  },
+  {
+    "date": "2014-09-09",
+    "update": "Blog: MobiCom liveblogging - day 2",
+    "link": "/blogPosts/2014-09-09-mobicom-day2.html" 
+  },
+  {
+    "date": "2014-09-08",
+    "update": "Blog: MobiCom liveblogging - day 1",
+    "link": "/blogPosts/2014-09-08-mobicom-day1.html"
+  },
+  {
     "date": "2014-08-19",
     "update": "Blog: SIGCOMM liveblogging - day 3",
     "link": "/blogPosts/2014-08-21-sigcomm-day3.html"

@@ -2,7 +2,7 @@
 title: "Live-blog from SIGCOMM 2014 - day 3"
 description: "The flagship annual conference of the ACM Special Interest Group on Data Communication (SIGCOMM) on the applications, technologies, architectures, and protocols for computer communication"
 tags: [SIGCOMM]
-date: 2014-18-21 10:30
+date: 2014-8-21 10:30
 categories: [conferences]
 published: true
 ---
