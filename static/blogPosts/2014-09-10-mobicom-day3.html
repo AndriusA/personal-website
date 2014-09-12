@@ -63,39 +63,173 @@
 <h3 id="paper-session-7-positioning-and-navigating-behind-the-doors">Paper Session #7: Positioning and Navigating behind the Doors</h3>
 <h4 id="luxapose-indoor-positioning-with-mobile-phones-and-visible-light">Luxapose: Indoor Positioning with Mobile Phones and Visible Light</h4>
 <p>Ye-Sheng Kuo (UMich); Pat Pannuto (UMich); Ko-Jen Hsiao (UMich); Prabal Dutta (UMich)</p>
+<blockquote>
+<p>Q: how does location accuracy deterioriate outside the immediate area covered by the lights (directly below)</p>
+<p>A: haven&#39;t tested it, but it will decrease of course</p>
+<p>Q: how dense should the LED lights be in the ceiling? How does that compare to current deployments?</p>
+<p>A: Our paper discusses the problem and I don&#39;t have the number on the top of my head, but possibly too high for many commercial deployments. But localization with this approach is very efficient so may be worth it</p>
+<p>Q: Given that you rely on different frequencies of light flickering, how many different combinations can you possibly have?</p>
+<p>A: Could do alternating frequencies to increase the number of combinations, but a single static video would not be sufficient - need to do processing over an image</p>
+</blockquote>
 <h4 id="experiencing-and-handling-the-nonuniform-data-density-and-environment-diversities-in-indoor-positioning-service">Experiencing and Handling The Nonuniform Data Density and Environment Diversities in Indoor Positioning Service</h4>
 <p>Liqun Li (MSR); Guobin Shen (MSR); Chunshui Zhao (MSR); Thomas Moscibroda (MSR); Jyh-Han Lin (Microsoft); Feng Zhao (MSR) </p>
+<p>Trying to evaluate different localization techniques given a certain database of measurements and environments.</p>
+<p>For microbenchmarking, compare EZPerfect and RADAR</p>
+<ul>
+<li>Data density matter: fingerprint- and model-based approaches are more suitable for different densities - EZPerfect better for sparse databases and vice versa</li>
+<li>local area exhibits similar fitness errors for environmental locality</li>
+</ul>
+<p>The opportunities are:</p>
+<ul>
+<li>automatically adapt to training data density, maybe be altered over time</li>
+<li>automatically explore the enviormental locality</li>
+</ul>
+<p>Eval of the proposed algorithm (Modellet) tweaks in 13 large malls</p>
+<ul>
+<li>Virtual fingerprint density can eliminate the robustness of fingerprint matching, in a particular case 5m density performs the best</li>
+<li>Modellet outperforms EZPerfect and Radar in all tests</li>
+<li>Location error tends to be between about 10 and 30 meters</li>
+</ul>
+<blockquote>
+<p>Couldn&#39;t really hear the question/answer</p>
+</blockquote>
 <h4 id="travi-navi-self-deployable-indoor-navigation-system">Travi-Navi: Self-deployable Indoor Navigation System</h4>
 <p>Yuanqing Zheng (NTU, MSR); Guobin Shen (MSR); Liqun Li (MSR); Chunshui Zhao (MSR); Mo Li (NTU); Feng Zhao (MSR) </p>
+<p>Localization systems are difficult to deploy, collect data and lack the incentives and/or compelling applications...</p>
+<p>Focusing on self-motivated users - shop owners and early customers.</p>
+<p>Vision based approach - capture images along a path and guide the user by showing him pictures of the directions.</p>
+<p>Very clever sensor fusion to improve image quality while walking - accelerometer, gyro, etc.</p>
+<p>There are still many redundant images, e.g. would want to send fewer images on straight pathways to the backend for storage and processing.</p>
+<p>Correct and timely direction still difficult - need to quickly track the user - step detection and heading direction (again sensor fusion of gyro, accel and compass). Do a particle filter on those. Errors accumulate, so also use WiFi signals for recalibrating.</p>
+<p>To increase coverage identify overlaps and crossovers of the paths - sounds neat!</p>
+<blockquote>
+<p>Q: What are the incentives for the guides in this system?</p>
+<p>A: We mainly rely on shop owners to do this</p>
+<p>Q: You talk on how to identify a cross point and only rely on WiFi signal - would that also depend on AP deployment, e.g. the V-shaped signal strength curve may not always be available..</p>
+<p>A: From the experiments we have always seen this shape</p>
+</blockquote>
 <h4 id="accurate-indoor-localization-with-zero-start-up-cost">Accurate Indoor Localization With Zero Start-up Cost</h4>
 <p>Swarun Kumar (MIT); Stephanie Gil (MIT); Dina Katabi (MIT); Daniela Rus (MIT) </p>
+<p>Ubicarse - tens of cm localization accuracy on commercial tablet. Instead of using an antennae array for localization (not available), move the device around and use the circular trajectory measurements as an array.</p>
+<p>For SAR based systems trajectories need to be perfectly circular - not the case when a user is moving a device in her hand, need to transform the recorded trajectory into a perfect circle. Solution - use the relative trajectories between two antennas and look at trajectory of one antenna from the frame of reference of the other one.</p>
+<p>Also prove that SAR on relative trajectories of 2 antennas is equivalent to a circular SAR array!</p>
+<p>Experimental results in a large MIT library with 5 APs</p>
+<ul>
+<li>median accuracy 25cm</li>
+<li>two-antenna array ~7m</li>
+</ul>
+<blockquote>
+<p>Q: you still do need location of access points? You developed the system for a tablet, how does it work on smartphones?</p>
+<p>A: no (didn&#39;t get why). We are porting implementation to smartphones, but you need access to the WiFi chipset so it is somewhat difficult</p>
+<p>Q: Moving further, how to make it work more naturally, e.g. </p>
+<p>A: currently in future work!</p>
+<p>Q: In array antennas you get the signal received at the same time while here you have the time difference as well</p>
+<p>A: yes, that&#39;s where all the maths comes in</p>
+<p>Q: yes but what if the wireless signal fluctuates over that interval of time?</p>
+<p>A: we&#39;re gathering multiple snapshots so we can filter it out</p>
+<p>Q: There is spinbo* (some other approach), can you compare?</p>
+<p>A: The principle of rotating was there, but they relied on signal power because only that was available</p>
+</blockquote>
 <h3 id="paper-session-8-smart-devices">Paper Session #8: Smart Devices</h3>
 <h4 id="magnetic-mimo-how-to-charge-your-phone-in-your-pocket">Magnetic MIMO: How To Charge Your Phone in Your Pocket</h4>
 <p>Jouya Jadidian (MIT); Dina Katabi (MIT) </p>
-<h4 id="itus-an-implicit-authentication-framework-for-android">Itus: An Implicit Authentication Framework for Android</h4>
-<p>Hassan Khan (University of Waterloo); Aaron Atwater (University of Waterloo); Urs Hengartner (University of Waterloo) </p>
-<h4 id="caiipa-automated-large-scale-mobile-app-testing-through-contextual-fuzzing">Caiipa: Automated Large-scale Mobile App Testing through Contextual Fuzzing</h4>
-<p>Chieh-Jan Mike Liang (MSR); Nicholas D. Lane (MSR); Niels Brouwers (Delft); Li Zhang (USTC); Borje F. Karlsson (MSR); Hao Liu (Tsinghua); Yan Liu (SJTU); Jun Tang (Harbin); Xiang Shan (Harbin); Ranveer Chandra (MSR); Feng Zhao (MSR) </p>
+<p>Impressive demonstration of wireless charging over a distance, any orientation etc.</p>
+<p>Sorcery!</p>
+<p>Borrowing from MIMO and beamforming for magnetic field. Impressively the mathematical model is the same as for wireless transmission. Hence channels are magnetic coupling and symbols are currents, using the same framework.</p>
+<p>In beamforming Rx measures channels and reports to Tx. Cannot do it here - Rx is out of power. But magnetic field goes both ways - induced current at Rx affects Tx...</p>
+<blockquote>
+<p>Q: how much heat does it generate?</p>
+<p>A: one order of magnitude smaller than current chargers</p>
+<p>Q: what if there are other objects nearby that absorb the magnetic field</p>
+<p>A: particular to some class of charging system (resident charging) with a particular resonance frequency. Highly unlikely and we have a method for detecting it</p>
+<p>Q: what happens to a credit card?</p>
+<p>A: nothing happened in our tests!</p>
+<p>Q: Programmable conductors are difficult</p>
+<p>A: a very simple digital program, e.g. using Arduino, you only adjust the current.</p>
+</blockquote>
 <h4 id="rethink-energy-accounting-with-multi-player-game-theory">Rethink Energy Accounting with Multi-Player Game Theory</h4>
 <p>Mian Dong (Samsung); Tian Lan (George Washington University); Lin Zhong (Rice) </p>
-<h3 id="keynote-iv-byozzzz-focusing-on-the-unsolved-challenges-of-mobility-an-industry-perspective">Keynote IV - BYOzzzz: Focusing on the Unsolved Challenges of Mobility, An Industry Perspective</h3>
-<p>Kit Colbert (CTO of End-User Computing VMware)</p>
+<p>Attributing energy accurately to software is extremely difficult and there is basically no ground truth. Some of the problems are fundamental: how do you attribute the base energy when there are different numbers of software components running?</p>
+<p>Energy consumption is a cooperative game...</p>
+<p>A bunch of details about measuring energy consumption of a software component. More interesting is the estimate of missing samples (software components):</p>
+<ul>
+<li>problem reduced to a set of linear equations</li>
+<li>solving an approximate version of the game</li>
+<li>most of the estimates are ~90% accurate, but most E(s) observed</li>
+</ul>
+<p>For eval using battery with high-speed measurement chip.</p>
+<p>Doesn&#39;t work when software activities cannot be timed (e.g. async i/o), but neither existing approaches. Also may not be accurate for a short time period. No insight into what (hardware) resources consume the energy.</p>
+<p>(very nice work overall!)</p>
+<blockquote>
+<p>Q: You assume that players are cooperative, how well does the assumption work?</p>
+<p>A: Cooperative here only means that they do not play in isolation</p>
+<p>Q: What frameworks do you need and how well does it generalize?</p>
+<p>A: We only need to know the overall consumption and software running</p>
+<p>Q: It is easy to know which process is running, but how do you evaluate network?</p>
+<p>A: network is async io, so that is definitely an inaccuracy. Would be fixed if the network stack gave you a notification that a packet has been sent.</p>
+</blockquote>
 <h3 id="paper-session-9-advanced-techniques">Paper Session #9: Advanced Techniques</h3>
 <h4 id="robust-network-compressive-sensing">Robust Network Compressive Sensing</h4>
 <p>Yi-Chao Chen (UTAustin); Lili Qiu (UTAustin); Yin Zhang (UTAustin); Zhenxian Hu (Huawei); Guangtao Xue (SJTU) </p>
+<p>Main motivation is for traffic engineering, spectrum sensing and channel estimation. The goal is to fill in missing values from incomplete, erroneous and/or indirect measurements.</p>
+<p>Not all traffic measurement matrices are low-rank, making it difficult. Also certain types of networks (#G, Cister RSSI) have poor temporal stability. Adding anomalies can further increase the rank.</p>
+<p>Need a new matrix decomposition robust against error/anomalies.</p>
+<p>Decompose matrix to a low rank matrix, a sparse anomaly matrix and a small noise matrix... An efficient optimization algorithm on the matrix (the details went too fast for me). </p>
+<blockquote>
+<p>Q: have you looked at probabilistic matrix factorisation?</p>
+<p>A: no, not really</p>
+<p>Q: related, anomalies must occur in some structure</p>
+<p>A: yes, if there is  no structure at all, there is not much you can do</p>
+</blockquote>
 <h4 id="ekhonet-high-speed-ultra-low-power-wireless-for-next-generation-sensors">EkhoNet: High Speed Ultra Low-power Wireless for Next Generation Sensors</h4>
 <p>Pengyu Zhang (UMass); Pan Hu (UMass); Vijay Kumar P (UMass); Deepak Ganesan (UMass) </p>
-<h4 id="a-case-for-enhancing-dual-radio-repeater-performance-through-striping-aggregation-and-channel-sharing">A Case for Enhancing Dual Radio Repeater Performance Through Striping, Aggregation, and Channel Sharing</h4>
-<p>Sayandeep Sen (IBM Research India); Michael Griepentrog (Cisco Meraki); Jongwon Yoon (Wisconsin-Madison); Suman Banerjee (Wisconsin-Madison)</p>
-<h4 id="cutting-the-cord-a-robust-wireless-facilities-network-for-data-centers">Cutting the Cord: A Robust Wireless Facilities Network for Data Centers</h4>
-<p>Yibo Zhu (UCSB); Xia Zhou (Dartmouth); Zengbin Zhang (UCSB); Lin Zhou (UCSB); Amin Vahdat (Google); Ben Y. Zhao (UCSB); Haitao Zheng (UCSB) </p>
+<p>In theory backscatter systems can be extremely low power, in practice not quite true. The problem is supposedly many layers of indirection between a sensor and communication. In backscatter communication more expensive than computation (?).</p>
+<p>Eval with WISP5.0 (MSP430 FR5969) for the short-stack. Consumes 37uW @ 44kHz.</p>
+<p>Achieve less than 100uW for high rate sensors (1MBps)!</p>
+<p>How to coordinate? Intelligence should be at the reader. Balances TX energy efficiency, channel quality and data quality.</p>
+<blockquote>
+<p>Q: Some of your devices are battery powered and some are not. How low does your power consumption need to be?</p>
+<p>A: depends on how much energy you need to harvest. If only WiFi signals are available for example, you would still need to duty-cycle your system</p>
+</blockquote>
 <h3 id="paper-session-10-wifi-beyond-the-traditional">Paper Session #10: WiFi: Beyond the Traditional</h3>
 <h4 id="we-can-hear-you-with-wi-fi-">We Can Hear You with Wi-Fi!</h4>
 <p>Guanhua Wang (HKUST); Yongpan Zou (HKUST); Zimu Zhou (HKUST); Kaishun Wu (HKUST); Lionel M. Ni (HKUST) </p>
-<h4 id="use-it-free-instantly-knowing-your-phone-attitude">Use it Free: Instantly Knowing Your Phone Attitude</h4>
-<p>Pengfei Zhou (Nanyang Technological University); Mo Li (Nanyang Technological University); Guobin Shen (MSR) </p>
+<p>Use mouth movement to detect speech:</p>
+<ul>
+<li>detect mouth</li>
+<li>infer mouse movements (crucial to remove multipath signal propagation)</li>
+<li>noise removal</li>
+<li>run wavelet transform and learning-based lip reading</li>
+</ul>
+<p>MIMO beamforming towards a body. Lip reading mainly uses existing speech recognition techniques - MCFS features.</p>
+<p>Show how it performs with multiple targets and dynamic environments, but without an explanatio why - hoping to see those in the paper.</p>
+<blockquote>
+<p>Q: how did you choose the threshold of 500ns for multipath signal propagation threshold?</p>
+<p>A: (shortened answer) a lot of experimentation and related works</p>
+<p>Q: you mentioned that acoustic techniques do not work as well, can you explain more why?</p>
+<p>A: as you mention, this could be another way to do it. Maybe privacy concerns are addressed better as well - you only need to move your mouth rather than speak out aloud for example.</p>
+</blockquote>
 <h4 id="e-eyes-in-home-device-free-activity-identification-using-fine-grained-wifi-signatures">E-eyes: In-home Device-free Activity Identification Using Fine-grained WiFi Signatures</h4>
 <p>Yan Wang (Stevens); Jian Liu (Stevens); Yingying Chen (Stevens); Marco Gruteser (Rutgers); Jie Yang (Oakland University); Hongbo Liu (Indiana University-Purdue University Indianapolis)</p>
+<p>Basic idea is to use CSI measurements to infer activities such as being in place and walking - walking causes higher variance in the measurements. The patterns however are different depending on a trajectory and in fact are dominated by the movement path.</p>
+<p>Different rounds of same in-place activities result in similar distributions of CSI.</p>
+<p>Activity profiles need to be constructed and stored though - may change in the future. Do non-profiling clustering for semi-supervised approach to cluster daily activities and update CSI profiles.</p>
+<ul>
+<li>How robust is it? In two different apartments (small/large). Achieve more than 90% true positive and less than 5% false positive with just one WiFi AP for stationary activity. &gt;90% average accuracy for walking activity</li>
+<li>Cand ifferent activities in the same location be distinguished? (quick slide showing yes, also above 90%)</li>
+<li>How does it change with different packet rate? 5 pkts/s to 20 pkts/s. With at least 10 packets over 90% true positive and &lt;2% false positive.</li>
+</ul>
+<blockquote>
+<p>Q: How does the algorithm change with multiple people in a room?</p>
+<p>A: Need to construct different profiles</p>
+<p>Q: Why did you just use RSS if you already had access to CSI? Why don&#39;t you use the phase?</p>
+<p>A: We found the phase of the CSI information is hard to predict compared to the amplitude</p>
+<p>Q: Do you use any doppler processing in combination to RSS? RSS gives you the distance, seems like why you have a pretty good accuracy, but if you added phase you&#39;d probably get a lot more interesting results</p>
+<p>A: We haven&#39;t done it, but I guess it would be an interesting direction</p>
+<p>Q: What are the impacting factors indoors?</p>
+<p>A: The environments can change a lot by moving furniture and such. In that case our system would try to adaptively update its profiles...</p>
+</blockquote>
+<p>Done with the last session of MobiCom 2014! Time for awards and closing of the conference!</p>
 
 
     </div> <!-- /container -->

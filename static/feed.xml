@@ -4,7 +4,7 @@
         <title>Mobile, full-stack and research</title>
         <description>Occasional writings about tinkering with mobile devices and gadgets, all the way to the hardware and conference live-blogs</description>
         <link>http://smart-e.org</link>
-        <lastBuildDate>Wed, 10 Sep 2014 19:16:47 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 11 Sep 2014 04:05:16 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <copyright>Copyright 2014 Andrius Aucinas</copyright>
         <generator>Feed for Node.js</generator>
@@ -19,10 +19,12 @@
 <h3 id="paper-session-7-positioning-and-navigating-behind-the-doors">Paper Session #7: Positioning and Navigating behind the Doors</h3>
 <h4 id="luxapose-indoor-positioning-with-mobile-phones-and-visible-light">Luxapose: Indoor Positioning with Mobile Phones and Visible Light</h4>
 <p>Ye-Sheng Kuo (UMich); Pat Pannuto (UMich); Ko-Jen Hsiao (UMich); Prabal Dutta (UMich)</p>
-<h4 id="experiencing-and-handling-the-nonuniform-data-density-and-environment-diversities-in-indoor-positioning-service">Experiencing and Handling The Nonuniform Data Density and Environment Diversities in Indoor Positioning Service</h4>
-<p>Liqun Li (MSR); Guobin Shen (MSR); Chunshui Zhao (MSR); Thomas Moscibroda (MSR); Jyh-Han Lin (Microsoft); Feng Zhao (MSR) </p>
-<h4 id="travi-navi-self-deployable-indoor-navigation-system">Travi-Navi: Self-deployable Indoor Navigation System</h4>
-<p>Yuanqing Zheng (NTU, MSR); Guobin Shen (MSR); Liqun Li (MSR); Chunshui Zhao (MSR); Mo Li (NTU); …</p>
+<blockquote>
+<p>Q: how does location accuracy deterioriate outside the immediate area covered by the lights (directly below)</p>
+<p>A: haven&#39;t tested it, but it will decrease of course</p>
+<p>Q: how dense should the LED lights be in the ceiling? How does that compare to current deployments?</p>
+<p>A: Our paper discusses the problem and I don&#39;t have the number on the top of my head, but possibly too high for many …</p>
+</blockquote>
 ]]></description>
             <author>
                 <name>Andrius Aucinas</name>
