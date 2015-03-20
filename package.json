@@ -6,6 +6,7 @@
   "dependencies": {
     "assemble": "^0.4.41",
     "grunt": "^0.4.5",
+    "grunt-rsync": "^0.6.2",
     "handlebars": "^2.0.0-alpha.4",
     "handlebars-helpers": "^0.5.5",
     "marked": "^0.3.2"
@@ -24,7 +25,7 @@
   "author": {
     "name": "Andrius Aucinas",
     "email": "andrius.aucinas@gmail.com",
-    "url" : "http:/smart-e.org/"
+    "url": "http:/smart-e.org/"
   },
   "license": "ISC",
   "url": "http://smart-e.org"

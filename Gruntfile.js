@@ -43,6 +43,21 @@ module.exports = function(grunt) {
       }
     },
 
+    rsync: {
+      options: {
+          args: ["-v"],
+          exclude: [".git*","*.scss","node_modules"],
+          recursive: true
+      },
+      prod: {
+        options: {
+            src: "static/",
+            dest: "/var/www/smart-e.org",
+            host: "playground",
+        }
+      }
+    },
+
     clean: ['./static/*.html', './static/blogPosts/*', './blog/posts.json']
   });
 
@@ -51,6 +66,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('assemble');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-markdown-to-json');
+  grunt.loadNpmTasks('grunt-rsync');
 
   grunt.registerTask('default', ['clean', 'm2j', 'assemble', 'feed']);
+  grunt.registerTask('deploy', ['rsync:prod']);
 };

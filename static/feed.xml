@@ -4,24 +4,43 @@
         <title>Mobile, full-stack and research</title>
         <description>Occasional writings about tinkering with mobile devices and gadgets, all the way to the hardware and conference live-blogs</description>
         <link>http://smart-e.org</link>
-        <lastBuildDate>Thu, 05 Feb 2015 11:36:21 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 20 Mar 2015 16:50:06 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <copyright>Copyright 2015 Andrius Aucinas</copyright>
         <generator>Feed for Node.js</generator>
         <category>conferences</category>
+        <category>personal</category>
         <category>teaching</category>
         <category>tinkering</category>
         <item>
-            <title><![CDATA[Live-blog from SIGCOMM 2014 - day 2]]></title>
-            <link>http://smart-e.org/blogPosts/2014-08-20-sigcomm-day2.html</link>
-            <guid>http://smart-e.org/blogPosts/2014-08-20-sigcomm-day2.html</guid>
-            <pubDate>Wed, 20 Aug 2014 07:30:00 GMT</pubDate>
-            <description><![CDATA[<p>Starting nice and early with the second day. Just in case you haven&#39;t noticed, papers are available during the conference from the <a href="http://conferences.sigcomm.org/sigcomm/2014/program.php">program webpage</a>. Perhaps unsurprisingly the hall is not very crowded this morning, but the papers look interesting.</p>
-<p><em>Disclaimer:</em> I tend to rephrase questions/answers to either make them shorter or change them in a way I understand them, so might end up being wrong - don&#39;t take my word for it.</p>
-<h3 id="session-5-wireless-1-">Session 5: Wireless (1)</h3>
-<h4 id="fastforward-fast-and-constructive-full-duplex-relays">FastForward: Fast and Constructive Full Duplex Relays</h4>
-<p>Dinesh Bharadia (Stanford University); Sachin Katti (Stanford University)</p>
-<p>WiFi has problematic bandwidth indoors due to shielding from walls, etc. MIMO doesn&#39;t help there because of the <em>pinhole effect</em>, where a signal …</p>
+            <title><![CDATA[Live-blog from SIGCOMM 2014 - day 3]]></title>
+            <link>http://smart-e.org/blogPosts/2014-08-21-sigcomm-day3.html</link>
+            <guid>http://smart-e.org/blogPosts/2014-08-21-sigcomm-day3.html</guid>
+            <pubDate>Thu, 21 Aug 2014 09:30:00 GMT</pubDate>
+            <description><![CDATA[<p>Today I&#39;m only starting to take notes for the wireless session. Somewhat amusingly the room is empty compared to the datacenter scheduling session in the morning, but there really is some good stuff!</p>
+<h3 id="session-10-wireless-2-">Session 10: Wireless (2)</h3>
+<h4 id="vidyut-exploiting-power-line-infrastructure-for-enterprise-wireless-networks">Vidyut: Exploiting Power Line Infrastructure for Enterprise Wireless Networks</h4>
+<p>Vivek Yenamandra (The Ohio State University); Kannan Srinivasan (The Ohio State University)</p>
+<p>The point is to (de-)sychronize WiFi APs for MIMO by using power line frequency phase differences to avoid interference. A whole lot of considerations to get the reference frequency right, use three-phase power supply, etc. etc.</p>
+<blockquote>
+<p>Q: since every access point would be connected to ethernet, have you considered using IEEE something something synchronization protocol?</p>
+<p>A: that is …</p>
+</blockquote>
+]]></description>
+            <author>
+                <name>Andrius Aucinas</name>
+                <email>andrius.aucinas@gmail.com</email>
+                <link>http:/smart-e.org/</link>
+            </author>
+        </item>
+        <item>
+            <title><![CDATA[The end of a great period - today I submitted my PhD dissertation]]></title>
+            <link>http://smart-e.org/blogPosts/2015-03-13-phd-acknowledgements.html</link>
+            <guid>http://smart-e.org/blogPosts/2015-03-13-phd-acknowledgements.html</guid>
+            <pubDate>Fri, 13 Mar 2015 23:00:00 GMT</pubDate>
+            <description><![CDATA[<p>Only when my advisor Prof. Jon Crowcroft gave me the green light to submit my dissertation, I decided that it is time to finally write the acknowledgements part of it... And then I learned that they would be hard to fit on a single page. And didn&#39;t - I ended up leaving out a fair bit of people I am grateful to. A lesson learned: remember to thank more often. So I felt it important to share the acknowledgements here as well.</p>
+<h3 id="acknowledgements">Acknowledgements</h3>
+<p>Foremost, I would like to thank my supervisor, Jon Crowcroft, for his help and guidance, for letting me pursue every line of enquiry I thought worthwhile, for allowing me to share my ideas and learn from others at top conferences, for giving me the opportunity to learn through collaborating with some of the top people in the field, and for always …</p>
 ]]></description>
             <author>
                 <name>Andrius Aucinas</name>
@@ -107,19 +126,16 @@
             </author>
         </item>
         <item>
-            <title><![CDATA[Live-blog from SIGCOMM 2014 - day 3]]></title>
-            <link>http://smart-e.org/blogPosts/2014-08-21-sigcomm-day3.html</link>
-            <guid>http://smart-e.org/blogPosts/2014-08-21-sigcomm-day3.html</guid>
-            <pubDate>Thu, 21 Aug 2014 09:30:00 GMT</pubDate>
-            <description><![CDATA[<p>Today I&#39;m only starting to take notes for the wireless session. Somewhat amusingly the room is empty compared to the datacenter scheduling session in the morning, but there really is some good stuff!</p>
-<h3 id="session-10-wireless-2-">Session 10: Wireless (2)</h3>
-<h4 id="vidyut-exploiting-power-line-infrastructure-for-enterprise-wireless-networks">Vidyut: Exploiting Power Line Infrastructure for Enterprise Wireless Networks</h4>
-<p>Vivek Yenamandra (The Ohio State University); Kannan Srinivasan (The Ohio State University)</p>
-<p>The point is to (de-)sychronize WiFi APs for MIMO by using power line frequency phase differences to avoid interference. A whole lot of considerations to get the reference frequency right, use three-phase power supply, etc. etc.</p>
-<blockquote>
-<p>Q: since every access point would be connected to ethernet, have you considered using IEEE something something synchronization protocol?</p>
-<p>A: that is …</p>
-</blockquote>
+            <title><![CDATA[Live-blog from SIGCOMM 2014 - day 2]]></title>
+            <link>http://smart-e.org/blogPosts/2014-08-20-sigcomm-day2.html</link>
+            <guid>http://smart-e.org/blogPosts/2014-08-20-sigcomm-day2.html</guid>
+            <pubDate>Wed, 20 Aug 2014 07:30:00 GMT</pubDate>
+            <description><![CDATA[<p>Starting nice and early with the second day. Just in case you haven&#39;t noticed, papers are available during the conference from the <a href="http://conferences.sigcomm.org/sigcomm/2014/program.php">program webpage</a>. Perhaps unsurprisingly the hall is not very crowded this morning, but the papers look interesting.</p>
+<p><em>Disclaimer:</em> I tend to rephrase questions/answers to either make them shorter or change them in a way I understand them, so might end up being wrong - don&#39;t take my word for it.</p>
+<h3 id="session-5-wireless-1-">Session 5: Wireless (1)</h3>
+<h4 id="fastforward-fast-and-constructive-full-duplex-relays">FastForward: Fast and Constructive Full Duplex Relays</h4>
+<p>Dinesh Bharadia (Stanford University); Sachin Katti (Stanford University)</p>
+<p>WiFi has problematic bandwidth indoors due to shielding from walls, etc. MIMO doesn&#39;t help there because of the <em>pinhole effect</em>, where a signal …</p>
 ]]></description>
             <author>
                 <name>Andrius Aucinas</name>

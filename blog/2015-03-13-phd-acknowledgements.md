@@ -9,7 +9,7 @@ published: true
 
 Only when my advisor Prof. Jon Crowcroft gave me the green light to submit my dissertation, I decided that it is time to finally write the acknowledgements part of it... And then I learned that they would be hard to fit on a single page. And didn't - I ended up leaving out a fair bit of people I am grateful to. A lesson learned: remember to thank more often. So I felt it important to share the acknowledgements here as well.
 
-=== Acknowledgements
+###Acknowledgements
 
 Foremost, I would like to thank my supervisor, Jon Crowcroft, for his help and guidance, for letting me pursue every line of enquiry I thought worthwhile, for allowing me to share my ideas and learn from others at top conferences, for giving me the opportunity to learn through collaborating with some of the top people in the field, and for always letting me choose my own direction. Jon has helped me become independent and confident enough to strive towards making major contributions after the PhD.
 
