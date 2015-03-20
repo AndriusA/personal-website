@@ -19,8 +19,6 @@
         {{#if project_link}}
         <button type="button"  class="btn btn-default"><a href="{{project_link}}" rel="external" onclick="this.target='_blank';">Project</a></button>
         {{/if}}
-        <!--Widget body. To be placed next to a widget!-->
-        <div class="sparrho-widget custom-widget-style" style="zoom: 55%" data-pos="novel" data-neg="incremental" data-widget-counts="status" data-articleid="{{abstract_id}}_sparrho"></div>
       </div>
       {{#if abstract}}
       <div class="collapse abstract" id="{{abstract_id}}">
@@ -32,11 +30,5 @@
 </ul>
 
 </div>
-
-<!--Sparrho Widget authentication element-->
-<div class="sparrho-api-verify" data-api-key="AA_SPHR_AMB_TEST_KEY"></div>
-
-<!--Sparrho Widget JavaScript file-->
-<script src="http://widget-static.sparrho.com/ri-widget/v1.0.0.DEV-BETA/js/sparrho-widget-ri.v1.0.0.DEV-BETA.js" type="text/javascript"></script>
 
 {{>footer}}

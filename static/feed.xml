@@ -4,12 +4,46 @@
         <title>Mobile, full-stack and research</title>
         <description>Occasional writings about tinkering with mobile devices and gadgets, all the way to the hardware and conference live-blogs</description>
         <link>http://smart-e.org</link>
-        <lastBuildDate>Sun, 30 Nov 2014 13:47:46 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 05 Feb 2015 11:36:21 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
-        <copyright>Copyright 2014 Andrius Aucinas</copyright>
+        <copyright>Copyright 2015 Andrius Aucinas</copyright>
         <generator>Feed for Node.js</generator>
         <category>conferences</category>
+        <category>teaching</category>
         <category>tinkering</category>
+        <item>
+            <title><![CDATA[Live-blog from SIGCOMM 2014 - day 2]]></title>
+            <link>http://smart-e.org/blogPosts/2014-08-20-sigcomm-day2.html</link>
+            <guid>http://smart-e.org/blogPosts/2014-08-20-sigcomm-day2.html</guid>
+            <pubDate>Wed, 20 Aug 2014 07:30:00 GMT</pubDate>
+            <description><![CDATA[<p>Starting nice and early with the second day. Just in case you haven&#39;t noticed, papers are available during the conference from the <a href="http://conferences.sigcomm.org/sigcomm/2014/program.php">program webpage</a>. Perhaps unsurprisingly the hall is not very crowded this morning, but the papers look interesting.</p>
+<p><em>Disclaimer:</em> I tend to rephrase questions/answers to either make them shorter or change them in a way I understand them, so might end up being wrong - don&#39;t take my word for it.</p>
+<h3 id="session-5-wireless-1-">Session 5: Wireless (1)</h3>
+<h4 id="fastforward-fast-and-constructive-full-duplex-relays">FastForward: Fast and Constructive Full Duplex Relays</h4>
+<p>Dinesh Bharadia (Stanford University); Sachin Katti (Stanford University)</p>
+<p>WiFi has problematic bandwidth indoors due to shielding from walls, etc. MIMO doesn&#39;t help there because of the <em>pinhole effect</em>, where a signal …</p>
+]]></description>
+            <author>
+                <name>Andrius Aucinas</name>
+                <email>andrius.aucinas@gmail.com</email>
+                <link>http:/smart-e.org/</link>
+            </author>
+        </item>
+        <item>
+            <title><![CDATA[Coding as a window to the modern world and our privacy]]></title>
+            <link>http://smart-e.org/blogPosts/2015-02-05-cca-coding_privacy.html</link>
+            <guid>http://smart-e.org/blogPosts/2015-02-05-cca-coding_privacy.html</guid>
+            <pubDate>Thu, 05 Feb 2015 11:00:00 GMT</pubDate>
+            <description><![CDATA[<p>This item is cross-posted from the Cambridge Coding Academy (organisation I have co-founder and greatly enjoy working with) <a href="http://blog.cambridgecoding.com/post/110152231395/coding-as-a-window-to-the-modern-world-and-our">blog</a>.</p>
+<p>Even if it&#39;s true that not everyone will be able or willing to take on programming as a career, coding is a very powerful tool and often serves as the most effective means to an end. At Cambridge Coding Academy we have found that it also reveals much about the modern digital world... Because seeing is believing!</p>
+<p>Last Friday at our Data Retrieval and Visualisation workshop we had a lively discussion with our attendees about <strong>privacy</strong>. Privacy is one of the biggest concerns online, only made worse by the fact that a handful of corporations watch and record …</p>
+]]></description>
+            <author>
+                <name>Andrius Aucinas</name>
+                <email>andrius.aucinas@gmail.com</email>
+                <link>http:/smart-e.org/</link>
+            </author>
+        </item>
         <item>
             <title><![CDATA[Live-blog from MobiCom 2014 - day 3]]></title>
             <link>http://smart-e.org/blogPosts/2014-09-10-mobicom-day3.html</link>
@@ -94,24 +128,6 @@
             </author>
         </item>
         <item>
-            <title><![CDATA[Live-blog from SIGCOMM 2014 - day 2]]></title>
-            <link>http://smart-e.org/blogPosts/2014-08-20-sigcomm-day2.html</link>
-            <guid>http://smart-e.org/blogPosts/2014-08-20-sigcomm-day2.html</guid>
-            <pubDate>Wed, 20 Aug 2014 07:30:00 GMT</pubDate>
-            <description><![CDATA[<p>Starting nice and early with the second day. Just in case you haven&#39;t noticed, papers are available during the conference from the <a href="http://conferences.sigcomm.org/sigcomm/2014/program.php">program webpage</a>. Perhaps unsurprisingly the hall is not very crowded this morning, but the papers look interesting.</p>
-<p><em>Disclaimer:</em> I tend to rephrase questions/answers to either make them shorter or change them in a way I understand them, so might end up being wrong - don&#39;t take my word for it.</p>
-<h3 id="session-5-wireless-1-">Session 5: Wireless (1)</h3>
-<h4 id="fastforward-fast-and-constructive-full-duplex-relays">FastForward: Fast and Constructive Full Duplex Relays</h4>
-<p>Dinesh Bharadia (Stanford University); Sachin Katti (Stanford University)</p>
-<p>WiFi has problematic bandwidth indoors due to shielding from walls, etc. MIMO doesn&#39;t help there because of the <em>pinhole effect</em>, where a signal …</p>
-]]></description>
-            <author>
-                <name>Andrius Aucinas</name>
-                <email>andrius.aucinas@gmail.com</email>
-                <link>http:/smart-e.org/</link>
-            </author>
-        </item>
-        <item>
             <title><![CDATA[Live-blog from SIGCOMM 2014 - day 1]]></title>
             <link>http://smart-e.org/blogPosts/2014-08-19-sigcomm-day1.html</link>
             <guid>http://smart-e.org/blogPosts/2014-08-19-sigcomm-day1.html</guid>
@@ -169,6 +185,30 @@
             </author>
         </item>
         <item>
+            <title><![CDATA[RaspberryPI, 3G and Ofono]]></title>
+            <link>http://smart-e.org/blogPosts/2013-06-30-raspberrypi-3g-and-ofono.html</link>
+            <guid>http://smart-e.org/blogPosts/2013-06-30-raspberrypi-3g-and-ofono.html</guid>
+            <pubDate>Sun, 30 Jun 2013 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>I ended up using ofono with a 3G stick and since that turned out to be more tricky than it should be, decided to write it up here in hope that it might help someone.</p>
+<h2 id="using-ofono-with-3g-stick-">Using Ofono with 3G stick:</h2>
+<p>Use usb_modeswitch as above, and build ofono from source (1.9.2 as of writing) - there was only 1.6 available for debian wheezy on raspberry Pi. After a bit of fiddling with autotools (because I&#39;m not good at using them), including aclocal, autoheader, libtoolize, automake --add-missing and autoconf, the configuration file is built and you can ./configure &amp;&amp; make &amp;&amp; make install</p>
+<p>Some pre-requisites for Ofono:</p>
+<pre><code>mobile-broadband-provider-info
+libudev-dev
+libdbus-1-dev
+libglib2.0-dev
+</code></pre><p>To also build tools of ofono (in tools/ dir):</p>
+<pre><code>libusb-dev
+libusb-1.0
+</code></pre><p>To use python test …</p>
+]]></description>
+            <author>
+                <name>Andrius Aucinas</name>
+                <email>andrius.aucinas@gmail.com</email>
+                <link>http:/smart-e.org/</link>
+            </author>
+        </item>
+        <item>
             <title><![CDATA[RaspberryPi as your 3G WiFi router]]></title>
             <link>http://smart-e.org/blogPosts/2013-06-30-raspberry-pi-as-your-3g-wifi-router.html</link>
             <guid>http://smart-e.org/blogPosts/2013-06-30-raspberry-pi-as-your-3g-wifi-router.html</guid>
@@ -190,30 +230,6 @@
 </ul>
 <h2 id="setting-up-huawei-e173-on-raspberrypi">Setting up Huawei E173 on RaspberryPi</h2>
 <h3 id="-">…</h3>
-]]></description>
-            <author>
-                <name>Andrius Aucinas</name>
-                <email>andrius.aucinas@gmail.com</email>
-                <link>http:/smart-e.org/</link>
-            </author>
-        </item>
-        <item>
-            <title><![CDATA[RaspberryPI, 3G and Ofono]]></title>
-            <link>http://smart-e.org/blogPosts/2013-06-30-raspberrypi-3g-and-ofono.html</link>
-            <guid>http://smart-e.org/blogPosts/2013-06-30-raspberrypi-3g-and-ofono.html</guid>
-            <pubDate>Sun, 30 Jun 2013 00:00:00 GMT</pubDate>
-            <description><![CDATA[<p>I ended up using ofono with a 3G stick and since that turned out to be more tricky than it should be, decided to write it up here in hope that it might help someone.</p>
-<h2 id="using-ofono-with-3g-stick-">Using Ofono with 3G stick:</h2>
-<p>Use usb_modeswitch as above, and build ofono from source (1.9.2 as of writing) - there was only 1.6 available for debian wheezy on raspberry Pi. After a bit of fiddling with autotools (because I&#39;m not good at using them), including aclocal, autoheader, libtoolize, automake --add-missing and autoconf, the configuration file is built and you can ./configure &amp;&amp; make &amp;&amp; make install</p>
-<p>Some pre-requisites for Ofono:</p>
-<pre><code>mobile-broadband-provider-info
-libudev-dev
-libdbus-1-dev
-libglib2.0-dev
-</code></pre><p>To also build tools of ofono (in tools/ dir):</p>
-<pre><code>libusb-dev
-libusb-1.0
-</code></pre><p>To use python test …</p>
 ]]></description>
             <author>
                 <name>Andrius Aucinas</name>
