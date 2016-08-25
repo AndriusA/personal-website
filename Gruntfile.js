@@ -29,8 +29,7 @@ module.exports = function(grunt) {
           './static/research.html': ['template/research.html'],
           './static/index.html': ['template/index.html'],
           './static/resume.html': ['template/resume.html'],
-          './static/projects.html': ['template/projects.html'],
-          './static/CNAME': ['CNAME']
+          './static/projects.html': ['template/projects.html']
         }
       },
       blog: {
@@ -42,6 +41,15 @@ module.exports = function(grunt) {
           './static/blogPosts/': ['./blog/*.md'],
         }
       }
+    },
+
+    copy: {
+      main: {
+        files: [
+          // includes files within path
+          {expand: true, src: ['CNAME'], dest: 'static/', filter: 'isFile'}
+        ],
+      },
     },
 
     rsync: {
@@ -76,7 +84,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-markdown-to-json');
   grunt.loadNpmTasks('grunt-rsync');
   grunt.loadNpmTasks('grunt-gh-pages');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
-  grunt.registerTask('default', ['clean', 'm2j', 'assemble', 'feed']);
+  grunt.registerTask('default', ['clean', 'm2j', 'assemble', 'feed', 'copy']);
   grunt.registerTask('deploy', ['gh-pages']);
 };
