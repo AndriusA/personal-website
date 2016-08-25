@@ -30,6 +30,7 @@ module.exports = function(grunt) {
           './static/index.html': ['template/index.html'],
           './static/resume.html': ['template/resume.html'],
           './static/projects.html': ['template/projects.html'],
+          './static/CNAME': ['CNAME']
         }
       },
       blog: {
@@ -58,6 +59,13 @@ module.exports = function(grunt) {
       }
     },
 
+    'gh-pages': {
+      options: {
+        base: 'static'
+      },
+      src: ['**']
+    },
+
     clean: ['./static/*.html', './static/blogPosts/*', './blog/posts.json']
   });
 
@@ -67,7 +75,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-markdown-to-json');
   grunt.loadNpmTasks('grunt-rsync');
+  grunt.loadNpmTasks('grunt-gh-pages');
 
   grunt.registerTask('default', ['clean', 'm2j', 'assemble', 'feed']);
-  grunt.registerTask('deploy', ['rsync:prod']);
+  grunt.registerTask('deploy', ['gh-pages']);
 };

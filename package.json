@@ -12,6 +12,7 @@
     "marked": "^0.3.2"
   },
   "devDependencies": {
+    "grunt-gh-pages": "^2.0.0",
     "grunt-markdown-to-json": "^0.4.2",
     "helper-moment": "^0.1.3"
   },
