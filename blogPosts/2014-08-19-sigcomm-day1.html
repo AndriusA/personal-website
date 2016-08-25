@@ -1,0 +1,338 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Andrius Aucinas </title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+    <!-- Custom styles for this template -->
+    <link href="/theme.css" rel="stylesheet">
+    <link href="/skin-green.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:400,700|Open+Sans:400,700">
+  
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body role="document">
+
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-static-top navbar-default" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Andrius Aucinas</a>
+        </div>
+        <div class="navbar-collapse collapse navbar-responsive-collapse">
+          <ul class="nav navbar-nav pull-right">
+            <li><a href="/blog.html">Blog</a></li>
+            <li><a href="/research.html">Research</a></li>
+            <li><a href="/projects.html">Projects</a></li>
+            <li><a href="/resume.html">Resume</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <div id="wrap">
+    <div id="main" class="container container-fluid-kamn" role="main">
+
+
+  <h2>Live-blog from SIGCOMM 2014 - day 1</h2>
+  <h4>Tue Aug 19 2014 01:00:00 GMT+0100 (BST) ( SIGCOMM )</h4>
+
+  <p>Good morning Chicago. On schedule for SIGCOMM today we have a keynote, some SDN, network architecture and middleboxing. As usual, there is also a live-blog at <a href="http://layer9.org">layer9.org</a>.</p>
+<p>All the awards first:</p>
+<ul>
+<li>Best paper awards go to &quot;Balacing Accountability and Privacy in the Network&quot; and &quot;CONGA: Distributed Congestion-Aware Load Balancing for Datacenters&quot;.</li>
+<li>Test of time awards go to &quot;Internet Congeston Control for Future High Bandwidth-Delay product environments&quot; by Dina Katabi, MArk Handley, and Charlie Rohrs and &quot;Measuring ISP Topologies for Rocketfuel&quot; by Neil Spring, Ratul Mahajan and David Wetherall.</li>
+<li>SIGOMM doctoral dissertation Award goes to Aaron Schulman on &quot;Observing and Improving the Reliability of Internet Last-mile Links&quot;.</li>
+<li>the SIGCOMM award goes to George Varghese</li>
+</ul>
+<h3 id="keynote-life-in-the-fast-lane">Keynote: Life in the Fast Lane</h3>
+<p>George Varghese (Microsoft Research)</p>
+<p>A short summary wouldn&#39;t do justice to a great keynote, but in a nutshell it was a really great talk about finding the really interesting problems to solve, with examples form the past and suggestions for the future. The key is confluence between different ideas in a way that there is an inflection point in a way we start thinking about certain problems afterwards.</p>
+<h3 id="session-2-data-plane">Session 2: Data Plane</h3>
+<h4 id="duet-cloud-scale-load-balancing-with-hardware-and-software">Duet: Cloud Scale Load Balancing with Hardware and Software</h4>
+<p>Rohan Gandhi (Purdue University); Hongqiang Harry Liu (Yale University); Y. Charlie Hu (Purdue University); Guohan Lu (Microsoft); Jitu Padhye (Microsoft Research); Lihua Yuan (Microsoft); Ming Zhang (Microsoft Research)</p>
+<p>Phrasing load balancing as a translation from virtual IPs (VIP) to direct IPs (DIP). The idea is to use commodity switches as hardware muxes and a small number of software MUX as backstop to address issues with hmux...</p>
+<p>Only two functionalities needed:</p>
+<ul>
+<li>split VIP traffic across DIPs (ECMP)</li>
+<li>Forward CIP traffic to DIPs (tunneling)</li>
+</ul>
+<p>Key challenges:</p>
+<ul>
+<li>limited memory (workload: 100k+ VIPs and 1+ million DIPs). Single HMux can only support 512 DIPs for tunneling? Solution: partitioning VIPs across HMmux.</li>
+<li>Robustness. Availability when hmux fails - can&#39;t replicate enough. Use a small number of smux in addition to hmux, with all storing all VIP... Traffic only routed to software mux when hmux fails, automatically. VIP traffic is highly skewed (10% carry 99% traffic in azure). Duet handles 86 - 99.9% of traffic in HMux</li>
+<li>Assigning VIPs to minimize traffic handled by HMuxes (details in the paper)</li>
+<li>Migrating VIPs. Use SMux as a stepping stone during migration - withdraw VIPs from old location on hwadware mux and advertise again after migration is done.</li>
+</ul>
+<p>Eval on azure - looks good :)</p>
+<blockquote>
+<p>Q: One advantage of SMux is inspection of traffic</p>
+<p>A: most of the time you dont need to be aware of the content, that&#39;s a benefit of using hmux</p>
+<p>Q: how are VIP and DIP mappings changed in the setup?</p>
+<p>A: more details in the paper, but we used caching and modification of DIP functionality provided by the switches</p>
+<p>Q: fairness? passing via hmux via smux.</p>
+<p>A: haven&#39;t found a requirement for fairness. And 99% of traffic passes via hmux, so there is no unfair scheduling for smux-&gt; routed traffic even though latency is higher..</p>
+</blockquote>
+<p>For other papers check layer9.org :)</p>
+<h3 id="session-3-network-architecture-1-">Session 3: Network Architecture (1)</h3>
+<h4 id="network-neutrality-inference">Network Neutrality Inference</h4>
+<p>Zhiyong Zhang (U. of Electronic Science and Technology, China); Ovidiu Mara (EPFL); Katerina Argyraki (EPFL)</p>
+<p>Neutrality violation should be transparent (legality is a different question). The questions:</p>
+<ul>
+<li>is it feasible to externally observe neutrality violations (not always - if and only if there exist one distinguishable virtual link in the equivalent neutral network)</li>
+<li>can they be localized?</li>
+</ul>
+<p>Rely on multiple observations from different vantage points - inconsistent properties suggest non-neutral networks. Use tomographic sequence of equations about the traffic - a neutral network will have at least one solution. Extend to a formal specification which neutrality cases are externally observable.</p>
+<p>Localization algorithm is based on time-sequences of measurements and inferring congestion probability based on the type of traffic (high vs low priority). Congestion probability is different for the types of traffic on a non-neutral path. For each link sequence it computes the &quot;gap&quot; (wasn&#39;t sure how it determines the threshold gap...) Such localization granularity on an emulator with a specific topology was 1.8 (links).</p>
+<blockquote>
+<p>Q: How does the algorithm work when you have route flapping?</p>
+<p>A: We observe over time to make this work, so route flaps would have to not occur within minutes</p>
+<p>Q: do you consider fair-queueing, which is non-neutral? If the flow rates are different, loss rates will be different</p>
+<p>A: we did not have this problem, because we were looking at the levels of congestion and congestion frequencies rather than &gt; instantaneous congestion&gt; </p>
+<p>Q: in your simulations in additional to drop-tail did you try different queueing algorithms?</p>
+<p>A: non in the paper, but now we are (e.g. RED), and it seems to work, but need more evaluation</p>
+<p>Q: where do you get the topology information from?</p>
+<p>A: standard tomography tricks, e.g. traceroute</p>
+<p>Q: is it possible to distinguish between problems due to congestion vs wireless links being bad based on time of day/weather &gt; which might correlate with the type of traffic?&gt; </p>
+<p>A: I think yes, but we haven&#39;t done the testing on such behavior, but we might have to do something extra</p>
+<p>Q: is it possible to actualy deploy it on the internet, using tools like traceroute</p>
+<p>A: I hope so, the plan is to now run on planetlab/emulab.</p>
+<p>Q: did you consider what happens when you have incomplete topology information</p>
+<p>A: as you loose granularity of topology, localization accuracy decreases...</p>
+</blockquote>
+<h4 id="balancing-accountability-and-privacy-in-the-network-best-paper-award-">Balancing Accountability and Privacy in the Network <em>Best Paper Award</em></h4>
+<p>David Naylor (Carnegie Mellon University); Matthew K. Mukerjee (Carnegie Mellon University); Peter Steenkiste (Carnegie Mellon University)</p>
+<p>Operators want accountability - who sends each packet so they cans topmalicious senders. Users want to hide who sends certain packets, so they can do stuff without the whole world knowing.</p>
+<p>AIP [SIGCOMM 2008] has no privacy, requires a smart NIC, and shutoff is a stop-gap fix... Tor on the other hand has no accountability but is really heavyweight. There is nothing really in between because the source address is really overloaded - return address, accountability, id, error reporting, etc. So separate accountability and return addresses!</p>
+<p><em>Separate accountability and return addresses + delegated accountability + hidden return address = APIP.</em></p>
+<p>The network operators don&#39;t mind hiding the return address because they still have accountability.</p>
+<ul>
+<li>Sender registers with a delegate</li>
+<li>sends a brief about a packe to a delegate (brief(P)) &quot;I just sent this packet&quot;. Brief sends a hash, possibly batching fingerprints in a bloom filter.</li>
+<li>router checks with the delegate whether it vouches for the packet (verify(P)). Packet in fingerprint cache and the flow has not been shutoff by the destination</li>
+<li>receiver can send shutoff to the delegate (shutoff(P)). Delegate marks the flow as blocked and tells the router to block the flow when the router asks to vouch for it. Two differences from IP shutoff : filtering happens at router not NIC and the delegate can contact client out-of-band.</li>
+</ul>
+<p>What sort of overheads are we looking at? </p>
+<ul>
+<li>brief<ul>
+<li>storage overhead for brief (fingerprints) just under 1GB</li>
+<li>sending fingerprints 0.5%</li>
+</ul>
+</li>
+<li>verify<ul>
+<li>computational - 78k verifies per sec in their traceroute</li>
+<li>storage overhead 94MB which will easily fit within memory of a router</li>
+</ul>
+</li>
+</ul>
+<p>one trace in one network only, but looks promising..    </p>
+<p>Hiding Return Addresses - no particular mechanism required or built-in, so two very simple examples: encryption end-to-end (no protetion from the receiver or source domain as it knows who sent the packet) and address translation at the boundary of the source network (but no protection from local observer; basically NAT).</p>
+<p>In terms of deployment can either have third-party entities acting as delegates (e.g. symantec) or local networks acting as delegates for their clients. Potentially many different variations and combinations of these as well...</p>
+<blockquote>
+<p>Q: it seems like there is an easy way to get the best of both worlds. We already have protocols where you are using address translators to learn the transalted source address (e.g. STUN), so can reuse those techniques&gt; </p>
+<p>A: I&#39;m missing where the accountability comes in, so we could probably take this offline? I think this is a broader framework...</p>
+<p>Q: you started off with TOR, so I got a bit confused. I can still tell you the source and destination with traffic analysis</p>
+<p>A: we certainly don&#39;t give you the same guarantees as TOR, but the point is that you don&#39;t need such strong guaranteers for all traffic</p>
+<p>Q: is it necessary for every router on the path to verify a packet with the delegate and if not is it possible for the routers to put incorrect/malicious accountability addresses</p>
+<p>A: no, routers in the core probably wouldn&#39;t touch this (most effective when routers close to the source do). You could imagine that networks close to the edge do a good job on verification, so would end up with sampling to reduce the load. </p>
+<p>Q: how does shutoff work with transport protocols? it works in a 3-way handshake, but what about udp traffic?</p>
+<p>A: doesn&#39;t solve the ddos problem, more about accountability and being able to log and address problems afterwards, because you don&#39;t want to kill connection setup latency completely.</p>
+<p>Q: the way delegates are setup it seems like it introduces a single point of failure (the delegate) - is there any way to mitigate it?</p>
+<p>A: replicated servers, can rely on the same mecahnism with shutoffs, etc. (turtles all the way down). Discuss in the paper what is an eligible delegate</p>
+</blockquote>
+<h4 id="one-tunnel-is-often-enough">One Tunnel is (Often) Enough</h4>
+<p>Simon Peter (University of Washington); Umar Javed (University of Washington); Qiao Zhang (University of Washington); Doug Woos (University of Washington); Arvind Krishnamurthy (University of Washington); Thomas Anderson (University of Washington)</p>
+<p>5 minutes in, still don&#39;t see what problem they&#39;re trying to solve...</p>
+<p>Local problems cause global outages, so can we turn local reliability into global one?
+Assuming:</p>
+<ul>
+<li>shorter paths are more reliable than longer ones</li>
+<li>simple packet processing is feasible at high speed border routers</li>
+<li>AS graph is relatively small and stable</li>
+</ul>
+<p>ISPs offer a guaranteed QoS path across their network, a paid service akin to aws, etc. Constructing tunnels via such ISPs to an output target address. (users - enterprises/business-facing ISPs or cellular telcos).</p>
+<p>Mechanisms:</p>
+<ul>
+<li>how do you know what tunnels are available? atlas published by ISPs, user/app-specific path selection</li>
+<li>how are packets encapsulated? Additional header before the encapsulated IP header</li>
+</ul>
+<p>Packet authentication provided by ISP at setup, can be hashed with checksum of packet? Failover more lightweight than typical BGP supposedly. Have a mechanism for failure isolation...</p>
+<p>Run the system on a small ISP. Impelmentation based on BGP-max.</p>
+<p>Don&#39;t quite see how it builds up all the way to solving the stated problem.</p>
+<h3 id="session-4-middleboxes-and-network-services">Session 4: Middleboxes And Network Services</h3>
+<h4 id="a-middlebox-cooperative-tcp-for-a-non-end-to-end-internet">A Middlebox-Cooperative TCP for a non End-to-End Internet</h4>
+<p>Ryan Craven (Naval Postgraduate School); Robert Beverly (Naval Postgraduate School); Mark Allman (International Computer Science Institute)</p>
+<p><em>Across all network sizes, the number of middleboxes is on par with the number of routers</em> [SIGCOMM 11]</p>
+<p>Want to be able to detect those.</p>
+<p>Overload 3 header fields: ISN, IPID and receive window with a function (sort of checksum) of packet headers. If any one of them gets changed, can recover from the other two.</p>
+<p>Assumptions on the hash:</p>
+<ul>
+<li>only three sets of 12-bits</li>
+<li>assume o shared secret</li>
+<li>preimage and hash sent together</li>
+<li>primary goal is to reduce collisions</li>
+<li>need to reduce predictability of ISN</li>
+</ul>
+<p>vs. checksum - if checksum is invalid packet is discarded but in this case want to accept packet and hopefully infer modifications.</p>
+<p>Kernel implementation, increases mean processing time by about 10 microseconds (~8.5% of the total SYN/ACK processing time). Can mitigate with SYN cookies automatically when load gets too high.</p>
+<p>Middlebox is simulated for early eval.
+Over 26k port/path pairs across 197 ASes and 48 countries, on planetlab only. Different ports: 22, 80, 443, 34343 as well as a range of parameters in the option fields.</p>
+<p><em>Almost half of the nodes saw at least one in-path header modification and saw asymettric cases</em>.</p>
+<p>&quot;Demonstrated ease of deployment through mass Internet measurements&quot; (Kernel modifications -&gt; easily deployable?..)</p>
+<blockquote>
+<p>Q: Can you locate the middlebox/the path changing?</p>
+<p>A: Related to an idea of building a catalogue of internet paths, but the point of HICCUPS is that you can use it on any path</p>
+<p>Q: Do any middleboxes modify the winow itself?</p>
+<p>A: That did happen in very very small instances. </p>
+<p>Q: How do you know where the change happened?</p>
+<p>A: HICCUPS doesn&#39;t give you location on the path.</p>
+<p>Q: No, which part of the header?</p>
+<p>A: Details in the paper. You can choose to test (config) different sets of modifications</p>
+</blockquote>
+<h4 id="opennf-enabling-innovation-in-network-function-control">OpenNF: Enabling Innovation in Network Function Control</h4>
+<p>Aaron Gember-Jacobson (University of Wisconsin-Madison); Raajay Viswanathan (University of Wisconsin-Madison); Chaithan Prakash (University of Wisconsin-Madison); Robert Grandl (University of Wisconsin-Madison); Junaid Khalid (University of Wisconsin-Madison); Sourav Das (University of Wisconsin-Madison); Aditya Akella (University of Wisconsin-Madison)</p>
+<p>Challenges in moving/copying/sharing internal network function state:</p>
+<ul>
+<li>diverse set of functionality in enterprise networks</li>
+<li>dealing with race conditions when updating routing while packets are in flight</li>
+<li>bounding overhead, since buffering of packets is needed in the network to address race conditions</li>
+</ul>
+<p>API limited to move/copy/share state for simpicity, translated to export/import operations.</p>
+<p>State created or updates by an NF applies to either a single flow or a collction of flows. Use e.g. to move http connection and state from one instance of Bro IDS to another. </p>
+<p>Pausing traffic + buffering packets doesn&#39;t really work to provide loss-free capabilities to OpenNF. One extra API is to observe/prevent updates using events - only need to change NF&#39;s receive packet function... A packet incoming during state transition triggers an event but not full processing - events are then processed at the second instance.</p>
+<p>In some cases (e.g. Bro weird script checking handshake sequence) also need to make sure that packets arrive in the correct order. Introduce lock-step forwarding updates...</p>
+<p>Eval - modified Bro IDS, iptables, squid cache and PRADS (3-8% of extra code for each to work with openNF).</p>
+<p>Move times depend on state complexity and required guarantees but quite impressively handles hundreds of connections in a few hundred milliseconds.</p>
+<blockquote>
+<p>Q: have you looked context transfer protocol? Would allow P2P transfers, saving some resources</p>
+<p>A: that one in particular doesn&#39;t ring a bell</p>
+<p>Q: how would you contrast opennf with split/merge?</p>
+<p>A: their focus is also elastic nf scaling, but their use-case does not necessarily generalise to all cases. Loss-free &gt; guarantees is a big differences&gt; </p>
+<p>Q: how many man-hours (vs LOC) were needed? How hard is it to develop it?</p>
+<p>A: too many man-hours :) we&#39;ve looked at some tain-tracking to capture the state, but needs more work. In terms of how we &gt; should develop network functions in the future, there is potentially ways of decoupling network state and there are maybe &gt; ways &gt; of using shared memory or some other mechanisms to do it transparently&gt; </p>
+<p>Q: can you give me a sense of whether your eval packet rates are reasonable? if not, what&#39;s the failure mode?</p>
+<p>A: when you increase the packet rate, there is some increase in the transition time and potentially some packet delay</p>
+</blockquote>
+<h4 id="network-stack-specialization-for-performance">Network stack specialization for performance</h4>
+<p>Ilias Marinos (University of Cambridge); Robert N.M. Watson (University of Cambridge); Mark Handley (University College London)</p>
+<p>Key motivation - scaling out -&gt; 1 machine running N functions to N machines running 1 function.</p>
+<p>Short flows cause high CPU load but low utilization (vs large flows the other way round). From previous work, 90% of HTTP objects are below 25 KB.</p>
+<p>Design goals:</p>
+<ul>
+<li>transparent flow of memory from NIC to the application and vice versa</li>
+<li>reduce system costs (batching, cache-lcoality, etc)</li>
+<li>explotiing application-specific knowledge to reduce repetetive processing</li>
+</ul>
+<p>Prototyped on top of FreeBSD&#39;s netmap: libnmio abstracting netmap-repated I/O, libeth for ethernet and libtcp for tcp/ip.</p>
+<p>The results are very interesting (check the paper), but I&#39;ve seen them presented during practice sessions, so just waiting for Q&amp;A now :)</p>
+<p>Q: You specialised but still kept the layering - isn&#39;t the logical conclusion to get rid of that as well?</p>
+<p>A: We used layering to imrpove reusability, e.g. between web and DNS...</p>
+<p>Q: Do your throughput gains come at the cost of latency?</p>
+<p>A: I have a slide (laptop has been replaced by the next speaker...) - no, latency decreases as well when you have more than 4 concurrent connections.</p>
+<p>Q: I was curious if you had data on how it scales to really small requests (e.g. serving SYN cookies) or just the minimal size packets in general</p>
+<p>A: No, we haven&#39;t tested that</p>
+<h4 id="a-buffer-based-approach-to-rate-adaptation-evidence-from-a-large-video-streaming-service">A Buffer-Based Approach to Rate Adaptation: Evidence from a Large Video Streaming Service</h4>
+<p>Te-Yuan Huang (Stanford University); Ramesh Johari (Stanford University); Nick McKeown (Stanford University); Matthew Trunnell (Netflix); Mark Watson (Netflix)</p>
+<p>20-30% rebuffers are unnecessary and video rates are too low, i.e. could support something higher with existing infrastructure.</p>
+<ul>
+<li>video rate is chosen too aggressively</li>
+<li>lower rate saves rebuffering</li>
+<li>and video rate is chosen too slowly</li>
+<li>higher rate improves too slowly with changing environment</li>
+</ul>
+<p>How is video rate picked? CDN simply serves a requested file and the rate selection logic is at the client:</p>
+<ul>
+<li>client estimates capacity</li>
+<li>but estimating future capacity from the past is difficult</li>
+<li>because throughput is often highly variable (34 times difference in an example case; 10% of netflix sessions experiences such variation, but the source of variation is not clear)</li>
+</ul>
+<p>Can we do better?</p>
+<ul>
+<li>simple estimation over the first few minutes when you don&#39;t have an idea about the network could be useful</li>
+<li>but avoid capacity estimation in steady-state - information is encoded in the buffer occupancy</li>
+</ul>
+<p>So how is network state encoded in the buffer occupancy? Video buffer is measured in video seconds rather than data, with different chunks of potentially different rate. Quite simply when the buffer is filling up, the rate is lower than the capacity.</p>
+<p>Verification of algorithm on netflix - 500k users over a weekend, split into three groups: default algorithm, lower-bound (lowest video rate) and the adaptive algorithm.</p>
+<p>Looking at rebuffer rates (time-series), lower-bound shows that up to 20-30% of rebuffers can be eliminated. The BBA is in betweent he old algorithm and the lower rate. Performance though is often better than the standard control algorithm.</p>
+<blockquote>
+<p>Q: you are basically doing closed-loop control, why did you not do something like a PID controller?</p>
+<p>A: various other groups have tried it, even using buffer occupancy as a secondary signal, but what we found when the capacity varies wildly it doesn&#39;t work nicely?</p>
+<p>Q: but my point is that you don&#39;t need capacity estimation with a PID estimation</p>
+<p>A: it is a more involved discussion, maybe we can take offline..</p>
+<p>Q: If you want to smooth the video rate (minimise the number of video rate changes), do you also need to consider capacity in addition to buffer</p>
+<p>A: in the paper, but the trick is fixing the shape of the decision function</p>
+<p>Q: if you look into pacing using techniques like congestion control</p>
+<p>A: focus on client-side techniques</p>
+<p>Q: variability in capacity only matters if you want to hit those peaks and you should be able to just work with a reasonable estimate. Couldn&#39;t better prediction or better control allow for a simpler scheme?</p>
+<p>A: I would argue that you don&#39;t know what rate can be sustained and that&#39;s what the buffer tells you. If you can build up some knowledge about the client&#39;s environment than you can definitely improve the algorithm</p>
+<p>Q: do you know how close do you get to the fair-share if bandwidth</p>
+<p>A: we operate on top of HTTP, so we rely on TCP&#39;s fair-share properties</p>
+<p>Q: For some users who might be willing to put up with some rebuffering in exchange to better quality, can you adapt the algorithm to allow some rebuffers to get better quality?</p>
+<p>A: I don&#39;t have a definite answer to that</p>
+<p>Q: do you have a sense of how far from optimal you are? since you can find out the optimal afterwards</p>
+<p>A: we are working on it :)</p>
+</blockquote>
+<p>Done for today, will be back tomorrow!</p>
+
+
+    </div> <!-- /container -->
+    </div> <!-- /wrap -->
+
+    <!-- Begin .site-footer -->
+  <footer id="footer" class="site-footer">
+    
+    <div class="footer-copyright">&copy; 2015 - Andrius Aucinas</div>
+    <div>
+      <ul class="list-unstyled list-inline">
+<li>
+  <a href="https://twitter.com/AndriusAuc" target="_blank" title="Twitter" ><i class="sprite sprite-twitter"></i></a>
+</li>
+<li>
+  <a href="https://github.com/AndriusA" target="_blank" title="Github"><i class="sprite sprite-github"></i></a>
+</li>
+<li>
+  <a href="https://uk.linkedin.com/in/andriusaucinas" target="_blank" title="LinkedIn"><i class="sprite sprite-linkedin"></i></a>
+</li>
+</ul>
+    </div>
+    <div>Page last updated 20 March 2015</div>
+  
+  </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="/js/script.js"></script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-44468553-1', 'auto');
+      ga('require', 'displayfeatures');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>
