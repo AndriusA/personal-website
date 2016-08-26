@@ -26,4 +26,35 @@
   </div>
 {{/each}}
 
+<h2>Research Publications</h2>
+<div class="row">
+
+<ul class="publist list-unstyled">
+  {{#each pubs}}
+    <li>
+      <div class="title"><h4>{{title}}</h4></div>
+      <div class="authors">{{authors}}</div>
+      <div class="pubinfo">{{venue}}</div>
+      <div class="btn-group">
+        {{#if abstract}}
+        <button type="button" class='btn btn-default' data-toggle="collapse" data-target="#{{abstract_id}}">Abstract</button>
+        {{/if}}
+        {{#if pdf_link}}
+        <button type="button"  class="btn btn-default"><a href="{{pdf_link}}" rel="external" onclick="this.target='_blank';">PDF</a></button>
+        {{/if}}
+        {{#if project_link}}
+        <button type="button"  class="btn btn-default"><a href="{{project_link}}" rel="external" onclick="this.target='_blank';">Project</a></button>
+        {{/if}}
+      </div>
+      {{#if abstract}}
+      <div class="collapse abstract" id="{{abstract_id}}">
+        {{abstract}}
+      </div>
+      {{/if}}
+    </li>
+  {{/each}}
+</ul>
+
+</div>
+
 {{>footer}}
