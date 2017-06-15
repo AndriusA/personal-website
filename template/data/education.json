@@ -1,0 +1,28 @@
+{
+"education": [
+	{
+        "company": "University of Cambridge",
+        "position": "PhD Computer Science",
+        "date": "2011 October - 2015 March",
+        "image_url": "",
+        "company_url": "http://www.cl.cam.ac.uk",
+        "description": "\n- Department, supervisor: Computer Laboratory, Systems Research Group, Prof. Jon Crowcroft\n- Gained expert knowledge of 3G UMTS and 4G LTE network operation and the Radio Access Network (RAN) resource management, focusing on device resource use\n- Developed excellent understanding of networking protocols with particular focus on push notifications and the Transmission Control Protocol (TCP) and gained experience in prototyping TCP extensions and testing for deployment issues across different networks\n- Gained practical knowledge of the internal operation of the Android platform with the focus on resource management and skills of customizing and deploying the platform \n- Acquired hands-on experience working with large systems through the internals of the Firefox rendering engine (Gecko) and the FirefoxOS mobile platform, as well as its interactions with the HTML5 technology stack\n- Developed public speaking skills at a number of top international conferences and events"
+    },
+    {
+        "company": "University of Cambridge",
+        "position": "BA Hons Computer Science",
+        "date": "2008 October - 2011 July",
+        "image_url": "",
+        "company_url": "http://www.cl.cam.ac.uk",
+        "description": "\n- As Computer Science degree does not have specialisations, covered all key Computer Science topics to a high standard throughout the degree\n- Practical degree projects focused on Computer Vision topics:\n\t- Digital video stabilization through frame feature detection and motion modelling\n\t- Feature-based image stitching using robust image features and accurate alignment"
+    },
+    {
+    	"company": "Olympiads in Informatics",
+        "position": "during High School studies in Vilnius Lyceum",
+        "date": "2004 - 2008",
+        "image_url": "",
+        "company_url": "http://www.ioinformatics.org/index.shtml",
+    	"description": "\n- International (2006, 2008), Baltic (2006 – 2008), National (2004 – 2008) Olympiads in Informatics\n- Developed excellent algorithmic programming skills, superior problem solving skills and gained extensive experience of working under pressure and strict time limits\n- Awards at national and international levels, including bronze medal at the Baltic Olympiad"
+    }
+]
+}

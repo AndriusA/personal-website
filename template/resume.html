@@ -1,4 +1,4 @@
-1{{>header}}
+{{>header}}
 
 <div class="row">
   <div class="col-md-12">
@@ -21,7 +21,27 @@
     <div class="col-md-9">
       <h4>{{company}}, {{position}}</h4>
       <p><strong>{{date}}</strong></p>
-      <p>{{{description}}}</p>
+      {{#markdown}}
+      {{description}}
+      {{/markdown}}
+    </div>
+  </div>
+{{/each}}
+
+<h2>Education</h2>
+{{#each education}}
+  <div class="row job">
+    <div class="col-md-3">
+      <a href="{{company_url}}">
+        <img class="company_img" src="{{image_url}}" alt="{{company}}" width="100%"/>
+      </a>
+    </div>
+    <div class="col-md-9">
+      <h4>{{company}}, {{position}}</h4>
+      <p><strong>{{date}}</strong></p>
+      {{#markdown}}
+      {{description}}
+      {{/markdown}}
     </div>
   </div>
 {{/each}}
