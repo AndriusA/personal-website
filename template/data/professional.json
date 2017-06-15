@@ -43,7 +43,7 @@
 		"image_url": "images/atea.jpg",
 		"company": "Atea Baltic, Software Development division, Internship",
 		"date": "2010 August - 2010 September",
-		"description": "During the internship I was working on modifying a few large-scale business applications. The tasks required me to rapidly understand application logic and find the best solutions for the modifications required, as well as quickly learn the unfamiliar technologies."
+		"description": "\nDuring the internship I was working on modifying a few large-scale business applications. The tasks required me to rapidly understand application logic and find the best solutions for the modifications required, as well as quickly learn the unfamiliar technologies."
 	},
 	{
 		"company_url": "http://www.cl.cam.ac.uk/research/srg/netos/",
@@ -57,14 +57,7 @@
 		"image_url": "images/nma.jpg",
 		"company": "National Students Academy, Volunteering",
 		"date": "2008 July - January 2011",
-		"description": "Having spent four years in the academy myself, I have volunteered in the organisation a number of times since. I have tried to help whenever I felt like my help would really be beneficial. I have given lectures on computer operating systems to the Computer Science students in the academy as well as on topics related to identity development to all students. I shared my views and experience with the board to help develop the academy further and most recently I helped to participate in the <a href='http://www.e-volunteering.eu/competition/''>European e-volunteering competition</a>, where we won the second prize."
-	},
-	{
-    	"company_url": "http://www.cutec.org",
-		"image_url": "images/cutec.jpg",
-		"company": "Cambridge University Technology and Enterprise Club, Sponsorship Team",
-		"date": "2008 October - 2011 October",
-		"description": "In CUTEC I primarily helped with fundraising activities for the organisation's entrepreneurship-related events, which involved communicating with company representatives and working in a team to meet the goals on time."
+		"description": "\nHaving spent four years in the academy myself, I have volunteered in the organisation a number of times since. I have tried to help whenever I felt like my help would really be beneficial. I have given lectures on computer operating systems to the Computer Science students in the academy as well as on topics related to identity development to all students. I shared my views and experience with the board to help develop the academy further and most recently I helped to participate in the <a href='http://www.e-volunteering.eu/competition/''>European e-volunteering competition</a>, where we won the second prize."
 	},
 	{
 		"image_url": "images/freelance.jpg",
