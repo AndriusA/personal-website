@@ -1,5 +1,5 @@
 ---
-title: "Automatically generated documentation for Play framework applications"
+title: "Technical: automatically generated documentation for Play framework applications"
 description: "Using built-in tools to help your documentation stay up to date"
 tags: [play, hat, documentation, ]
 date: 2017-09-01 20:00
