@@ -4,11 +4,12 @@
         <title>Mobile, full-stack and research</title>
         <description>Occasional writings about tinkering with mobile devices and gadgets, all the way to the hardware and conference live-blogs</description>
         <link>http://smart-e.org</link>
-        <lastBuildDate>Fri, 26 Aug 2016 09:30:53 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 01 Sep 2017 23:27:48 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
-        <copyright>Copyright 2016 Andrius Aucinas</copyright>
+        <copyright>Copyright 2017 Andrius Aucinas</copyright>
         <generator>Feed for Node.js</generator>
         <category>conferences</category>
+        <category>hat</category>
         <category>personal</category>
         <category>teaching</category>
         <category>tinkering</category>
@@ -34,6 +35,101 @@
             </author>
         </item>
         <item>
+            <title><![CDATA[Automatically generated documentation for Play framework applications]]></title>
+            <link>http://smart-e.org/blogPosts/2017-09-01-play-documentation.html</link>
+            <guid>http://smart-e.org/blogPosts/2017-09-01-play-documentation.html</guid>
+            <pubDate>Fri, 01 Sep 2017 19:00:00 GMT</pubDate>
+            <description><![CDATA[<p>Let the engineer who loves writing documentation throw the first stone... And for the rest of us, every little helps.</p>
+<p>At the Hub of All Things we love the Play framework. It greatly helps us build solid, modular and maintainable services and as they outgrow themselves - modularise them into new ones with single responsibility. It also has some tools making API documentation easier.</p>
+<p>Some of the Play framework compiler tools can be used inside a running application, e.g. the routes compiler. Play application routes are relatively simple:</p>
+<p>```</p>
+<h1 id="public-landing-page">Public landing page</h1>
+<p>GET         /                                     controllers.Application.index</p>
+<h1 id="automatically-generated-service-self-documentation">Automatically generated service self-documentation</h1>
+<p>GET         /docs                                 controllers.Application.availableRoutes</p>
+<h1 id="-">...</h1>
+<p>…</p>
+]]></description>
+            <author>
+                <name>Andrius Aucinas</name>
+                <email>andrius.aucinas@gmail.com</email>
+                <link>http:/smart-e.org/</link>
+            </author>
+        </item>
+        <item>
+            <title><![CDATA[Live-blog from MobiCom 2014 - day 1]]></title>
+            <link>http://smart-e.org/blogPosts/2014-09-08-mobicom-day1.html</link>
+            <guid>http://smart-e.org/blogPosts/2014-09-08-mobicom-day1.html</guid>
+            <pubDate>Mon, 08 Sep 2014 07:30:00 GMT</pubDate>
+            <description><![CDATA[<p>Kicking MobiCom off with an award to Leonard Kleinrock for outstanding contributions.</p>
+<p>Next is a keynote <em>From grad school, to startup to acquisition</em> by Sanjit Biswas, CEO Meraki, followed by a panel on <em>Tackling Societal Grand Challenges with Mobile Computing</em>.</p>
+<p>There is also the official MobiCom <a href="https://mobicom2014.wordpress.com/">blog</a>, which covers a different set of events (or with a better quality writing!).</p>
+<h3 id="keynote">Keynote</h3>
+<p>A really great keynote on starting and bootstrapping Meraki. A bit of an unusual research to startup transition, really started after giving a talk to Google and getting an pre-order for 1000 units of a wireless mesh router at $250 each. Hardware manufacturing turned out to be not that difficult once you have a number of units you already need - started off with …</p>
+]]></description>
+            <author>
+                <name>Andrius Aucinas</name>
+                <email>andrius.aucinas@gmail.com</email>
+                <link>http:/smart-e.org/</link>
+            </author>
+        </item>
+        <item>
+            <title><![CDATA[Live-blog from CoNEXT 2013 - day 1]]></title>
+            <link>http://smart-e.org/blogPosts/2013-12-10-conext-day1.html</link>
+            <guid>http://smart-e.org/blogPosts/2013-12-10-conext-day1.html</guid>
+            <pubDate>Tue, 10 Dec 2013 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>Kicking off the conference with some explanations about how the TPC selected the papers. The program looks great and I will be covering some of the sessions here over the next three days.</p>
+<p>There is an official live blog at layer9: <a href="http://www.layer9.org/">http://www.layer9.org/</a> so I will be covering the sessions and papers that are closer to my field and those that I find particularly interesting.</p>
+<p><em>Best full-paper award goes to &quot;Enhancing video accessibility and availability with information-bound references&quot;</em></p>
+<p>Our &quot;Staying Online While Mobile: The Hidden Costs&quot; was a nominee for the best short paper award, but alas! The award goes to &quot;Is There a Case for Mobile Phone Content Pre-staging&quot;.</p>
+<p>All the papers can be found online at the conference website: <a href="http://conferences.sigcomm.org/co-next/2013/program.html">http://conferences.sigcomm.org/co-next/2013/program.html</a></p>
+<h3 id="-">…</h3>
+]]></description>
+            <author>
+                <name>Andrius Aucinas</name>
+                <email>andrius.aucinas@gmail.com</email>
+                <link>http:/smart-e.org/</link>
+            </author>
+        </item>
+        <item>
+            <title><![CDATA[Live-blog from SIGCOMM 2014 - day 1]]></title>
+            <link>http://smart-e.org/blogPosts/2014-08-19-sigcomm-day1.html</link>
+            <guid>http://smart-e.org/blogPosts/2014-08-19-sigcomm-day1.html</guid>
+            <pubDate>Mon, 18 Aug 2014 23:00:00 GMT</pubDate>
+            <description><![CDATA[<p>Good morning Chicago. On schedule for SIGCOMM today we have a keynote, some SDN, network architecture and middleboxing. As usual, there is also a live-blog at <a href="http://layer9.org">layer9.org</a>.</p>
+<p>All the awards first:</p>
+<ul>
+<li>Best paper awards go to &quot;Balacing Accountability and Privacy in the Network&quot; and &quot;CONGA: Distributed Congestion-Aware Load Balancing for Datacenters&quot;.</li>
+<li>Test of time awards go to &quot;Internet Congeston Control for Future High Bandwidth-Delay product environments&quot; by Dina Katabi, MArk Handley, and Charlie Rohrs and &quot;Measuring ISP Topologies for Rocketfuel&quot; by Neil Spring, Ratul Mahajan and David Wetherall.</li>
+<li>SIGOMM doctoral dissertation Award goes to Aaron Schulman on &quot;Observing and Improving the Reliability of Internet Last-mile Links&quot;.</li>
+<li>the SIGCOMM award goes to George …</li>
+</ul>
+]]></description>
+            <author>
+                <name>Andrius Aucinas</name>
+                <email>andrius.aucinas@gmail.com</email>
+                <link>http:/smart-e.org/</link>
+            </author>
+        </item>
+        <item>
+            <title><![CDATA[Live-blog from SIGCOMM 2014 - day 2]]></title>
+            <link>http://smart-e.org/blogPosts/2014-08-20-sigcomm-day2.html</link>
+            <guid>http://smart-e.org/blogPosts/2014-08-20-sigcomm-day2.html</guid>
+            <pubDate>Wed, 20 Aug 2014 07:30:00 GMT</pubDate>
+            <description><![CDATA[<p>Starting nice and early with the second day. Just in case you haven&#39;t noticed, papers are available during the conference from the <a href="http://conferences.sigcomm.org/sigcomm/2014/program.php">program webpage</a>. Perhaps unsurprisingly the hall is not very crowded this morning, but the papers look interesting.</p>
+<p><em>Disclaimer:</em> I tend to rephrase questions/answers to either make them shorter or change them in a way I understand them, so might end up being wrong - don&#39;t take my word for it.</p>
+<h3 id="session-5-wireless-1-">Session 5: Wireless (1)</h3>
+<h4 id="fastforward-fast-and-constructive-full-duplex-relays">FastForward: Fast and Constructive Full Duplex Relays</h4>
+<p>Dinesh Bharadia (Stanford University); Sachin Katti (Stanford University)</p>
+<p>WiFi has problematic bandwidth indoors due to shielding from walls, etc. MIMO doesn&#39;t help there because of the <em>pinhole effect</em>, where a signal …</p>
+]]></description>
+            <author>
+                <name>Andrius Aucinas</name>
+                <email>andrius.aucinas@gmail.com</email>
+                <link>http:/smart-e.org/</link>
+            </author>
+        </item>
+        <item>
             <title><![CDATA[The end of a great period - today I submitted my PhD dissertation]]></title>
             <link>http://smart-e.org/blogPosts/2015-03-13-phd-acknowledgements.html</link>
             <guid>http://smart-e.org/blogPosts/2015-03-13-phd-acknowledgements.html</guid>
@@ -49,35 +145,17 @@
             </author>
         </item>
         <item>
-            <title><![CDATA[Coding as a window to the modern world and our privacy]]></title>
-            <link>http://smart-e.org/blogPosts/2015-02-05-cca-coding_privacy.html</link>
-            <guid>http://smart-e.org/blogPosts/2015-02-05-cca-coding_privacy.html</guid>
-            <pubDate>Thu, 05 Feb 2015 11:00:00 GMT</pubDate>
-            <description><![CDATA[<p>This item is cross-posted from the Cambridge Coding Academy (organisation I have co-founder and greatly enjoy working with) <a href="http://blog.cambridgecoding.com/post/110152231395/coding-as-a-window-to-the-modern-world-and-our">blog</a>.</p>
-<p>Even if it&#39;s true that not everyone will be able or willing to take on programming as a career, coding is a very powerful tool and often serves as the most effective means to an end. At Cambridge Coding Academy we have found that it also reveals much about the modern digital world... Because seeing is believing!</p>
-<p>Last Friday at our Data Retrieval and Visualisation workshop we had a lively discussion with our attendees about <strong>privacy</strong>. Privacy is one of the biggest concerns online, only made worse by the fact that a handful of corporations watch and record …</p>
-]]></description>
-            <author>
-                <name>Andrius Aucinas</name>
-                <email>andrius.aucinas@gmail.com</email>
-                <link>http:/smart-e.org/</link>
-            </author>
-        </item>
-        <item>
-            <title><![CDATA[Live-blog from MobiCom 2014 - day 3]]></title>
-            <link>http://smart-e.org/blogPosts/2014-09-10-mobicom-day3.html</link>
-            <guid>http://smart-e.org/blogPosts/2014-09-10-mobicom-day3.html</guid>
-            <pubDate>Wed, 10 Sep 2014 08:00:00 GMT</pubDate>
-            <description><![CDATA[<p>The last day of MobiCom &#39;14 started off with the student research competition, followed by the second session on positioning and navigating and people slowly trickling in.</p>
-<h3 id="paper-session-7-positioning-and-navigating-behind-the-doors">Paper Session #7: Positioning and Navigating behind the Doors</h3>
-<h4 id="luxapose-indoor-positioning-with-mobile-phones-and-visible-light">Luxapose: Indoor Positioning with Mobile Phones and Visible Light</h4>
-<p>Ye-Sheng Kuo (UMich); Pat Pannuto (UMich); Ko-Jen Hsiao (UMich); Prabal Dutta (UMich)</p>
-<blockquote>
-<p>Q: how does location accuracy deterioriate outside the immediate area covered by the lights (directly below)</p>
-<p>A: haven&#39;t tested it, but it will decrease of course</p>
-<p>Q: how dense should the LED lights be in the ceiling? How does that compare to current deployments?</p>
-<p>A: Our paper discusses the problem and I don&#39;t have the number on the top of my head, but possibly too high for many …</p>
-</blockquote>
+            <title><![CDATA[Live-blog from CoNEXT 2013 - day 2]]></title>
+            <link>http://smart-e.org/blogPosts/2013-12-11-conext-day2.html</link>
+            <guid>http://smart-e.org/blogPosts/2013-12-11-conext-day2.html</guid>
+            <pubDate>Wed, 11 Dec 2013 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>Good morning! Today is the second day of CoNEXT 2013 and the sessions today are about trains, wires, tools and falling water. I will be blogging some of the sessions again today, and as before the official conference liveblog is on <a href="http://layer9.org">layer9.org</a>.</p>
+<h3 id="session-5-trains-lanes-and-autobalancing">Session 5: Trains, Lanes and Autobalancing</h3>
+<p>I skipped the session to patch my own presentation using my colleagues&#39; feedback, but these are the presented papers:</p>
+<h4 id="bullet-trains-a-study-of-nic-burst-behavior-at-microsecond-timescales">Bullet Trains: A study of NIC burst behavior at microsecond timescales</h4>
+<p>Rishi Kapoor (UC San Diego), Alex C. Snoeren (UC San Diego), Geoffrey M. Voelker (UC San Diego), George Porter (UC San Diego)</p>
+<h4 id="fastrak-enabling-express-lanes-in-multi-tenant-data-centers">FasTrak: Enabling Express Lanes in Multi-Tenant Data Centers</h4>
+<p>Radhika Niranjan Mysore (UC San Diego), George Porter (UC San Diego), Amin Vahdat (UC San Diego …</p>
 ]]></description>
             <author>
                 <name>Andrius Aucinas</name>
@@ -109,15 +187,20 @@
             </author>
         </item>
         <item>
-            <title><![CDATA[Live-blog from MobiCom 2014 - day 1]]></title>
-            <link>http://smart-e.org/blogPosts/2014-09-08-mobicom-day1.html</link>
-            <guid>http://smart-e.org/blogPosts/2014-09-08-mobicom-day1.html</guid>
-            <pubDate>Mon, 08 Sep 2014 07:30:00 GMT</pubDate>
-            <description><![CDATA[<p>Kicking MobiCom off with an award to Leonard Kleinrock for outstanding contributions.</p>
-<p>Next is a keynote <em>From grad school, to startup to acquisition</em> by Sanjit Biswas, CEO Meraki, followed by a panel on <em>Tackling Societal Grand Challenges with Mobile Computing</em>.</p>
-<p>There is also the official MobiCom <a href="https://mobicom2014.wordpress.com/">blog</a>, which covers a different set of events (or with a better quality writing!).</p>
-<h3 id="keynote">Keynote</h3>
-<p>A really great keynote on starting and bootstrapping Meraki. A bit of an unusual research to startup transition, really started after giving a talk to Google and getting an pre-order for 1000 units of a wireless mesh router at $250 each. Hardware manufacturing turned out to be not that difficult once you have a number of units you already need - started off with …</p>
+            <title><![CDATA[Live-blog from MobiCom 2014 - day 3]]></title>
+            <link>http://smart-e.org/blogPosts/2014-09-10-mobicom-day3.html</link>
+            <guid>http://smart-e.org/blogPosts/2014-09-10-mobicom-day3.html</guid>
+            <pubDate>Wed, 10 Sep 2014 08:00:00 GMT</pubDate>
+            <description><![CDATA[<p>The last day of MobiCom &#39;14 started off with the student research competition, followed by the second session on positioning and navigating and people slowly trickling in.</p>
+<h3 id="paper-session-7-positioning-and-navigating-behind-the-doors">Paper Session #7: Positioning and Navigating behind the Doors</h3>
+<h4 id="luxapose-indoor-positioning-with-mobile-phones-and-visible-light">Luxapose: Indoor Positioning with Mobile Phones and Visible Light</h4>
+<p>Ye-Sheng Kuo (UMich); Pat Pannuto (UMich); Ko-Jen Hsiao (UMich); Prabal Dutta (UMich)</p>
+<blockquote>
+<p>Q: how does location accuracy deterioriate outside the immediate area covered by the lights (directly below)</p>
+<p>A: haven&#39;t tested it, but it will decrease of course</p>
+<p>Q: how dense should the LED lights be in the ceiling? How does that compare to current deployments?</p>
+<p>A: Our paper discusses the problem and I don&#39;t have the number on the top of my head, but possibly too high for many …</p>
+</blockquote>
 ]]></description>
             <author>
                 <name>Andrius Aucinas</name>
@@ -126,73 +209,13 @@
             </author>
         </item>
         <item>
-            <title><![CDATA[Live-blog from SIGCOMM 2014 - day 2]]></title>
-            <link>http://smart-e.org/blogPosts/2014-08-20-sigcomm-day2.html</link>
-            <guid>http://smart-e.org/blogPosts/2014-08-20-sigcomm-day2.html</guid>
-            <pubDate>Wed, 20 Aug 2014 07:30:00 GMT</pubDate>
-            <description><![CDATA[<p>Starting nice and early with the second day. Just in case you haven&#39;t noticed, papers are available during the conference from the <a href="http://conferences.sigcomm.org/sigcomm/2014/program.php">program webpage</a>. Perhaps unsurprisingly the hall is not very crowded this morning, but the papers look interesting.</p>
-<p><em>Disclaimer:</em> I tend to rephrase questions/answers to either make them shorter or change them in a way I understand them, so might end up being wrong - don&#39;t take my word for it.</p>
-<h3 id="session-5-wireless-1-">Session 5: Wireless (1)</h3>
-<h4 id="fastforward-fast-and-constructive-full-duplex-relays">FastForward: Fast and Constructive Full Duplex Relays</h4>
-<p>Dinesh Bharadia (Stanford University); Sachin Katti (Stanford University)</p>
-<p>WiFi has problematic bandwidth indoors due to shielding from walls, etc. MIMO doesn&#39;t help there because of the <em>pinhole effect</em>, where a signal …</p>
-]]></description>
-            <author>
-                <name>Andrius Aucinas</name>
-                <email>andrius.aucinas@gmail.com</email>
-                <link>http:/smart-e.org/</link>
-            </author>
-        </item>
-        <item>
-            <title><![CDATA[Live-blog from SIGCOMM 2014 - day 1]]></title>
-            <link>http://smart-e.org/blogPosts/2014-08-19-sigcomm-day1.html</link>
-            <guid>http://smart-e.org/blogPosts/2014-08-19-sigcomm-day1.html</guid>
-            <pubDate>Mon, 18 Aug 2014 23:00:00 GMT</pubDate>
-            <description><![CDATA[<p>Good morning Chicago. On schedule for SIGCOMM today we have a keynote, some SDN, network architecture and middleboxing. As usual, there is also a live-blog at <a href="http://layer9.org">layer9.org</a>.</p>
-<p>All the awards first:</p>
-<ul>
-<li>Best paper awards go to &quot;Balacing Accountability and Privacy in the Network&quot; and &quot;CONGA: Distributed Congestion-Aware Load Balancing for Datacenters&quot;.</li>
-<li>Test of time awards go to &quot;Internet Congeston Control for Future High Bandwidth-Delay product environments&quot; by Dina Katabi, MArk Handley, and Charlie Rohrs and &quot;Measuring ISP Topologies for Rocketfuel&quot; by Neil Spring, Ratul Mahajan and David Wetherall.</li>
-<li>SIGOMM doctoral dissertation Award goes to Aaron Schulman on &quot;Observing and Improving the Reliability of Internet Last-mile Links&quot;.</li>
-<li>the SIGCOMM award goes to George …</li>
-</ul>
-]]></description>
-            <author>
-                <name>Andrius Aucinas</name>
-                <email>andrius.aucinas@gmail.com</email>
-                <link>http:/smart-e.org/</link>
-            </author>
-        </item>
-        <item>
-            <title><![CDATA[Live-blog from CoNEXT 2013 - day 2]]></title>
-            <link>http://smart-e.org/blogPosts/2013-12-11-conext-day2.html</link>
-            <guid>http://smart-e.org/blogPosts/2013-12-11-conext-day2.html</guid>
-            <pubDate>Wed, 11 Dec 2013 00:00:00 GMT</pubDate>
-            <description><![CDATA[<p>Good morning! Today is the second day of CoNEXT 2013 and the sessions today are about trains, wires, tools and falling water. I will be blogging some of the sessions again today, and as before the official conference liveblog is on <a href="http://layer9.org">layer9.org</a>.</p>
-<h3 id="session-5-trains-lanes-and-autobalancing">Session 5: Trains, Lanes and Autobalancing</h3>
-<p>I skipped the session to patch my own presentation using my colleagues&#39; feedback, but these are the presented papers:</p>
-<h4 id="bullet-trains-a-study-of-nic-burst-behavior-at-microsecond-timescales">Bullet Trains: A study of NIC burst behavior at microsecond timescales</h4>
-<p>Rishi Kapoor (UC San Diego), Alex C. Snoeren (UC San Diego), Geoffrey M. Voelker (UC San Diego), George Porter (UC San Diego)</p>
-<h4 id="fastrak-enabling-express-lanes-in-multi-tenant-data-centers">FasTrak: Enabling Express Lanes in Multi-Tenant Data Centers</h4>
-<p>Radhika Niranjan Mysore (UC San Diego), George Porter (UC San Diego), Amin Vahdat (UC San Diego …</p>
-]]></description>
-            <author>
-                <name>Andrius Aucinas</name>
-                <email>andrius.aucinas@gmail.com</email>
-                <link>http:/smart-e.org/</link>
-            </author>
-        </item>
-        <item>
-            <title><![CDATA[Live-blog from CoNEXT 2013 - day 1]]></title>
-            <link>http://smart-e.org/blogPosts/2013-12-10-conext-day1.html</link>
-            <guid>http://smart-e.org/blogPosts/2013-12-10-conext-day1.html</guid>
-            <pubDate>Tue, 10 Dec 2013 00:00:00 GMT</pubDate>
-            <description><![CDATA[<p>Kicking off the conference with some explanations about how the TPC selected the papers. The program looks great and I will be covering some of the sessions here over the next three days.</p>
-<p>There is an official live blog at layer9: <a href="http://www.layer9.org/">http://www.layer9.org/</a> so I will be covering the sessions and papers that are closer to my field and those that I find particularly interesting.</p>
-<p><em>Best full-paper award goes to &quot;Enhancing video accessibility and availability with information-bound references&quot;</em></p>
-<p>Our &quot;Staying Online While Mobile: The Hidden Costs&quot; was a nominee for the best short paper award, but alas! The award goes to &quot;Is There a Case for Mobile Phone Content Pre-staging&quot;.</p>
-<p>All the papers can be found online at the conference website: <a href="http://conferences.sigcomm.org/co-next/2013/program.html">http://conferences.sigcomm.org/co-next/2013/program.html</a></p>
-<h3 id="-">…</h3>
+            <title><![CDATA[Coding as a window to the modern world and our privacy]]></title>
+            <link>http://smart-e.org/blogPosts/2015-02-05-cca-coding_privacy.html</link>
+            <guid>http://smart-e.org/blogPosts/2015-02-05-cca-coding_privacy.html</guid>
+            <pubDate>Thu, 05 Feb 2015 11:00:00 GMT</pubDate>
+            <description><![CDATA[<p>This item is cross-posted from the Cambridge Coding Academy (organisation I have co-founder and greatly enjoy working with) <a href="http://blog.cambridgecoding.com/post/110152231395/coding-as-a-window-to-the-modern-world-and-our">blog</a>.</p>
+<p>Even if it&#39;s true that not everyone will be able or willing to take on programming as a career, coding is a very powerful tool and often serves as the most effective means to an end. At Cambridge Coding Academy we have found that it also reveals much about the modern digital world... Because seeing is believing!</p>
+<p>Last Friday at our Data Retrieval and Visualisation workshop we had a lively discussion with our attendees about <strong>privacy</strong>. Privacy is one of the biggest concerns online, only made worse by the fact that a handful of corporations watch and record …</p>
 ]]></description>
             <author>
                 <name>Andrius Aucinas</name>
