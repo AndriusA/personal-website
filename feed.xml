@@ -4,7 +4,7 @@
         <title>Mobile, full-stack and research</title>
         <description>Occasional writings about tinkering with mobile devices and gadgets, all the way to the hardware and conference live-blogs</description>
         <link>http://smart-e.org</link>
-        <lastBuildDate>Fri, 01 Sep 2017 23:27:48 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 03 Sep 2017 03:43:48 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <copyright>Copyright 2017 Andrius Aucinas</copyright>
         <generator>Feed for Node.js</generator>
@@ -35,7 +35,7 @@
             </author>
         </item>
         <item>
-            <title><![CDATA[Automatically generated documentation for Play framework applications]]></title>
+            <title><![CDATA[Technical: automatically generated documentation for Play framework applications]]></title>
             <link>http://smart-e.org/blogPosts/2017-09-01-play-documentation.html</link>
             <guid>http://smart-e.org/blogPosts/2017-09-01-play-documentation.html</guid>
             <pubDate>Fri, 01 Sep 2017 19:00:00 GMT</pubDate>
