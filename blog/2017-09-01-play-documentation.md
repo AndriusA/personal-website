@@ -103,4 +103,5 @@ Feeding into a simple HTML template:
 
 By no means this is a substitute for proper documentation, but then there aren't really any adequate tools and this serves our purposes nicely to always have a live, running service publish its own basic documentation.
 
+Finally - an example where we used it, the [DEX (Data Exchange) API reference](https://dex.hubofallthings.com/docs).
 
