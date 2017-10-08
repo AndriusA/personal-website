@@ -1,6 +1,11 @@
 {"updates": [
   {
     "date": "2017-09-01",
+    "update": "Technical: AWS S3 bucket pre-signed paths for entire prefixes",
+    "link": "/blogPosts/2017-10-08-s3-archives.html"
+  },
+  {
+    "date": "2017-09-01",
     "update": "Technical: automatically generated documentation for Play framework applications",
     "link": "/blogPosts/2017-09-01-play-documentation.html"
   },
