@@ -93,7 +93,7 @@ val streamingS3Client = new S3Client(settings)(system, materializer)</code></pre
 zip.putNextEntry(new ZipEntry(name))
 zip.write(byteArrayContent)
 zip.close()</code></pre>
-<h2 id="streaming-s3-to-a-zip-file-on-s3">Streaming S3 to a Zip file on S3</h2>
+<h2 id="streaming-to-a-zip-file-on-s3">Streaming to a Zip file on S3</h2>
 <p>Relatively little documented <code>StreamConverters</code> come to help:</p>
 <pre><code>val s3Sink = streamingS3Client.multipartUpload(bucketName, s&quot;$prefix.zip&quot;)
 
@@ -101,7 +101,9 @@ val (zip, upload) = StreamConverters.asOutputStream() // Creates a source of Byt
   .toMat(s3Sink)(Keep.both) // Connects the ByteString source to s3Sink for uploading
   .mapMaterializedValue(m =&gt; (new ZipOutputStream(m._1), m._2)) // Creates a ZipOutputStream from the materialized OutputStream
   .run() // Returns the materialized value of the flow (i.e. the stream) and the Future of Multipart Upload</code></pre>
-<p>The returned values are respectively the Zip Output stream one can write to, and the <code>Future</code> of the Multipart Upload result to AWS S3! Now the task of streaming a Zip archive up to S3 is as simple as writing the contents to the output stream and waiting for the future to finish.</p>
+<p>As per documentation, what <code>asOutputStream()</code> does, is &quot;creates a Source which when materialized will return an OutputStream which it is possible to write the ByteStrings to the stream this Source is attached to.&quot;</p>
+<p>The returned values are therefore the Zip Output stream one can write to, and the <code>Future</code> of the Multipart Upload result to AWS S3! Now the task of streaming a Zip archive up to S3 is as simple as writing the contents to the output stream and waiting for the future to finish.</p>
+<h2 id="connecting-the-streaming-of-files-from-s3-to-streaming-to-zip-on-s3">Connecting the streaming of files from S3 to streaming to Zip on S3</h2>
 <p>The slightly more complex part is how to stream contents <em>from</em> an entire S3 sub-path all the way back up in a Zip archive:</p>
 <pre><code>val downloaded = streamingS3Client.listBucket(bucketName, Some(prefix + &quot;/&quot;))
   .map { contents =&gt;
