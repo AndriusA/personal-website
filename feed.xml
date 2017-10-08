@@ -4,58 +4,15 @@
         <title>Mobile, full-stack and research</title>
         <description>Occasional writings about tinkering with mobile devices and gadgets, all the way to the hardware and conference live-blogs</description>
         <link>http://smart-e.org</link>
-        <lastBuildDate>Sun, 03 Sep 2017 03:43:48 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 08 Oct 2017 22:23:29 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <copyright>Copyright 2017 Andrius Aucinas</copyright>
         <generator>Feed for Node.js</generator>
         <category>conferences</category>
         <category>hat</category>
-        <category>personal</category>
         <category>teaching</category>
+        <category>personal</category>
         <category>tinkering</category>
-        <item>
-            <title><![CDATA[Live-blog from SIGCOMM 2014 - day 3]]></title>
-            <link>http://smart-e.org/blogPosts/2014-08-21-sigcomm-day3.html</link>
-            <guid>http://smart-e.org/blogPosts/2014-08-21-sigcomm-day3.html</guid>
-            <pubDate>Thu, 21 Aug 2014 09:30:00 GMT</pubDate>
-            <description><![CDATA[<p>Today I&#39;m only starting to take notes for the wireless session. Somewhat amusingly the room is empty compared to the datacenter scheduling session in the morning, but there really is some good stuff!</p>
-<h3 id="session-10-wireless-2-">Session 10: Wireless (2)</h3>
-<h4 id="vidyut-exploiting-power-line-infrastructure-for-enterprise-wireless-networks">Vidyut: Exploiting Power Line Infrastructure for Enterprise Wireless Networks</h4>
-<p>Vivek Yenamandra (The Ohio State University); Kannan Srinivasan (The Ohio State University)</p>
-<p>The point is to (de-)sychronize WiFi APs for MIMO by using power line frequency phase differences to avoid interference. A whole lot of considerations to get the reference frequency right, use three-phase power supply, etc. etc.</p>
-<blockquote>
-<p>Q: since every access point would be connected to ethernet, have you considered using IEEE something something synchronization protocol?</p>
-<p>A: that is …</p>
-</blockquote>
-]]></description>
-            <author>
-                <name>Andrius Aucinas</name>
-                <email>andrius.aucinas@gmail.com</email>
-                <link>http:/smart-e.org/</link>
-            </author>
-        </item>
-        <item>
-            <title><![CDATA[Technical: automatically generated documentation for Play framework applications]]></title>
-            <link>http://smart-e.org/blogPosts/2017-09-01-play-documentation.html</link>
-            <guid>http://smart-e.org/blogPosts/2017-09-01-play-documentation.html</guid>
-            <pubDate>Fri, 01 Sep 2017 19:00:00 GMT</pubDate>
-            <description><![CDATA[<p>Let the engineer who loves writing documentation throw the first stone... And for the rest of us, every little helps.</p>
-<p>At the Hub of All Things we love the Play framework. It greatly helps us build solid, modular and maintainable services and as they outgrow themselves - modularise them into new ones with single responsibility. It also has some tools making API documentation easier.</p>
-<p>Some of the Play framework compiler tools can be used inside a running application, e.g. the routes compiler. Play application routes are relatively simple:</p>
-<p>```</p>
-<h1 id="public-landing-page">Public landing page</h1>
-<p>GET         /                                     controllers.Application.index</p>
-<h1 id="automatically-generated-service-self-documentation">Automatically generated service self-documentation</h1>
-<p>GET         /docs                                 controllers.Application.availableRoutes</p>
-<h1 id="-">...</h1>
-<p>…</p>
-]]></description>
-            <author>
-                <name>Andrius Aucinas</name>
-                <email>andrius.aucinas@gmail.com</email>
-                <link>http:/smart-e.org/</link>
-            </author>
-        </item>
         <item>
             <title><![CDATA[Live-blog from MobiCom 2014 - day 1]]></title>
             <link>http://smart-e.org/blogPosts/2014-09-08-mobicom-day1.html</link>
@@ -66,6 +23,44 @@
 <p>There is also the official MobiCom <a href="https://mobicom2014.wordpress.com/">blog</a>, which covers a different set of events (or with a better quality writing!).</p>
 <h3 id="keynote">Keynote</h3>
 <p>A really great keynote on starting and bootstrapping Meraki. A bit of an unusual research to startup transition, really started after giving a talk to Google and getting an pre-order for 1000 units of a wireless mesh router at $250 each. Hardware manufacturing turned out to be not that difficult once you have a number of units you already need - started off with …</p>
+]]></description>
+            <author>
+                <name>Andrius Aucinas</name>
+                <email>andrius.aucinas@gmail.com</email>
+                <link>http:/smart-e.org/</link>
+            </author>
+        </item>
+        <item>
+            <title><![CDATA[Technical: AWS S3 bucket pre-signed paths for entire prefixes]]></title>
+            <link>http://smart-e.org/blogPosts/2017-10-08-s3-archives.html</link>
+            <guid>http://smart-e.org/blogPosts/2017-10-08-s3-archives.html</guid>
+            <pubDate>Sun, 08 Oct 2017 21:30:00 GMT</pubDate>
+            <description><![CDATA[<p>AWS S3 provides a very efficient storage solution for a wide range of use-cases, but that comes with its limitations. One such aspect is the underlying key-value store: the entire name of the file, together with its path (despite appearing otherwise e.g. in the S3 console) is just a single key and there is no notion of directories.</p>
+<p>Another useful feature of S3 is the security model, where files are private by default, however access to them can be temporarily granted with pre-signed URLs. AWS provides examples of how to do it with <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ShareObjectPreSignedURLJavaSDK.html">Java SDK</a> even. However, combined with the key-value store abstraction&#39;s limitations, one cannot grant access to entire directories.</p>
+<p>The alternative is to create a single …</p>
+]]></description>
+            <author>
+                <name>Andrius Aucinas</name>
+                <email>andrius.aucinas@gmail.com</email>
+                <link>http:/smart-e.org/</link>
+            </author>
+        </item>
+        <item>
+            <title><![CDATA[Live-blog from MobiCom 2014 - day 2]]></title>
+            <link>http://smart-e.org/blogPosts/2014-09-09-mobicom-day2.html</link>
+            <guid>http://smart-e.org/blogPosts/2014-09-09-mobicom-day2.html</guid>
+            <pubDate>Tue, 09 Sep 2014 11:00:00 GMT</pubDate>
+            <description><![CDATA[<p>After yesterday&#39;s 10:30PM finish starting late today with a brunch and a keynote from Leonard Kleinrock (most well known for his early work on queueing theory)!</p>
+<h3 id="paper-session-4-rethinking-wlans">Paper Session #4: Rethinking WLANs</h3>
+<h4 id="enfold-downclocking-ofdm-in-wifi">Enfold: Downclocking OFDM in WiFi</h4>
+<p>Feng Lu (UCSD), Patrick Ling (UCSD); Geoffrey M. Voelker (UCSD); Alex C. Snoeren (UCSD) </p>
+<p>WiFi transmissions are power-hungry and can&#39;t always stay in sleep mode. Downclock OFDM to save energy.</p>
+<p>Downclocked OFDM signalling (25%) is not decodable in general, unless yhere is a finite set of values for the unknowns.</p>
+<p>Effectively trading off SNR for energy savings using lower data rates while remain downclocked.</p>
+<p>Eval based on packet traces, using 12 popular apps. 25%-30% for low-rate apps.</p>
+<blockquote>
+<p>Q: OFDM systems tend to be quite sensitive. If I got it …</p>
+</blockquote>
 ]]></description>
             <author>
                 <name>Andrius Aucinas</name>
@@ -130,13 +125,41 @@
             </author>
         </item>
         <item>
-            <title><![CDATA[The end of a great period - today I submitted my PhD dissertation]]></title>
-            <link>http://smart-e.org/blogPosts/2015-03-13-phd-acknowledgements.html</link>
-            <guid>http://smart-e.org/blogPosts/2015-03-13-phd-acknowledgements.html</guid>
-            <pubDate>Fri, 13 Mar 2015 23:00:00 GMT</pubDate>
-            <description><![CDATA[<p>Only when my advisor Prof. Jon Crowcroft gave me the green light to submit my dissertation, I decided that it is time to finally write the acknowledgements part of it... And then I learned that they would be hard to fit on a single page. And didn&#39;t - I ended up leaving out a fair bit of people I am grateful to. A lesson learned: remember to thank more often. So I felt it important to share the acknowledgements here as well.</p>
-<h3 id="acknowledgements">Acknowledgements</h3>
-<p>Foremost, I would like to thank my supervisor, Jon Crowcroft, for his help and guidance, for letting me pursue every line of enquiry I thought worthwhile, for allowing me to share my ideas and learn from others at top conferences, for giving me the opportunity to learn through collaborating with some of the top people in the field, and for always …</p>
+            <title><![CDATA[Live-blog from SIGCOMM 2014 - day 3]]></title>
+            <link>http://smart-e.org/blogPosts/2014-08-21-sigcomm-day3.html</link>
+            <guid>http://smart-e.org/blogPosts/2014-08-21-sigcomm-day3.html</guid>
+            <pubDate>Thu, 21 Aug 2014 09:30:00 GMT</pubDate>
+            <description><![CDATA[<p>Today I&#39;m only starting to take notes for the wireless session. Somewhat amusingly the room is empty compared to the datacenter scheduling session in the morning, but there really is some good stuff!</p>
+<h3 id="session-10-wireless-2-">Session 10: Wireless (2)</h3>
+<h4 id="vidyut-exploiting-power-line-infrastructure-for-enterprise-wireless-networks">Vidyut: Exploiting Power Line Infrastructure for Enterprise Wireless Networks</h4>
+<p>Vivek Yenamandra (The Ohio State University); Kannan Srinivasan (The Ohio State University)</p>
+<p>The point is to (de-)sychronize WiFi APs for MIMO by using power line frequency phase differences to avoid interference. A whole lot of considerations to get the reference frequency right, use three-phase power supply, etc. etc.</p>
+<blockquote>
+<p>Q: since every access point would be connected to ethernet, have you considered using IEEE something something synchronization protocol?</p>
+<p>A: that is …</p>
+</blockquote>
+]]></description>
+            <author>
+                <name>Andrius Aucinas</name>
+                <email>andrius.aucinas@gmail.com</email>
+                <link>http:/smart-e.org/</link>
+            </author>
+        </item>
+        <item>
+            <title><![CDATA[Technical: automatically generated documentation for Play framework applications]]></title>
+            <link>http://smart-e.org/blogPosts/2017-09-01-play-documentation.html</link>
+            <guid>http://smart-e.org/blogPosts/2017-09-01-play-documentation.html</guid>
+            <pubDate>Fri, 01 Sep 2017 19:00:00 GMT</pubDate>
+            <description><![CDATA[<p>Let the engineer who loves writing documentation throw the first stone... And for the rest of us, every little helps.</p>
+<p>At the Hub of All Things we love the Play framework. It greatly helps us build solid, modular and maintainable services and as they outgrow themselves - modularise them into new ones with single responsibility. It also has some tools making API documentation easier.</p>
+<p>Some of the Play framework compiler tools can be used inside a running application, e.g. the routes compiler. Play application routes are relatively simple:</p>
+<p>```</p>
+<h1 id="public-landing-page">Public landing page</h1>
+<p>GET         /                                     controllers.Application.index</p>
+<h1 id="automatically-generated-service-self-documentation">Automatically generated service self-documentation</h1>
+<p>GET         /docs                                 controllers.Application.availableRoutes</p>
+<h1 id="-">...</h1>
+<p>…</p>
 ]]></description>
             <author>
                 <name>Andrius Aucinas</name>
@@ -156,29 +179,6 @@
 <p>Rishi Kapoor (UC San Diego), Alex C. Snoeren (UC San Diego), Geoffrey M. Voelker (UC San Diego), George Porter (UC San Diego)</p>
 <h4 id="fastrak-enabling-express-lanes-in-multi-tenant-data-centers">FasTrak: Enabling Express Lanes in Multi-Tenant Data Centers</h4>
 <p>Radhika Niranjan Mysore (UC San Diego), George Porter (UC San Diego), Amin Vahdat (UC San Diego …</p>
-]]></description>
-            <author>
-                <name>Andrius Aucinas</name>
-                <email>andrius.aucinas@gmail.com</email>
-                <link>http:/smart-e.org/</link>
-            </author>
-        </item>
-        <item>
-            <title><![CDATA[Live-blog from MobiCom 2014 - day 2]]></title>
-            <link>http://smart-e.org/blogPosts/2014-09-09-mobicom-day2.html</link>
-            <guid>http://smart-e.org/blogPosts/2014-09-09-mobicom-day2.html</guid>
-            <pubDate>Tue, 09 Sep 2014 11:00:00 GMT</pubDate>
-            <description><![CDATA[<p>After yesterday&#39;s 10:30PM finish starting late today with a brunch and a keynote from Leonard Kleinrock (most well known for his early work on queueing theory)!</p>
-<h3 id="paper-session-4-rethinking-wlans">Paper Session #4: Rethinking WLANs</h3>
-<h4 id="enfold-downclocking-ofdm-in-wifi">Enfold: Downclocking OFDM in WiFi</h4>
-<p>Feng Lu (UCSD), Patrick Ling (UCSD); Geoffrey M. Voelker (UCSD); Alex C. Snoeren (UCSD) </p>
-<p>WiFi transmissions are power-hungry and can&#39;t always stay in sleep mode. Downclock OFDM to save energy.</p>
-<p>Downclocked OFDM signalling (25%) is not decodable in general, unless yhere is a finite set of values for the unknowns.</p>
-<p>Effectively trading off SNR for energy savings using lower data rates while remain downclocked.</p>
-<p>Eval based on packet traces, using 12 popular apps. 25%-30% for low-rate apps.</p>
-<blockquote>
-<p>Q: OFDM systems tend to be quite sensitive. If I got it …</p>
-</blockquote>
 ]]></description>
             <author>
                 <name>Andrius Aucinas</name>
@@ -216,6 +216,21 @@
             <description><![CDATA[<p>This item is cross-posted from the Cambridge Coding Academy (organisation I have co-founder and greatly enjoy working with) <a href="http://blog.cambridgecoding.com/post/110152231395/coding-as-a-window-to-the-modern-world-and-our">blog</a>.</p>
 <p>Even if it&#39;s true that not everyone will be able or willing to take on programming as a career, coding is a very powerful tool and often serves as the most effective means to an end. At Cambridge Coding Academy we have found that it also reveals much about the modern digital world... Because seeing is believing!</p>
 <p>Last Friday at our Data Retrieval and Visualisation workshop we had a lively discussion with our attendees about <strong>privacy</strong>. Privacy is one of the biggest concerns online, only made worse by the fact that a handful of corporations watch and record …</p>
+]]></description>
+            <author>
+                <name>Andrius Aucinas</name>
+                <email>andrius.aucinas@gmail.com</email>
+                <link>http:/smart-e.org/</link>
+            </author>
+        </item>
+        <item>
+            <title><![CDATA[The end of a great period - today I submitted my PhD dissertation]]></title>
+            <link>http://smart-e.org/blogPosts/2015-03-13-phd-acknowledgements.html</link>
+            <guid>http://smart-e.org/blogPosts/2015-03-13-phd-acknowledgements.html</guid>
+            <pubDate>Fri, 13 Mar 2015 23:00:00 GMT</pubDate>
+            <description><![CDATA[<p>Only when my advisor Prof. Jon Crowcroft gave me the green light to submit my dissertation, I decided that it is time to finally write the acknowledgements part of it... And then I learned that they would be hard to fit on a single page. And didn&#39;t - I ended up leaving out a fair bit of people I am grateful to. A lesson learned: remember to thank more often. So I felt it important to share the acknowledgements here as well.</p>
+<h3 id="acknowledgements">Acknowledgements</h3>
+<p>Foremost, I would like to thank my supervisor, Jon Crowcroft, for his help and guidance, for letting me pursue every line of enquiry I thought worthwhile, for allowing me to share my ideas and learn from others at top conferences, for giving me the opportunity to learn through collaborating with some of the top people in the field, and for always …</p>
 ]]></description>
             <author>
                 <name>Andrius Aucinas</name>
